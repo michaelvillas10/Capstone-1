@@ -111,31 +111,18 @@
 										</td>
 										
 										<td>
-											 <button type="button" data-target=".bs-example-modal-update" class="btn btn-sm btn-warning" data-toggle="modal"><i class="fa fa-pencil"></i> Edit</a>
+											 <button type="submit" data-target=".bs-example-modal-update{{ $lang->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
 										 </a>
 										</td>
 										<td>
-											<a class="delete" href="javascript:;">
-											Delete </a>
+											<form action="{{ route('deletelang',$lang->id) }}" method = "post">
+												{{ csrf_field() }}
+        {{ method_field('DELETE') }}
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletelang',$lang->id) }}"><i class="fa fa-trash"></i>
+											Delete </button>
+										</form>
 										</td>
-@endforeach	
-									</tr>
-									
-								</tbody>
-							</table>
-
-						</div>
-						<!-- /panel content -->
-
-						<!-- panel footer -->
-
-					</div>
-					<!-- /PANEL -->
-
-				</div>
-			</section>
-@stop
-<div class="modal fade bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+										<div class="modal fade bs-example-modal-update{{ $lang->id }}" id =".bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-full">
     <div class="modal-content">
 
@@ -146,14 +133,15 @@
       </div>
 
       <!-- Modal Body -->
-      <form action="{{ url('/language/register') }}" method="PUT">
+      <form id="update-language-form" action="{{ route('editlang',$lang->id) }}" method="post">
       {{ csrf_field() }}
+       <input type="hidden" name="_method" value="PUT">
       <div class="modal-body">
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="{{old('name')}}" class="form-control ">
+					<input type="text" name="name" value="{{$lang->name}}" class="form-control ">
 				</div>
 				
 			</div>
@@ -172,3 +160,30 @@
   </div>
 </div>
 </form>
+@endforeach	
+									</tr>
+									
+								</tbody>
+							</table>
+
+						</div>
+						<!-- /panel content -->
+
+						<!-- panel footer -->
+
+					</div>
+					<!-- /PANEL -->
+
+				</div>
+<script>
+    $('.delete-user').click(function(e){
+        e.preventDefault() // Don't post the form, unless confirmed
+        if (confirm('Are you sure?')) {
+            // Post the form
+            $(e.target).closest('form').submit() // Post the surrounding form
+        }
+    });
+</script>			</section>
+@stop
+
+
