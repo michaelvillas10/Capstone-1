@@ -119,7 +119,7 @@
 				</div>
 				<div class="col-md-6">
 					<label>Detained(?) *</label><br>
-					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck">Yes <input type="radio" 
+					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck" value = "yes">Yes <input type="radio" 
 					onclick="javascript:DetainedCheck();" name="Detained" id="noCheck">No<br>
     				<div id="ifYes" style="display:none;margin-top:3%;">
         			Detained Since<input type="date" name="Detained" value="" class="form-control ">
@@ -129,11 +129,11 @@
 				
 				<div class="col-md-6">
 					<label>Civil Status *</label><br>
-					<input type="radio" name="civilstat" value="single" onclick="javascript:MarriedCheck();" id="noCheck"> Single
-          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="yesCheck" value="married" > Married
-          			<input type="radio" name="civilstat" value="divorced" onclick="javascript:MarriedCheck();" id="noCheck"> Divorced
-          			<input type="radio" name="civilstat" value="widowed" onclick="javascript:MarriedCheck();" id="noCheck"> Widowed
-          			<div id="ifYes" style="display:none;margin-top:3%;">
+				<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
+          		<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
+          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="divorced"  id="noCheck"> Divorced
+          			<input type="radio"  onclick="javascript:civilstatCheck();" name="civilstat" value="widowed" id="noCheck"> Widowed
+          			<div id="ifMarried" style="display:none;margin-top:3%;">
         			Spouse Name<input type="text" name="spouse" value="" class="form-control ">
         			Spouse Address<input type="text" name="spouse_addr" value="" class="form-control ">
         			Spouse Contact Number<input type="text" name="spouse_con" value="" class="form-control ">
@@ -433,12 +433,12 @@
 
 <script type="text/javascript">
     window.onload = function() {
-        document.getElementById('ifYes').style.display = 'none';
+        document.getElementById('ifMarried').style.display = 'none';
     }
 
     function civilstatCheck() {
-        if (document.getElementById('yesCheck').checked) {
-            document.getElementById('ifYes').style.display = 'block';
+        if (document.getElementById('marriedCheck').checked) {
+            document.getElementById('ifMarried').style.display = 'block';
         } 
         else {
             document.getElementById('ifNo').style.display = 'hidden';
