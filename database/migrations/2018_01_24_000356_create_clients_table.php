@@ -36,6 +36,7 @@ class CreateClientsTable extends Migration
             $table->string('clspouse',50)->nullable();
             $table->text('claddress_of_spouse')->nullable();
             $table->BigInteger('clcontact_no_of_spouse')->nullable();
+            $table->string('cl_status')->nullable()->default('Pending');
             $table->timestamps();
         });
     }
