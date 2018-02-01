@@ -11,6 +11,11 @@ use App\Category;
 use App\Education;
 use App\Language;
 use App\Position;
+use App\casetobehandled;
+use App\Adverse;
+use App\Citizenship;
+use App\Religion;
+use App\Employee;
 use Session;
 use DB;
 
@@ -21,7 +26,19 @@ class RegisterController extends Controller
 
 
     public function showclientregister(){
-    	return view('request');
+        $clients = Client::orderBy('cllname','asc')->get();
+        
+        $religions = Religion::orderBy('name','asc')->get();
+        $educations = Education::orderBy('name','asc')->get();
+        $involvements = Involvement::orderBy('name','asc')->get();
+        $languages = Language::orderBy('name','asc')->get();
+        $citizenships = Citizenship::orderBy('name','asc')->get();
+    	return view('client_table')->withClients($clients)
+        ->withReligions($religions)
+        ->withEducations($educations)
+        ->withInvolvements($involvements)
+        ->withLanguages($languages)
+        ->withCitizenships($citizenships);
     }
 
     public function clientregister(Request $request){
