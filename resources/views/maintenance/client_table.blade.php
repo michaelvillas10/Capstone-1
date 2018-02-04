@@ -119,8 +119,8 @@
 				</div>
 				<div class="col-md-6">
 					<label>Detained(?) *</label><br>
-					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck" value = "yes">Yes <input type="radio" 
-					onclick="javascript:DetainedCheck();" name="Detained" id="noCheck">No<br>
+					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck" value = "yes">Yes 
+					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="noCheck">No<br>
     				<div id="ifYes" style="display:none;margin-top:3%;">
         			Detained Since<input type="date" name="Detained" value="" class="form-control ">
         			Place of Detenstion<input type="text" name="Detained" value="" class="form-control ">
@@ -129,8 +129,8 @@
 				
 				<div class="col-md-6">
 					<label>Civil Status *</label><br>
-				<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
-          		<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
+					<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
+          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
           			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="divorced"  id="noCheck"> Divorced
           			<input type="radio"  onclick="javascript:civilstatCheck();" name="civilstat" value="widowed" id="noCheck"> Widowed
           			<div id="ifMarried" style="display:none;margin-top:3%;">
@@ -425,7 +425,7 @@
             document.getElementById('ifYes').style.display = 'block';
         } 
         else {
-            document.getElementById('ifNo').style.display = 'hidden';
+            document.getElementById('ifYes').style.display = 'none';
         }
     }
 
@@ -441,7 +441,7 @@
             document.getElementById('ifMarried').style.display = 'block';
         } 
         else {
-            document.getElementById('ifNo').style.display = 'hidden';
+            document.getElementById('ifMarried').style.display = 'none';
         }
     }
 
