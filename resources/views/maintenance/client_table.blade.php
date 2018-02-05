@@ -148,7 +148,7 @@
       <!-- Modal Footer -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green " id ="myBtn"  data-target=".bs-example-modal-case"  data-toggle="modal"  >Next</button>
+        <button type="submit" class="btn btn-green " id ="myBtn"  data-target=".bs-example-modal-case" data-dismiss="modal" data-toggle="modal"  >Next</button>
       </div>
 
     </div>
