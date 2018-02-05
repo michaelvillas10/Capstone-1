@@ -37,7 +37,7 @@
                                     <a href="page-lock.html"><i class="fa fa-lock"></i> Lock Screen</a>
                                 </li>
                                 <li><!-- logout -->
-                                    <a href="page-login.html"><i class="fa fa-power-off"></i> Log Out</a>
+                                    <a href="layout/login"><i class="fa fa-power-off"></i> Log Out</a>
                                 </li>
                             </ul>
                         </li>
