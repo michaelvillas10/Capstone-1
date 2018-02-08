@@ -89,13 +89,15 @@
 					<input type="radio" name="gender" value="male">Male
          			<input type="radio" name="gender" value="female"> Female<br><br><br>	
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<label>Detained(?) *</label><br>
 					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck">Yes <input type="radio" 
 					onclick="javascript:DetainedCheck();" name="Detained" id="noCheck">No<br>
     				<div id="ifYes" style="display:none;margin-top:3%;">
-        			Detained Since<input type="date" name="Detained" value="" class="form-control required">
-        			Place of Detention<input type="text" name="Detained" value="" class="form-control required">
+    					<div class="col-md-12">
+        			Detained Since<input type="date" name="Detained" value="" class="form-control required"></div>
+        			<div class="col-md-12">
+        			Place of Detention<input type="text" name="Detained" value="" class="form-control required"></div>
     				</div>
 				</div>
 				<br>
