@@ -112,6 +112,18 @@
 					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
 				
 				</div>
+				<div class="col-md-12">
+					<label>Civil Status *</label><br>
+					<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
+          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
+          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="divorced"  id="noCheck"> Divorced
+          			<input type="radio"  onclick="javascript:civilstatCheck();" name="civilstat" value="widowed" id="noCheck"> Widowed
+          			<div id="ifMarried" style="display:none;margin-top:2%;">
+        			Spouse Name<input type="text" name="spouse" value="" class="form-control ">
+        			Spouse Address<input type="text" name="spouse_addr" value="" class="form-control ">
+        			Spouse Contact Number<input type="text" name="spouse_con" value="" class="form-control ">
+    				</div><br><br>
+				</div>
 				<div class="col-md-6">
 					<label>Gender *</label><br>
 					<input type="radio" name="gender" value="male">Male
@@ -127,18 +139,7 @@
     				</div>
 				</div>
 				
-				<div class="col-md-6">
-					<label>Civil Status *</label><br>
-					<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
-          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
-          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="divorced"  id="noCheck"> Divorced
-          			<input type="radio"  onclick="javascript:civilstatCheck();" name="civilstat" value="widowed" id="noCheck"> Widowed
-          			<div id="ifMarried" style="display:none;margin-top:3%;">
-        			Spouse Name<input type="text" name="spouse" value="" class="form-control ">
-        			Spouse Address<input type="text" name="spouse_addr" value="" class="form-control ">
-        			Spouse Contact Number<input type="text" name="spouse_con" value="" class="form-control ">
-    				</div>
-				</div>
+				
 			</div>
 		</div>
 

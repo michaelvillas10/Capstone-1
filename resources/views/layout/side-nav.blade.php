@@ -10,7 +10,11 @@
                                 <i class="main-icon fa fa-bar-chart-o"></i> <span>Request</span>
                             </a>
                         </li>
-                       
+                       <li>
+                            <a href="Distribution">
+                                <i class="main-icon fa fa-briefcase"></i> <span>Case Distribution</span>
+                            </a>
+                        </li>
                          <li class="submenu">
                             <a href="#">
                                 <i class="fa fa-menu-arrow pull-right"></i>
@@ -27,26 +31,17 @@
                                 <li><a href="/education/register">Educational Attainment Table</a></li>
                                 </li></ul>
                                 
-                                <li><a href="interviewees">Interviewee Table</a></li>
-                                <li><a href="lawyer_t">Lawyer Table</a></li>                               
+                                <li><a href="interviewees">Interviewee Table</a></li>                               
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
                                 <li><a href="lawsuits">Case Table</a></li>
                                 <li><a href="/casecategory/register">Case Category Table</a></li>
                                 <li><a href="/caseinvolvement/register">Case Involvement Table</a></li>
                                 <li><a href="clients">Nature of Request</a></li>
+                                <li><a href="lawyer_t">Lawyer Table</a></li>
                                 </li></ul>
                             </ul>
                         </li>
-                        <li>
-                            <a href="#">
-                                <i class="fa fa-menu-arrow pull-right"></i>
-                                <i class="main-icon fa fa-briefcase"></i> <span>Case</span>
-                            </a>
-                            <ul><!-- submenus -->
-                                <li><a href="#">Case Raffle</a></li>
-                                <li><a href="#">Case Transfer</a></li>
-                            </ul>
-                        </li>
+                        
                         <li>
                             <a href="">
                                 <i class="main-icon fa fa-database"></i> <span>Queries</span>

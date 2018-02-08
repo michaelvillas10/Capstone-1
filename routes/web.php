@@ -53,6 +53,10 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('Distribution', function () {
+    return view('casedistribution');
+});
+
 
 
 Route::get('lawyer_t',function(){
