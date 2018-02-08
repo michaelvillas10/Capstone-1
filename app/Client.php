@@ -30,6 +30,10 @@ class Client extends Model
     {
     	return $this->hasOne(Lawyer::class);
     }
+        public function interviewee()
+    {
+    	return $this->hasOne(Interviewee::class);
+    }
 
 
 }

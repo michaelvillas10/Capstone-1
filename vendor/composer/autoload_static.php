@@ -327,7 +327,6 @@ class ComposerStaticInit8685604e2255e498fd9b42a0e28a8810
 
     public static $classMap = array (
         'App\\Adverse' => __DIR__ . '/../..' . '/app/Adverse.php',
-        'App\\Casee' => __DIR__ . '/../..' . '/app/Casee.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Citizenship' => __DIR__ . '/../..' . '/app/Citizenship.php',
         'App\\Client' => __DIR__ . '/../..' . '/app/Client.php',
@@ -377,7 +376,9 @@ class ComposerStaticInit8685604e2255e498fd9b42a0e28a8810
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'App\\approvedcase' => __DIR__ . '/../..' . '/app/approvedcase.php',
         'App\\casetobehandled' => __DIR__ . '/../..' . '/app/casetobehandled.php',
+        'App\\casetobehandleds_has_approvedcases' => __DIR__ . '/../..' . '/app/casetobehandleds_has_approvedcases.php',
         'App\\casetype' => __DIR__ . '/../..' . '/app/casetype.php',
+        'App\\employees_has_lawyers' => __DIR__ . '/../..' . '/app/employees_has_lawyers.php',
         'ArithmeticError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
         'AssertionError' => __DIR__ . '/..' . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',

@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'App\\Adverse' => $baseDir . '/app/Adverse.php',
-    'App\\Casee' => $baseDir . '/app/Casee.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Citizenship' => $baseDir . '/app/Citizenship.php',
     'App\\Client' => $baseDir . '/app/Client.php',
@@ -57,7 +56,9 @@ return array(
     'App\\User' => $baseDir . '/app/User.php',
     'App\\approvedcase' => $baseDir . '/app/approvedcase.php',
     'App\\casetobehandled' => $baseDir . '/app/casetobehandled.php',
+    'App\\casetobehandleds_has_approvedcases' => $baseDir . '/app/casetobehandleds_has_approvedcases.php',
     'App\\casetype' => $baseDir . '/app/casetype.php',
+    'App\\employees_has_lawyers' => $baseDir . '/app/employees_has_lawyers.php',
     'ArithmeticError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/ArithmeticError.php',
     'AssertionError' => $vendorDir . '/symfony/polyfill-php70/Resources/stubs/AssertionError.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
