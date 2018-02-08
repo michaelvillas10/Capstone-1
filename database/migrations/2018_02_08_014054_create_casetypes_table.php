@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEducLevsTable extends Migration
+class CreateCasetypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateEducLevsTable extends Migration
      */
     public function up()
     {
-        Schema::create('educ_levs', function (Blueprint $table) {
+        Schema::create('casetypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',50);
-            $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->integer('clients_id')->unsigned()->nullable();
+            $table->string('name');
+            $table->foreign('casetobehandleds_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
+            $table->integer('casetobehandleds_id')->unsigned();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateEducLevsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('educ_levs');
+        Schema::dropIfExists('casetypes');
     }
 }

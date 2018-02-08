@@ -52,20 +52,23 @@
 				</div>
 				<div class="col-md-4">
 					<label>Position *</label>
-					<input type="text" name="position" value="" class="form-control required">
+					<select name="position" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
+					<option value="" selected="selected"></option>
+					@foreach($positions as $position)
+      <option value="{{$position->name}}">{{$position->name}}</option>
+    @endforeach
+					{{-- <option value="edu">Other</option> --}}
+					</select>
+					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
+				
+				</div>
 				</div>
 				<div class="col-md-4">
 					<label>Contact No. *</label>
 					<input type="text" name="contact" value="" class="form-control required">
 				</div>
-				<div class="col-md-4">
-					<label>Client ID *</label>
-					<input type="text" name="clients_id" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Case To Be Handled(ID) *</label>
-					<input type="text" name="casetobehandleds_id" value="" class="form-control required">
-				</div>
+				
+				
 			</div>
 		</div>
 

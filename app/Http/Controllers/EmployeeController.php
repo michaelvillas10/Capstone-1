@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Employee;
+use App\Position;
 
 class EmployeeController extends Controller
 {
@@ -15,8 +16,10 @@ class EmployeeController extends Controller
     public function index()
     {
         $employees = Employee::all();
+        $positions = Position::orderBy('name','asc')->get();
 
-        return view('maintenance.employee_table', ['employees' => $employees]);
+        return view('maintenance.employee_table')->withEmployees($employees)
+        ->withPositions($positions);
     }
 
     /**

@@ -13,317 +13,20 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Client tables</li>
 						<div class="pull-right">
-							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i> New Request</a>
+							<a  class="btn btn-green" href="/client/register" ><i class="fa fa-plus"></i> New Request</a>
 						</div>
 					</ol>
 				</header>
 				<!-- /page title -->
-<div class="modal fade bs-example-modal-full" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Client</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form action="{{ url('clients') }}" method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>First Name *</label>
-					<input type="text" name="fname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Middle Name *</label>
-					<input type="text" name="mname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Last Name *</label>
-					<input type="text" name="lname" value="" class="form-control required"><br>
-				</div><br>
-				<div class="col-md-6">
-					<label>Religion *</label>
-					<select name="religion" class="form-control required" onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($religions as $religion)
-      <option value="{{$religion->name}}">{{$religion->name}}</option>
-    @endforeach
-					{{-- <option value="others">Other</option> --}}
-					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
-				</div>
-				<div class="col-md-6">
-					<label>Citizenship *</label><br>
-					<select name="Citizenship" class="form-control required" onchange="if (this.value=='other'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($citizenships as $citizen)
-      <option value="{{$citizen->name}}">{{$citizen->name}}</option>
-    @endforeach
-					{{-- <option value="other">Others</option> --}}
-					</select>
-					<input type="textbox" name="other" class="form-control required" style="visibility:hidden;"/>
-				</div>
-				<div class="col-md-12">
-					<label>Address *</label>
-					<input type="text" name="Address" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>Email *</label>
-					<input type="text" name="Email" value="" class="form-control required">
-				</div>
-				<div class="col-md-6">
-					<label>Birthday *</label>
-					<input type="date" name="Birthday" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>Contact Number *</label>
-					<input type="text" name="Contact" value="" class="form-control required">
-				</div>				
-				<div class="col-md-6">
-					<label>Monthly Income *</label>
-					<input type="text" name="Income" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>Language Spoken  *</label>
-					<select name="Language" class="form-control required" onchange="if (this.value=='otherss'){this.form['otherss'].style.visibility='visible'}else {this.form['otherss'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($languages as $language)
-      <option value="{{$language->name}}">{{$language->name}}</option>
-    @endforeach
-					{{-- <option value="otherss">Other</option> --}}
-					</select>
-					<input type="textbox" name="otherss" class="form-control required" style="visibility:hidden;"/>
-				
-				</div>
-				<div class="col-md-6">
-					<label>Educational Attainment *</label>
-					<select name="Educational" class="form-control required" onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($educations as $education)
-      <option value="{{$education->name}}">{{$education->name}}</option>
-    @endforeach
-					{{-- <option value="edu">Other</option> --}}
-					</select>
-					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
-				
-				</div>
-				<div class="col-md-6">
-					<label>Gender *</label><br>
-					<input type="radio" name="gender" value="male">Male
-         			<input type="radio" name="gender" value="female"> Female<br><br><br>	
-				</div>
-				<div class="col-md-6">
-					<label>Detained(?) *</label><br>
-					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck" value = "yes">Yes 
-					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="noCheck">No<br>
-    				<div id="ifYes" style="display:none;margin-top:3%;">
-        			Detained Since<input type="date" name="Detained" value="" class="form-control ">
-        			Place of Detenstion<input type="text" name="Detained" value="" class="form-control ">
-    				</div>
-				</div>
-				
-				<div class="col-md-6">
-					<label>Civil Status *</label><br>
-					<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
-          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
-          			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="divorced"  id="noCheck"> Divorced
-          			<input type="radio"  onclick="javascript:civilstatCheck();" name="civilstat" value="widowed" id="noCheck"> Widowed
-          			<div id="ifMarried" style="display:none;margin-top:3%;">
-        			Spouse Name<input type="text" name="spouse" value="" class="form-control ">
-        			Spouse Address<input type="text" name="spouse_addr" value="" class="form-control ">
-        			Spouse Contact Number<input type="text" name="spouse_con" value="" class="form-control ">
-    				</div>
-				</div>
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green " id ="myBtn"  data-target=".bs-example-modal-case" data-dismiss="modal" data-toggle="modal"  >Next</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
-
-<div class="modal fade bs-example-modal-case" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Case</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form action="{{ url('casetobehandled/register') }}" method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-6">
-					<label>Case Name *</label>
-					<select name="religion" class="form-control required" onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($religions as $religion)
-      <option value="{{$religion->name}}">{{$religion->name}}</option>
-    @endforeach
-					{{-- <option value="others">Other</option> --}}
-					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
-				</div>
-				<div class="col-md-6">
-					<label>Interviewer *</label>
-					<select name="religion" class="form-control required" onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($religions as $religion)
-      <option value="{{$religion->name}}">{{$religion->name}}</option>
-    @endforeach
-					{{-- <option value="others">Other</option> --}}
-					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
-				</div>
-				
-				<div class="col-md-6">
-					<label>Nature of Request *</label>
-					<select name="religion" class="form-control required" onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($religions as $religion)
-      <option value="{{$religion->name}}">{{$religion->name}}</option>
-    @endforeach
-					{{-- <option value="others">Other</option> --}}
-					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
-				</div>
-				<div class="col-md-6">
-					<label>Case Category *</label><br>
-					<select name="Citizenship" class="form-control required" onchange="if (this.value=='other'){this.form['other'].style.visibility='visible'}else {this.form['other'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($citizenships as $citizen)
-      <option value="{{$citizen->name}}">{{$citizen->name}}</option>
-    @endforeach
-					{{-- <option value="other">Others</option> --}}
-					</select>
-					<input type="textbox" name="other" class="form-control required" style="visibility:hidden;"/>
-				</div>
-				
-				<div class="col-md-6">
-					<label>Nature of Case  *</label>
-					<select name="Language" class="form-control required" onchange="if (this.value=='otherss'){this.form['otherss'].style.visibility='visible'}else {this.form['otherss'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($languages as $language)
-      <option value="{{$language->name}}">{{$language->name}}</option>
-    @endforeach
-					{{-- <option value="otherss">Other</option> --}}
-					</select>
-					{{-- <input type="textbox" name="otherss" class="form-control required" style="visibility:hidden;"/> --}}
-				
-				</div>
-				<div class="col-md-6">
-					<label>Case Involvement *</label>
-					<select name="Educational" class="form-control required" onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($educations as $education)
-      <option value="{{$education->name}}">{{$education->name}}</option>
-    @endforeach
-					<option value="edu">Other</option>
-					</select>
-					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
-				
-				</div>
-				
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green" data-dismiss="modal" data-target=".bs-example-modal-adverse"  data-toggle="modal">Next</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
 
 
 
-<div class="modal fade bs-example-modal-adverse" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Adverse Party</h4>
-      </div>
 
-      <!-- Modal Body -->
-      <form action="{{ url('adverse/register') }}" method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-6">
-					<label>Case Involvement *</label>
-					<select name="invo" class="form-control required" onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($religions as $religion)
-      <option value="{{$religion->name}}">{{$religion->name}}</option>
-    @endforeach
-					{{-- <option value="others">Other</option> --}}
-					</select>
-					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
-				</div>
-			<div class="col-md-4">
-					<label>First Name *</label>
-					<input type="text" name="fname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Middle Name *</label>
-					<input type="text" name="mname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Last Name *</label>
-					<input type="text" name="lname" value="" class="form-control required"><br>
-				</div>
-				
-				<div class="col-md-4">
-					<label>Address *</label>
-					<input type="text" name="addr" value="" class="form-control required"><br>
-				</div>
-				
-				
-			</div>
-		</div>
 
- 
-      </div>
 
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green" >Submit</button>
-      </div>
 
-    </div>
-  </div>
-</div>
-</form>
+
 
 
 
@@ -444,6 +147,43 @@
             document.getElementById('ifMarried').style.display = 'none';
         }
     }
+    $('#client').submit(function(e){
+    e.preventDefault();
+    $.ajax({
+        url:'client/register',
+        type:'post',
+        data:$('#client').serialize(),
+        success:function(){
+            //whatever you wanna do after the form is successfully submitted
+        }
+    });
+});
+   <script>
+$(document).ready(function(){
+    // Show the Modal on load
+  
+    
+    // Hide the Modal
+    $("#myBtn").click(function(){
+        $("#bs-example-modal-full").modal("hide");
+    });
+});
+$(document).ready(function(){
+$('#submit').click(function() {
+    $.ajax({
+        url: 'client/register',
+        type: 'POST',
+        data: {
+            fname: 'email@example.com',
+            mname: 'hello world!'
+        },
+        success: function(msg) {
+            alert('Email Sent');
+        }               
+    });
+});
+});
+</script>
 
 </script>
 						

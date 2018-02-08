@@ -56,7 +56,7 @@ class ReligionController extends Controller
      */
     public function show($id)
     {
-        //
+        
     }
 
     /**
@@ -67,7 +67,7 @@ class ReligionController extends Controller
      */
     public function edit($id)
     {
-        //
+ 
     }
 
     /**
@@ -79,7 +79,14 @@ class ReligionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $religion = Religion::find($id);
+
+        $religion-> name = $request->input('name');
+        $religion-> clients_id = $request->input('clients_id');
+       
+        $religion->save();
+
+        return redirect('religions');
     }
 
     /**
@@ -90,6 +97,10 @@ class ReligionController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $religion = Religion::find($id);
+        
+        $religion->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('religions');
     }
 }

@@ -16,7 +16,7 @@ class CreateClientsTable extends Migration
         Schema::create('clients', function (Blueprint $table) {
             $table->increments('id');
             $table->string('clfname',50);
-            $table->string('clmname',50)->nullable();
+            $table->string('clmname',50)->nullable()->default('none');
             $table->string('cllname',50);
             $table->string('clreligion',50);
             $table->string('clcitizenship',50);
@@ -29,12 +29,12 @@ class CreateClientsTable extends Migration
             $table->string('cleducational_attainment',50);
             $table->string('cllanguage',50);
             $table->BigInteger('clcontact_no');
-            
+            $table->string('nature_of_request',100);
             $table->string('cldetained',5);
-            $table->string('cldetained_since')->nullable();
-            $table->string('clplace_of_detention')->nullable();
+            $table->date('cldetained_since')->nullable();
+            $table->string('clplace_of_detention',100)->nullable()->default('none');
             $table->string('clspouse',50)->nullable();
-            $table->text('claddress_of_spouse')->nullable();
+            $table->string('claddress_of_spouse',200)->nullable()->default('none');
             $table->BigInteger('clcontact_no_of_spouse')->nullable();
             $table->string('cl_status')->nullable()->default('Pending');
             $table->timestamps();

@@ -79,7 +79,14 @@ class CitizenshipController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $citizenship = Citizenship::find($id);
+
+        $citizenship-> name = $request->input('name');
+        $citizenship-> clients_id = $request->input('clients_id');
+       
+        $citizenship->save();
+
+        return redirect('citizenships');
     }
 
     /**
@@ -90,6 +97,10 @@ class CitizenshipController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $citizenship = Citizenship::find($id);
+        
+        $citizenship->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('citizenships');
     }
 }

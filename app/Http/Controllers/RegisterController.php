@@ -16,13 +16,18 @@ use App\Adverse;
 use App\Citizenship;
 use App\Religion;
 use App\Employee;
+use App\Lawsuit;
 use Session;
 use DB;
 
 class RegisterController extends Controller
 {
     
-
+public function showreqtable(){
+    $clients = Client::orderBy('cllname','asc')->get();
+        
+    return view('maintenance.client_table')->withClients($clients);
+}
 
 
     public function showclientregister(){
@@ -33,7 +38,7 @@ class RegisterController extends Controller
         $involvements = Involvement::orderBy('name','asc')->get();
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
-    	return view('client_table')->withClients($clients)
+    	return view('maintenance.clientreg')->withClients($clients)
         ->withReligions($religions)
         ->withEducations($educations)
         ->withInvolvements($involvements)
@@ -43,28 +48,35 @@ class RegisterController extends Controller
 
     public function clientregister(Request $request){
         //dd('gdgfgf'); 
-    	$this->validate($request, array(
-                'fname'=>'required',
-                'mname'=>'required',
-                'lname'=>'required',
-                'religion'=>'required',
-                'Citizenship'=>'required',
-                'Address'=>'required',
-                'Email'=>'required',
-                'Income'=>'required',
-                'Detained'=>'required',
-                'cldetained_since'=>'required',
-                'Birthday'=>'required',
-                'gender'=>'required',
-                'civilstat'=>'required',
-                'Educational'=>'required',
-                'Language'=>'required',
-                'Contact'=>'required',
+    	// $this->validate($request, array(
+     //            'fname'=>'required',
+     //            'mname'=>'required',
+     //            'lname'=>'required',
+     //            'religion'=>'required',
+     //            'Citizenship'=>'required',
+     //            'Address'=>'required',
+     //            'Email'=>'required',
+     //            'Income'=>'required',
+     //            'Detained'=>'required',
+     //            'cldetained_since'=>'required',
+     //            'Birthday'=>'required',
+     //            'gender'=>'required',
+     //            'civilstat'=>'required',
+     //            'Educational'=>'required',
+     //            'Language'=>'required',
+     //            'Contact'=>'required',
+
+     //            'casename'=>'required',
+     //            'interviewer'=>'required',
+     //            'natureofcase'=>'required',
+     //            'nor'=>'required',
+     //            'ct'=>'required',
+     //            'cc'=>'required',
               
-                ));
+                // ));
 
             $client = new Client;
-     
+      
        
         $client-> clfname = $request->fname;
         $client-> clmname = $request->mname;
@@ -74,7 +86,8 @@ class RegisterController extends Controller
         $client-> claddress = $request->Address;
         $client-> clemail = $request->Email;
         $client-> clmonthly_net_income = $request->Income;
-        $client-> cldetained = $request->Detained;
+
+        $client-> cldetained = $request->detained;
         $client-> cldetained_since = $request->DetainedDate;
         $client-> clbdate = $request->Birthday;
         $client-> clgender = $request->gender;
@@ -82,83 +95,132 @@ class RegisterController extends Controller
         $client-> cleducational_attainment = $request->Educational;
         $client-> cllanguage = $request->Language;
         $client-> clcontact_no = $request->Contact;
-        //$client-> clspouse = $request->clspouse;
-       //$client-> claddress_of_spouse = $request->claddress_of_spouse;
-        //$client-> clcontact_no_of_spouse = $request->clcontact_no_of_spouse;
+        $client-> clspouse = $request->clspouse;
+       $client-> claddress_of_spouse = $request->claddress_of_spouse;
+        $client-> clcontact_no_of_spouse = $request->clcontact_no_of_spouse;
         $client-> clplace_of_detention = $request->DetainedPlace;
+        $client-> nature_of_request = $request->nor;
        
-        $client->save();
-       
-     
-        
-        
 
+       
+        
+        
+        $client->save();
+      
+        
    
-        //return redirect()->route('interviewees.create');
+        return redirect('/casetbh/register');
 
     }
+       public function showcasetbhregister(){
+         $clients = Client::select('id')->orderBy('id','desc')->get();
+        $employees = Employee::orderBy('efname','asc')->get();
+        $lawsuits = Lawsuit::orderBy('name','asc')->get();
+        $category = Category::orderBy('name','asc')->get();
+        $involvements = Involvement::orderBy('name','asc')->get();
+         
+        return view('maintenance.casereg')->withClients($clients)
+        ->withLawsuits($lawsuits)
+        ->withCategory($category)
+        ->withInvolvements($involvements)
+        ->withEmployees($employees);
+    }
      public function casetbhregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'casename'=>'required',
-                'interviewer'=>'required',
-                'natureofcase'=>'required',
-                'nor'=>'required',
-                'ct'=>'required',
-                'cc'=>'required',
+        
+        // $this->validate($request, array(
+        //         'casename'=>'required',
+        //         'interviewer'=>'required',
+        //         'natureofcase'=>'required',
+        //         'nor'=>'required',
+        //         'ct'=>'required',
+        //         'cc'=>'required',
               
               
-                ));
-
+        //         ));
+       $clients = DB::table('clients')->select('id')->orderBy('id','desc')->take(1)->get();
+            
             $casetobehandled = new casetobehandled;
-     
+    
        
-        $casetobehandled-> casename = $request->casename;
-        $casetobehandled-> interviewer = $request->interviewer;
-        $casetobehandledt-> nature_of_case = $request->natureofcase;
-        $casetobehandled-> nature_of_request = $request->nor;
-        $casetobehandled-> clcase_involvement = $request->ct;
-        $casetobehandled-> clcomplainant_victim_of = $request->cc;
-        $casetobehandled-> clients_id = $request->$clientid;
+        $casetobehandled-> casename = $request->lawsuit;
+        $casetobehandled-> interviewer = $request->employee;
+         $casetobehandled-> nature_of_case ="w";
+       
+        $casetobehandled-> clcase_involvement = $request->involvement;
+        $casetobehandled-> clcomplainant_victim_of = $request->Category;
+       
+      
+             $casetobehandled-> clients_id = $clients; 
+       
+            
+        
        
        
         $casetobehandled->save();
        
-     
+      return redirect('/adverse/register');
+  }
         
         
-
+public function showadverseregister(){
+        $clients = Client::orderBy('cllname','asc')->get();
+        
+        $religions = Religion::orderBy('name','asc')->get();
+        $educations = Education::orderBy('name','asc')->get();
+        $involvements = Involvement::orderBy('name','asc')->get();
+        $languages = Language::orderBy('name','asc')->get();
+        $citizenships = Citizenship::orderBy('name','asc')->get();
+        return view('maintenance.adversereg')->withClients($clients)
+        ->withReligions($religions)
+        ->withEducations($educations)
+        ->withInvolvements($involvements)
+        ->withLanguages($languages)
+        ->withCitizenships($citizenships);
+    }
    
         //return redirect()->route('interviewees.create');
 
-    }
+    
      public function adverseregister(Request $request){
         //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'fname'=>'required',
-                'mname'=>'required',
-                'lname'=>'required',
-                'address'=>'required',
+        // $this->validate($request, array(
+        //         'fname'=>'required',
+        //         'mname'=>'required',
+        //         'lname'=>'required',
+        //         'address'=>'required',
                 
-                'atype'=>'required',
+        //         'atype'=>'required',
               
               
-                ));
+        //         ));
 
-            $adverse = new Adverse;
-     
+
+         
+          $adverse = new Adverse;
+      
        
-        $adverse-> advprtyfname = $request->fname;
+     
+ $adverse-> advprtyfname = $request->fname;
         $adverse-> advprtymname = $request->mname;
         $adverse-> advprtylname = $request->lname;
-        $adverse-> advprtyaddress = $request->address;
+        $adverse-> advprtyaddress = $request->addr;
         $adverse-> advprtytype = $request->atype;
+        $adverse-> casetobehandleds_id = "1";
+       
         
-        $adverse-> casetobehandleds_id = $request->$caseid;
-       
-       
+      
         $adverse->save();
+
+
+      return redirect('/client/show');
        
+       
+
+     
+       
+       
+
+      
      
         
         

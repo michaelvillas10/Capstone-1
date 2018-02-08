@@ -38,10 +38,20 @@ Route::post('/caseinvolvement/register', 'RegisterController@ciregister');
 Route::put('/caseinvolvement/edit/{id}','UpdateController@invoedit')->name('editinvo');
 Route::delete('/caseinvolvement/delete/{id}','DeleteController@invodelete')->name('deleteinvo');
 
+Route::get('/client/show','RegisterController@showreqtable');
+
+
+Route::get('/client/register','RegisterController@showclientregister');
+Route::post('/client/register', 'RegisterController@clientregister');
+Route::get('/casetbh/register','RegisterController@showcasetbhregister');
+Route::post('/casetbh/register','RegisterController@casetbhregister');
+Route::get('/adverse/register','RegisterController@showadverseregister');
+Route::post('/adverse/register','RegisterController@adverseregister');
 
 
 
-Route::resource('clients', 'ClientController');
+
+//Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');
 Route::resource('lawsuits', 'LawsuitController');
 Route::resource('religions', 'ReligionController');

@@ -79,7 +79,14 @@ class LawsuitController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $lawsuit = Lawsuit::find($id);
+
+        $lawsuit-> name = $request->input('name');
+        $lawsuit-> casetobehandleds_id = $request->input('casetobehandleds_id');
+       
+        $lawsuit->save();
+
+        return redirect('lawsuits');
     }
 
     /**
@@ -90,6 +97,10 @@ class LawsuitController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $lawsuit = Lawsuit::find($id);
+        
+        $lawsuit->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('lawsuits');
     }
 }
