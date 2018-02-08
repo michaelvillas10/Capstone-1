@@ -15,14 +15,14 @@ class CreateIntervieweesTable extends Migration
     {
         Schema::create('interviewees', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('fname',30)->nullable();
-            $table->string('mname',30)->nullable();
-            $table->string('lname',30)->nullable();
-            $table->string('relation',30)->nullable();
+            $table->string('fname',30)->nullable()->default('none');
+            $table->string('mname',30)->nullable()->default('none');
+            $table->string('lname',30)->nullable()->default('none');
+            $table->string('relation',30)->nullable()->default('none');
             $table->BigInteger('contact')->nullable();
-            $table->string('address')->nullable();
+            $table->string('address')->nullable()->default('none');
             $table->date('bdate')->nullable();
-            $table->string('cstat',20)->nullable();
+            $table->string('cstat',20)->nullable()->default('none');
             $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
             $table->integer('clients_id')->unsigned()->nullable();
 

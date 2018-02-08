@@ -132,7 +132,7 @@ a, a:focus, a:hover, a:active {
 
 p, pre, ul, ol, dl, dd, blockquote,
 address, table, fieldset, form { 
-	margin-bottom: 30px; 
+	margin-bottom: 0px; 
 }
 
 :active,
@@ -6355,7 +6355,7 @@ body:not(.device-touch) .btn.btn-reveal span {
 /* BOOTSTRAP REWRITE */
 .btn,
 .form-control {
-	height:40px;
+	height:34px;
 }
 .btn-sm,
 .btn-xs,

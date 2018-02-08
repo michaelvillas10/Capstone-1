@@ -18,7 +18,7 @@ class CreateCasetobehandledsTable extends Migration
             $table->string('casename',75);
              $table->string('interviewer',80);
             $table->string('nature_of_case',50);
-            $table->string('nature_of_request',50);
+          
             $table->string('clcase_involvement',50);
             $table->string('clcomplainant_victim_of',50);
              $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
