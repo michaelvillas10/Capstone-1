@@ -11,7 +11,7 @@
                             </a>
                         </li>
                        <li>
-                            <a href="Distribution">
+                            <a href="/Distribution">
                                 <i class="main-icon fa fa-briefcase"></i> <span>Case Distribution</span>
                             </a>
                         </li>
@@ -32,15 +32,15 @@
                                 <li><a href="/education/register">Educational Attainment </a></li>
                                 </li></ul>
                                 
-<<<<<<< HEAD
-                                <li><a href="interviewees">Interviewee Table</a></li>                               
+                               
+                                                            
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
-                                <li><a href="lawsuits">Case Table</a></li>
+                                <li><a href="/lawsuits">Case Table</a></li>
                                 <li><a href="/casecategory/register">Case Category Table</a></li>
                                 <li><a href="/caseinvolvement/register">Case Involvement Table</a></li>
-                                <li><a href="clients">Nature of Request</a></li>
-                                <li><a href="lawyer_t">Lawyer Table</a></li>
-=======
+                               
+                                <li><a href="#">Nature of Request</a></li>
+
                                 <li><a href="/interviewees">Interviewee </a></li>
                                                           
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
@@ -50,7 +50,7 @@
                              <li><a href="#">Case Type w</a></li>
                              <li><a href="#">Case Status w</a></li>
                                 
->>>>>>> 183382ea78e17705fee8aabd1f5c7eb6ebb07cb9
+
                                 </li></ul>
                                 <li><a href="#">Nature of Request w</a></li>
                             </ul>
