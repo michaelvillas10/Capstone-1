@@ -34,11 +34,11 @@
                              <li><a href="/casecategory/register">Case Category </a></li>    
                              <li><a href="/lawsuits">Case</a></li>
                              <li><a href="/caseinvolvement/register">Case Involvement </a></li>
-                             <li><a href="#">Case Type </a></li>
-                             <li><a href="#">Case Status </a></li>
+                             <li><a href="#">Case Type w</a></li>
+                             <li><a href="#">Case Status w</a></li>
                                 
                                 </li></ul>
-                                <li><a href="clients">Nature of Request</a></li>
+                                <li><a href="#">Nature of Request w</a></li>
                             </ul>
                         </li>
                         <li>
