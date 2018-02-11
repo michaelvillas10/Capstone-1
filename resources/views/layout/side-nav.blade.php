@@ -35,15 +35,8 @@
                                
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
-                                <li><a href="/lawsuits">Case Table</a></li>
-                                <li><a href="/casecategory/register">Case Category Table</a></li>
-                                <li><a href="/caseinvolvement/register">Case Involvement Table</a></li>
-                               
-                                <li><a href="#">Nature of Request</a></li>
-
-                                <li><a href="/interviewees">Interviewee </a></li>
-                                                          
-                                <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
+                              
+                              
                              <li><a href="/casecategory/register">Case Category </a></li>    
                              <li><a href="/lawsuits">Case</a></li>
                              <li><a href="/caseinvolvement/register">Case Involvement </a></li>

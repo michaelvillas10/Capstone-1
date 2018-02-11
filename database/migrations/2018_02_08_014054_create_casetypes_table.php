@@ -15,7 +15,7 @@ class CreateCasetypesTable extends Migration
     {
         Schema::create('casetypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name',100);
             $table->foreign('casetobehandleds_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
             $table->integer('casetobehandleds_id')->unsigned();
             $table->timestamps();

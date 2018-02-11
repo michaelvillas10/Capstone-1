@@ -17,6 +17,7 @@ use App\Citizenship;
 use App\Religion;
 use App\Employee;
 use App\Lawsuit;
+use App\Schedule;
 use Session;
 use DB;
 
@@ -375,6 +376,37 @@ public function showadverseregister(){
 
    
        return redirect('/caseinvolvement/register');
+
+    }
+     public function showschedule(){
+        $schedule = Schedule::all();
+        return view('maintenance.showschedule')->withSchedule($schedule);
+    }
+
+    public function scheduleregister(Request $request){
+        //dd('gdgfgf'); 
+        // $this->validate($request, array(
+                // 'name'=>'required',
+               
+              
+                // ));
+
+            $sched= new Schedule;
+     
+       
+        $sched-> name = $request->name;
+        $sched-> start =$request->start;
+        $sched-> end =$request->end;
+      
+       
+        $sched->save();
+       
+     
+        
+        
+
+   
+       return redirect('/schedule/register');
 
     }
 }

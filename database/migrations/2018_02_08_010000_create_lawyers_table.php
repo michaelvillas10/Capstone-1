@@ -19,7 +19,12 @@ class CreateLawyersTable extends Migration
             $table->integer('approvedcases_id')->unsigned()->nullable();
             $table->foreign('employees_id')->references('id')->on('employees')->onDelete('cascade');
             $table->integer('employees_id')->unsigned()->nullable();
+            $table->foreign('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
+            $table->integer('schedules_id')->unsigned()->nullable();
+            $table->foreign('courts_id')->references('id')->on('courts')->onDelete('cascade');
+            $table->integer('courts_id')->unsigned()->nullable();
             $table->integer('casecount')->unsigned()->nullable()->default('0');
+
 
             $table->timestamps();
         });

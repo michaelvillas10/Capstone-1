@@ -14,5 +14,13 @@ class Lawyer extends Model
     {
     	return $this->hasMany(approvedcase::class);
     }
+     public function schedules()
+    {
+    	return $this->hasMany(schedule::class);
+    }
+     public function court()
+    {
+    	return $this->hasOne(Court::class);
+    }
 
 }

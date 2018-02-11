@@ -48,7 +48,8 @@ Route::post('/casetbh/register','RegisterController@casetbhregister');
 Route::get('/adverse/register','RegisterController@showadverseregister');
 Route::post('/adverse/register','RegisterController@adverseregister');
 
-
+Route::get('/schedule/register','RegisterController@showschedule');
+Route::post('/schedule/register','RegisterController@scheduleregister');
 
 
 //Route::resource('clients', 'ClientController');

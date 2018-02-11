@@ -17,10 +17,10 @@ class CreateApprovedcasesTable extends Migration
             $table->increments('id');
             $table->foreign('casetobehandleds_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
             $table->integer('casetobehandleds_id')->unsigned();
-            
             $table->foreign('statuses_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->integer('statuses_id')->unsigned()->nullable();
             $table->string('case_status');
+            $table->string('control_number',15)->nullable();
             $table->timestamps();
         });
     }

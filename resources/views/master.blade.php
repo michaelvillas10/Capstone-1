@@ -18,8 +18,10 @@
         <!-- THEME CSS -->
         <link href="{{ asset('css/essentials.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+          <script src="{{URL::asset('js/moment.min.js') }}"></script>
         <link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" id="color_scheme">
         <link rel="stylesheet" type="text/css" href="{{asset('css/layout-datatables.css')}}">
+         <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.css')}}">
     </head>
     <!--
         .boxed = boxed version
@@ -79,8 +81,11 @@
 
        
         <!-- PAGE LEVEL SCRIPT -->
-        <script src="{{asset('js/jquery-2.2.3.min.js') }}"></script>   
+        <script type= "text/javascript" src="{{asset('js/jquery-2.2.3.min.js') }}"></script>   
         <script src="{{URL::asset('js/app.js') }}"></script>
+        
+          <script src="{{URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
+        <script src="{{URL::asset('js/bootstrap-datetimepicker.min.js') }}"></script>
         
         
         <script type="text/javascript">
