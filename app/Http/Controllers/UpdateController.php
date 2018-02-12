@@ -8,6 +8,8 @@ use App\Education;
 use App\Involvement;
 use App\Category;
 use App\Position;
+use App\courttype;
+use App\Court;
 
 
 class UpdateController extends Controller
@@ -112,6 +114,39 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/casecategory/register');
     }
+    public function ctedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $ct = courttype::find($id);
+
+        $ct-> name = $request->name;
+       
+        $ct->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/courttype/register');
+    }
+    public function couedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+            'type'=>'required',
+        ]);
+ 
+        $cou = Court::find($id);
+
+        $cou-> name = $request->name;
+        $cou-> type = $request->type;
+       
+        $cou->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/court/register');
+    }
+
     
 }
 

@@ -9,6 +9,8 @@ use App\Education;
 use App\Involvement;
 use App\Category;
 use App\Position;
+use App\courttype;
+use App\Court;
 
 class DeleteController extends Controller
 {
@@ -57,4 +59,24 @@ class DeleteController extends Controller
         //Flashy::success('Succesfully deleted event');
         return redirect('/casecategory/register');
     }
+      public function ctdelete($id)
+    {
+       
+        $ct = courttype::find($id);
+        
+        $ct->delete();
+
+        return redirect('/courttype/register');
+    }
+      public function coudelete($id)
+    {
+       
+        $cou = Court::find($id);
+        
+        $cou->delete();
+
+        return redirect('/court/register');
+    }
+
+
 }

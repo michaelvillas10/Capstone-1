@@ -51,6 +51,17 @@ Route::post('/adverse/register','RegisterController@adverseregister');
 Route::get('/schedule/register','RegisterController@showschedule');
 Route::post('/schedule/register','RegisterController@scheduleregister');
 
+Route::get('/courttype/register','RegisterController@showcourttyperegister');
+Route::post('/courttype/register', 'RegisterController@courttyperegister');
+Route::put('/courttype/edit/{id}','UpdateController@ctedit')->name('editct');
+Route::delete('/courttype/delete/{id}','DeleteController@ctdelete')->name('delct');
+
+Route::get('/court/register','RegisterController@showcourtregister');
+Route::post('/court/register', 'RegisterController@courtregister');
+Route::put('/court/edit/{id}','UpdateController@couedit')->name('editcou');
+Route::delete('/court/delete/{id}','DeleteController@coudelete')->name('delcou');
+
+
 
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');

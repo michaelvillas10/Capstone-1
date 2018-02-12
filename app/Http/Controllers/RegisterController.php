@@ -18,6 +18,8 @@ use App\Religion;
 use App\Employee;
 use App\Lawsuit;
 use App\Schedule;
+use App\courttype;
+use App\Court;
 use Session;
 use DB;
 
@@ -379,8 +381,8 @@ public function showadverseregister(){
 
     }
      public function showschedule(){
-        $schedule = Schedule::all();
-        return view('maintenance.showschedule')->withSchedule($schedule);
+        $schedules = Schedule::all();
+        return view('maintenance.showschedule')->withSchedules($schedules);
     }
 
     public function scheduleregister(Request $request){
@@ -409,5 +411,68 @@ public function showadverseregister(){
        return redirect('/schedule/register');
 
     }
+        public function showcourttyperegister(){
+        $courttypes = courttype::all();
+        return view('maintenance.courttype')->withcourttypes($courttypes);
+    }
+
+    public function courttyperegister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+               
+              
+                ));
+
+            $ct = new courttype;
+     
+       
+        $ct-> name = $request->name;
+      
+       
+        $ct->save();
+       
+     
+        
+        
+
+   
+       return redirect('/courttype/register');
+
+    }
+     public function showcourtregister(){
+        $courts = Court::all();
+        $courttypes = courttype::all();
+        return view('maintenance.court')->withCourts($courts)
+        ->withcourttypes($courttypes);
+    }
+
+    public function courtregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                // 'name'=>'required',
+                // 'type'=>'required',
+              
+                ));
+
+            $cou = new Court;
+     
+       
+        $cou-> name = $request->name;
+        $cou-> type = $request->type;
+      
+       
+        $cou->save();
+       
+     
+        
+        
+
+   
+       return redirect('/court/register');
+
+    }
+
+
 }
 

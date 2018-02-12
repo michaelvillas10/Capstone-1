@@ -8,10 +8,10 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>Case Category TABLE</h1>
+					<h1>Case Category </h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Case Category tables</li>
+						<li class="active">Case Category </li>
 						<div class="pull-right">
 							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Case Category</a>
 						</div>

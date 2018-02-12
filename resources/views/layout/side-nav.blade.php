@@ -36,7 +36,8 @@
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
                               
-                              
+                              <li><a href="/court/register">Court  </a></li>    
+                             <li><a href="/courttype/register">Court type</a></li>
                              <li><a href="/casecategory/register">Case Category </a></li>    
                              <li><a href="/lawsuits">Case</a></li>
                              <li><a href="/caseinvolvement/register">Case Involvement </a></li>
@@ -50,6 +51,10 @@
                         </li>
                         
                         <li>
+                            <a href="">
+                                <i class="main-icon fa fa-calendar"></i> <span>Schedules</span>
+                            </a>
+
                             <a href="">
                                 <i class="main-icon fa fa-database"></i> <span>Queries</span>
                             </a>

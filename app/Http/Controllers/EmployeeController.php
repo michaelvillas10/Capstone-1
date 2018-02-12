@@ -50,7 +50,7 @@ class EmployeeController extends Controller
         $employee-> position = $request->position;
         $employee-> contact = $request->contact;
         $employee-> clients_id = $request->clients_id;
-        $employee-> casetobehandleds_id = $request->casetobehandleds_id;
+        
         $employee->save();
 
      

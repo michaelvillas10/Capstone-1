@@ -8,10 +8,10 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>CITIZENSHIP TABLE</h1>
+					<h1>CITIZENSHIP </h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Citizenship tables</li>
+						<li class="active">Citizenship </li>
 						<div class="pull-right">
 							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Citizenship</a>
 						</div>
