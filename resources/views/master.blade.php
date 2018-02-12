@@ -21,7 +21,8 @@
           <script src="{{URL::asset('js/moment.min.js') }}"></script>
         <link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" id="color_scheme">
         <link rel="stylesheet" type="text/css" href="{{asset('css/layout-datatables.css')}}">
-         <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.css')}}">
+         <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}">
+         
     </head>
     <!--
         .boxed = boxed version
@@ -81,11 +82,13 @@
 
        
         <!-- PAGE LEVEL SCRIPT -->
+
         <script type= "text/javascript" src="{{asset('js/jquery-2.2.3.min.js') }}"></script>   
         <script src="{{URL::asset('js/app.js') }}"></script>
-        
-          <script src="{{URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
-        <script src="{{URL::asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+         <script src="{{URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
+         <script src="{{URL::asset('js/jquery.datetimepicker.full.min.js') }}"></script>
+      <script src="{{URL::asset('js/jquery.datetimepicker.js') }}"></script>
+       {{--  // <script src="{{URL::asset('js/bootstrap-datetimepicker.min.js') }}"></script> --}}
         
         
         <script type="text/javascript">
