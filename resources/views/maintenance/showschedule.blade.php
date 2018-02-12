@@ -3,6 +3,10 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
+<section id="middle">
+    <header id="page-header">
+        <h1>NEW SCHEDULE</h1>
+    </header>
 <br><br>
 <div class="container">
     <div class="col-md-4">
@@ -43,5 +47,5 @@
         <button type="submit" class="btn btn-green"/>Save changes
       </div></center>
 </div>
-    
+</section>  
 @stop
