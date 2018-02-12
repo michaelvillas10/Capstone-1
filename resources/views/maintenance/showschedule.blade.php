@@ -16,8 +16,8 @@
             <div>
                 <label>Start time and date</label>
             </div>
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
+            <div class='input-group date' >
+                <input id='datetimepicker6' class="form-control" />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>
@@ -29,8 +29,8 @@
             <div>
                 <label>End time and Date</label>
             </div>
-            <div class='input-group date' id='datetimepicker7'>
-                <input type='text' class="form-control" />
+            <div class='input-group date'>
+                <input id='datetimepicker7' class="form-control" />
                 <span class="input-group-addon">
                     <span class="glyphicon glyphicon-calendar"></span>
                 </span>

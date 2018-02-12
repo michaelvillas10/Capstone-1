@@ -86,9 +86,7 @@
         <script type= "text/javascript" src="{{asset('js/jquery-3.3.1.min.js') }}"></script>   
         <script type= "text/javascript" src="{{URL::asset('js/app.js') }}"></script>
          <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
-         <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.full.min.js') }}"></script>
       <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.js') }}"></script>
-       <script type= "text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.min.js') }}"></script>
         <script type= "text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
         <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
         <script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script>
@@ -273,6 +271,7 @@
             $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
         });
     });
+
 </script>
     </body>
 </html>
