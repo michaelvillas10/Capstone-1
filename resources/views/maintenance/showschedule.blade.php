@@ -1,75 +1,47 @@
+
 @extends('master')
 @extends('layout/side-nav')
-@extends('layout/header-main')	
+@extends('layout/header-main')  
 @section('content')
-
-<section id="middle">
-
-
-				<!-- page title -->
-			
-				<!-- /page title -->
-<div>
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-      
-        <h4 class="modal-title" id="myModalLabel">Add Schedule</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form action="{{ url('schedule/register') }}"  method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label> Name *</label>
-					<input type="text" name="name" value="" class="form-control "required>
-				</div>
-				<div class="col-md-4">
-					<label>Start date and time </label>
-					<input type="text" name="start" id="demo"/>
-				</div>
-				<div class="col-md-4">
-					<label>End date and time</label>
-					<input type="text" name="end" value="" class="form-control "required><br>
-				</div><br>
-				
-		</div>
-
- 
-      
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green ">Next</button>
-         
-      </div>
-</form>
-
+<br><br>
+<div class="container">
+    <div class="col-md-4">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" class="form-control" name="name">
+        </div>
     </div>
-  </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div>
+                <label>Start time and date</label>
+            </div>
+            <div class='input-group date' id='datetimepicker6'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class='col-md-4'>
+        <div class="form-group">
+            <div>
+                <label>End time and Date</label>
+            </div>
+            <div class='input-group date' id='datetimepicker7'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div>
+    </div>
+    <center>
+    <div class="footer"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-green"/>Save changes
+      </div></center>
 </div>
-
-
-
-
-
-
-			
-		<script type="text/javascript">
-   $(document).ready(function() {
-        	$.datetimepicker.setLocale('pt-BR');
-       	$('#demo').datetimepicker();
-      });
-   
-   </script>
-
-
-
-						
-</section>		
+    
 @stop

@@ -18,11 +18,11 @@
         <!-- THEME CSS -->
         <link href="{{ asset('css/essentials.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
-          <script src="{{URL::asset('js/moment.min.js') }}"></script>
+          
         <link href="{{ asset('css/color_scheme/green.css') }}" rel="stylesheet" id="color_scheme">
         <link rel="stylesheet" type="text/css" href="{{asset('css/layout-datatables.css')}}">
          <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.datetimepicker.css')}}">
-         
+         <link rel="stylesheet" type="text/css" href="{{asset('css/bootstrap-datetimepicker.css')}}">
     </head>
     <!--
         .boxed = boxed version
@@ -83,17 +83,19 @@
        
         <!-- PAGE LEVEL SCRIPT -->
 
-        <script type= "text/javascript" src="{{asset('js/jquery-2.2.3.min.js') }}"></script>   
-        <script src="{{URL::asset('js/app.js') }}"></script>
-         <script src="{{URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
-         <script src="{{URL::asset('js/jquery.datetimepicker.full.min.js') }}"></script>
-      <script src="{{URL::asset('js/jquery.datetimepicker.js') }}"></script>
-       {{--  // <script src="{{URL::asset('js/bootstrap-datetimepicker.min.js') }}"></script> --}}
-        
-        
+        <script type= "text/javascript" src="{{asset('js/jquery-3.3.1.min.js') }}"></script>   
+        <script type= "text/javascript" src="{{URL::asset('js/app.js') }}"></script>
+         <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
+         <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.full.min.js') }}"></script>
+      <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.js') }}"></script>
+       <script type= "text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.min.js') }}"></script>
+        <script type= "text/javascript" src="{{URL::asset('js/bootstrap-datetimepicker.js') }}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/bootstrap.min.js')}}"></script>
+        <script type="text/javascript" src="{{URL::asset('js/bootstrap.js')}}"></script>
         <script type="text/javascript">
             var plugin_path = "{{URL::asset('plugins')}}/"
         </script>
+        <script src="{{URL:: asset('js/moment.min.js') }}"></script>
         <script type="text/javascript">
             loadScript(plugin_path + "datatables/js/jquery.dataTables.min.js", function(){
                 loadScript(plugin_path + "datatables/dataTables.bootstrap.js", function(){
@@ -257,6 +259,20 @@
                 });
             });
         </script>
-        
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker6').datetimepicker();
+        $('#datetimepicker7').datetimepicker({
+            useCurrent: false //Important! See issue #1075
+        });
+        $("#datetimepicker6").on("dp.change", function (e) {
+            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
+        });
+        $("#datetimepicker7").on("dp.change", function (e) {
+            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
+        });
+    });
+</script>
     </body>
 </html>
