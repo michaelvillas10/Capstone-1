@@ -75,7 +75,7 @@
 										</td>
 										
 										<td>
-											 <button type="submit" data-target=".bs-example-modal-update{{ $casecategories->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
+											  <a class="btn btn-sm btn-warning update-button" href="/position/register" ><i class="fa fa-pencil"></i> Edit</a>
 										</td>
 										<td>
 											<form action="{{ route('deletecat',$casecategories->id) }}" method = "post">
@@ -85,44 +85,7 @@
 											Delete </button>
 										</form>
 										</td>
-<div class="modal fade bs-example-modal-update{{ $casecategories->id }}" id =".bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit Language Spoken</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form id="update-language-form" action="{{ route('editcat',$casecategories->id) }}" method="post">
-      {{ csrf_field() }}
-       <input type="hidden" name="_method" value="PUT">
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>Name *</label>
-					<input type="text" name="name" value="{{$casecategories->name}}" class="form-control ">
-				</div>
-				
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green">Save changes</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
 									</tr>
 									@endforeach	
 								</tbody>
