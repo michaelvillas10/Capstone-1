@@ -13,114 +13,12 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Lawyer </li>
 						<div class="pull-right">
-							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Lawyer</a>
+								<a  class="btn btn-green" href="#" ><i class="fa fa-plus"></i>New Lawyer</a>
 						</div>
 					</ol>
 				</header>
 				<!-- /page title -->
-<div class="modal fade bs-example-modal-full" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Request</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>First Name *</label>
-					<input type="text" name="fname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Middle Name *</label>
-					<input type="text" name="mname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Last Name *</label>
-					<input type="text" name="lname" value="" class="form-control required"><br>
-				</div><br>
-				<div class="col-md-6">
-					<label>Religion *</label>
-					<input type="text" name="religion" value="" class="form-control required">
-				</div>
-				<div class="col-md-6">
-					<label>Citizenship *</label>
-					<input type="text" name="Citizenship" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-12">
-					<label>Address *</label>
-					<input type="text" name="Address" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>E-mail *</label>
-					<input type="text" name="E-mail" value="" class="form-control required">
-				</div>
-				<div class="col-md-6">
-					<label>Birthday *</label>
-					<input type="date" name="Birthday" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>Contact Number *</label>
-					<input type="text" name="Contact" value="" class="form-control required">
-				</div>				
-				<div class="col-md-6">
-					<label>Monthly Income *</label>
-					<input type="text" name="Income" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>Language/Dialect *</label>
-					<input type="text" name="Language" value="" class="form-control required">
-				</div>
-				<div class="col-md-6">
-					<label>Educational Attainment *</label>
-					<input type="text" name="Educational" value="" class="form-control required"><br>
-				</div>
-				<div class="col-md-6">
-					<label>Monthly Income *</label>
-					<input type="text" name="Income" value="" class="form-control required">
-				</div>
-				<div class="col-md-6">
-					<label>Gender *</label><br>
-					<input type="radio" name="gender" value="male">Male
-         			<input type="radio" name="gender" value="female"> Female<br><br><br>	
-				</div>
-				<div class="col-md-6">
-					<label>Detained(?) *</label><br>
-					<input type="radio" onclick="javascript:DetainedCheck();" name="Detained" id="yesCheck">Yes <input type="radio" 
-					onclick="javascript:DetainedCheck();" name="Detained" id="noCheck">No<br>
-    				<div id="ifYes" style="visibility:hidden">
-        			Detained Since<input type="date" name="Detained" value="" class="form-control required">
-        			Place of Detenstion<input type="text" name="Detained" value="" class="form-control required">
-    				</div>
-				</div>
-				
-				<div class="col-md-6">
-					<label>Civil Status *</label><br>
-					<input type="radio" name="civilstat" value="single"> Single
-          			<input type="radio" name="civilstat" value="married"> Married
-          			<input type="radio" name="civilstat" value="divorced"> Divorced
-          			<input type="radio" name="civilstat" value="widowed"> Widowed
-				</div>
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-green">Save changes</button>
-      </div>
-
-    </div>
-  </div>
-</div>
 
 				<div id="content" class="padding-20">
 

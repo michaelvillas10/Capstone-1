@@ -2,16 +2,15 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
-
+<section id="middle">
+  <div class="container">
       <header>
-       
-        <h4">Add Position</h4>
+        <h4>Add Position</h4>
       </header>
 
       <!-- Modal Body -->
       <form action="{{ url('/position/register') }}" method="POST">
       {{ csrf_field() }}
-      <div class="modal-body">
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
@@ -23,7 +22,6 @@
 		</div>
 
  
-      </div>
 
       <!-- Modal Footer -->
       <footer>
@@ -35,4 +33,6 @@
   </div>
 </div>
 </form>
+</div>
+</section>
 @stop

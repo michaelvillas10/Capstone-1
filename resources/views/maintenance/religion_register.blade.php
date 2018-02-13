@@ -3,7 +3,7 @@
 @extends('layout/header-main')  
 @section('content')
 <section class="middle">
-
+<div class="container">
       <!-- Modal Header -->
       <header>
         <h4">Add Religion</h4>
@@ -36,5 +36,6 @@
   </div>
 </div>
 </form>
+</div>
 </section> 
 @stop

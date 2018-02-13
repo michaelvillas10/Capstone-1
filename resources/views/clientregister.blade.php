@@ -4,7 +4,7 @@
 @section('content')
 
 <section id="middle">
-
+<div class="container">
 
 <form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
@@ -95,4 +95,5 @@
 
     </div>
 </form>
+</div>
 </section>

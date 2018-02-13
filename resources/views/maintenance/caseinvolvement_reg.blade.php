@@ -2,15 +2,15 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
-
+<section id="middle">
+<div class="container">
 <header>
-        <h4 class="modal-title" id="myModalLabel">Add Case Involvement</h4>
-</header>
-
+        <h4 class="modal-title" id="myModalLabel">Case Involvement</h4>
+</header><br>
+  
       <!-- Modal Body -->
       <form action="{{ url('caseinvolvement/register') }}" method="POST">
       {{ csrf_field() }}
-      <div class="modal-body">
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
@@ -19,7 +19,7 @@
 				</div>
 				
 			</div>
-		</div>
+		
 
  
       </div>
@@ -34,4 +34,6 @@
   </div>
 </div>
 </form>
+</div>
+</section>
 @stop

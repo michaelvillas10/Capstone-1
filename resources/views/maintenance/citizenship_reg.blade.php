@@ -2,7 +2,8 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
-
+  <section id="middle">
+    <div class="container">
       <!-- Modal Header -->
       <header>
         <h4>Add Citizenship</h4>
@@ -37,4 +38,6 @@
   </div>
 </div>
 </form>
+</div>
+</section>
 @stop

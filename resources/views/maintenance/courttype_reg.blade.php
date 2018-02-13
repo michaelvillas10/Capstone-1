@@ -2,28 +2,23 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
-
+<section id="middle">
+  <div class="container">
 <header>
         <h4>Add Court type</h4>
 </header>
       <!-- Modal Body -->
       <form action="{{ url('courttype/register') }}" method="POST">
       {{ csrf_field() }}
-      <div class="modal-body">
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
 					<input type="text" name="name" value="" class="form-control required">
 				</div>
-				<div class="col-md-4">
-					
-				</div>
 			</div>
 		</div>
 
- 
-      </div>
 
       <!-- Modal Footer -->
       <footer>
@@ -35,4 +30,6 @@
   </div>
 </div>
 </form>
+</div>
+</section>
 @stop

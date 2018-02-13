@@ -3,6 +3,8 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
+<section id="middle">
+  <div class="container">
 <header>
         <h4>Add Educational Attainment</h4>
 </header>
@@ -33,5 +35,6 @@
     </div>
   </div>
 </div>
-</form>
+</form></div>
+</section>
 @stop

@@ -2,7 +2,8 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')	
 @section('content')
-
+<section id="middle">
+	<div class="container">
 <header>
         <h4>Add Request</h4>
 </header>
@@ -100,4 +101,6 @@
     </div>
   </div>
 </div>
+</div>
+</section>
 @stop

@@ -2,7 +2,8 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')	
 @section('content')
-
+<section id="middle">
+	<div class="container">
 <header>
        
         <h4>Add Employee</h4>
@@ -64,3 +65,6 @@
   </div>
 </div>
 </form>
+</div>
+</section>
+@stop
