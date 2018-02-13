@@ -13,59 +13,12 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Court </li>
 						<div class="pull-right">
-							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Court </a>
+							<a  class="btn btn-green" href="#" ><i class="fa fa-plus"></i>New Court </a>
 						</div>
 					</ol>
 				</header>
 				<!-- /page title -->
-<div class="modal fade bs-example-modal-full" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Court </h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form action="{{ url('court/register') }}" method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control ">
-				</div>
-				<div class="col-md-4">
-					<label>Court type *</label>
-					<select name="type" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($courttypes as $ct)
-      <option value="{{$ct->name}}">{{$ct->name}}</option>
-    @endforeach
-					{{-- <option value="edu">Other</option> --}}
-					</select>
-				</div>
-				
-		</div>
-
- 
-      </div>
-  </div>
-
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green">Submit</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
 				<div id="content" class="padding-20">
 
 					<!-- 

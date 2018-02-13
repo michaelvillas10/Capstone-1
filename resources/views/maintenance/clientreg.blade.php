@@ -4,20 +4,13 @@
 @section('content')
 
 <section id="middle">
-
-
-				<!-- page title -->
-			
-				<!-- /page title -->
-<div>
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
-
+<div class="container">
+<br><br>
       <!-- Modal Header -->
-      <div class="modal-header">
+      <header>
       
-        <h4 class="modal-title" id="myModalLabel">Add Client</h4>
-      </div>
+        <h4>Add Client</h4>
+      </header>
 
       <!-- Modal Body -->
       <form action="{{ url('client/register') }}" id="client" method="POST">
@@ -148,22 +141,18 @@
       </div>
 
       <!-- Modal Footer -->
-      <div class="modal-footer">
+      <footer><center>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-green ">Next</button>
-         
-      </div>
+         <br><br><br><br></center>
+      </footer>
 </form>
 
-    </div>
-  </div>
+
+
+
+
 </div>
-
-
-
-
-
-
 			
 		<script type="text/javascript">
     window.onload = function() {

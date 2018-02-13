@@ -77,6 +77,8 @@ Route::get('/', function () {
 
 
 
-
+Route::get('/Distribution', function () {
+    return view('casedistribution');
+});
 
 

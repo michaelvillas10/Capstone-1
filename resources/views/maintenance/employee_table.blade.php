@@ -13,77 +13,12 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Employee </li>
 						<div class="pull-right">
-							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Employee</a>
+							<a  class="btn btn-green" href="#" ><i class="fa fa-plus"></i>New Employee</a>
 						</div>
 					</ol>
 				</header>
 				<!-- /page title -->
-<div class="modal fade bs-example-modal-full" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Employee</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form action="{{ url('employees') }}" method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>First Name *</label>
-					<input type="text" name="efname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Middle Name </label>
-					<input type="text" name="emname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Last Name *</label>
-					<input type="text" name="elname" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>E-mail *</label>
-					<input type="text" name="email" value="" class="form-control required">
-				</div>
-				<div class="col-md-4">
-					<label>Position *</label>
-					<select name="position" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
-					@foreach($positions as $position)
-      <option value="{{$position->name}}">{{$position->name}}</option>
-    @endforeach
-					{{-- <option value="edu">Other</option> --}}
-					</select>
-					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
-				
-				</div>
-				</div>
-				<div class="col-md-4">
-					<label>Contact No. *</label>
-					<input type="text" name="contact" value="" class="form-control required">
-				</div>
-				
-				
-			</div>
-		</div>
-
-    
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green">Submit</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
 				<div id="content" class="padding-20">
 
 					<!-- 

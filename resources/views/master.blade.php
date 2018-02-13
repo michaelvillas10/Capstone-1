@@ -260,16 +260,17 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").setMinDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").setMaxDate(e.date);
-        });
+        $('#datetimepicker6,#datetimepicker7').datetimepicker({
+  defaultDate:new Date(), 
+  pickTime: false
+});
+
+$("#datetimepicker6").on("dp.change",function (e) {
+   $('#datetimepicker7').data("DateTimePicker").setMinDate(e.date.add(1, 'D'));
+});
+$("#datetimepicker7").on("dp.change",function (e) {
+  $('#datetimepicker6').data("DateTimePicker").setMaxDate(e.date.add(1, 'D')); 
+});
     });
 
 </script>
