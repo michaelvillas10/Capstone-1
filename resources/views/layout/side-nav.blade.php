@@ -51,10 +51,11 @@
                         </li>
                         
                         <li>
-                            <a href="">
+                            <a href="/schedule/register">
                                 <i class="main-icon fa fa-calendar"></i> <span>Schedules</span>
                             </a>
-
+                        </li>
+                        <li>
                             <a href="">
                                 <i class="main-icon fa fa-database"></i> <span>Queries</span>
                             </a>
