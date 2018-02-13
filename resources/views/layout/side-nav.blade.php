@@ -21,26 +21,26 @@
                                 <i class="main-icon fa fa-gears"></i> <span>Maintenance</span>
                             </a>
                             <ul><!-- submenus -->
-                                <li><a href="/position/register">Position</a></li>
+                                <li><a href="/position/show">Position</a></li>
                                 <li><a href="/employees">Employees</a></li>
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i> Client Info</a>
                                     <ul>
                                 
                                 <li><a href="/religions">Religion </a></li>
                                 <li><a href="/citizenships">Citizenship </a></li>
-                             <li><a href="/language/register">Language Spoken</a></li>
-                                <li><a href="/education/register">Educational Attainment </a></li>
+                             <li><a href="/language/show">Language Spoken</a></li>
+                                <li><a href="/education/show">Educational Attainment </a></li>
                                 </li></ul>
                                 
                                
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
                               
-                              <li><a href="/court/register">Court  </a></li>    
-                             <li><a href="/courttype/register">Court type</a></li>
-                             <li><a href="/casecategory/register">Case Category </a></li>    
+                              <li><a href="/court/show">Court  </a></li>    
+                             <li><a href="/courttype/show">Court type</a></li>
+                             <li><a href="/casecategory/show">Case Category </a></li>    
                              <li><a href="/lawsuits">Case</a></li>
-                             <li><a href="/caseinvolvement/register">Case Involvement </a></li>
+                             <li><a href="/caseinvolvement/show">Case Involvement </a></li>
                              <li><a href="#">Case Type w</a></li>
                              <li><a href="#">Case Status w</a></li>
                                 
@@ -51,7 +51,7 @@
                         </li>
                         
                         <li>
-                            <a href="/schedule/register">
+                            <a href="/schedule/show">
                                 <i class="main-icon fa fa-calendar"></i> <span>Schedules</span>
                             </a>
                         </li>

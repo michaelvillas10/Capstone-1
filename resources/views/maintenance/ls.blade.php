@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Language Spoken </li>
 						<div class="pull-right">
-							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Language Spoken</a>
+							<a  class="btn btn-green" href="/language/register" ><i class="fa fa-plus"></i>New Language Spoken</a>
 						</div>
 					</ol>
 				</header>

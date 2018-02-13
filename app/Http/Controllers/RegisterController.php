@@ -232,10 +232,15 @@ public function showadverseregister(){
         //return redirect()->route('interviewees.create');
 
     }
-     public function showpositionregister(){
+     public function showposition(){
 
         $positions = Position::all();
         return view('maintenance.position')->withPositions($positions);
+    }
+     public function showpositionregister(){
+
+       
+        return view('maintenance.position_register');
     }
 
     public function positionregister(Request $request){
@@ -262,10 +267,17 @@ public function showadverseregister(){
         //return redirect()->route('interviewees.create');
 
     }
-     public function showeducationregister(){
+
+     public function showeducation(){
 
         $education = Education::all();
         return view('maintenance.education')->withEducations($education);
+    }
+
+     public function showeducationregister(){
+
+       
+        return view('maintenance.education_reg');
     }
 
     public function elregister(Request $request){
@@ -293,9 +305,13 @@ public function showadverseregister(){
        return redirect('/education/register');
 
     }
-     public function showlanguageregister(){
+     public function showlanguage(){
         $languages = Language::all();
         return view('maintenance.ls')->withLanguages($languages);
+    }
+     public function showlanguageregister(){
+     
+        return view('maintenance.ls_reg');
     }
 
     public function lsregister(Request $request){
@@ -322,9 +338,13 @@ public function showadverseregister(){
        return redirect('/language/register');
 
     }
-     public function showcasecategoryregister(){
-        $category = Category::all();
+     public function showcasecategory(){
+       $category = Category::all();
         return view('maintenance.casecategory')->withCategory($category);
+    }
+    public function showcasecategoryregister(){
+        
+        return view('maintenance.casecategory_reg');
     }
 
     public function ccregister(Request $request){
@@ -351,9 +371,13 @@ public function showadverseregister(){
        return redirect('/casecategory/register');
 
     }
-     public function showcaseinvolvementregister(){
+     public function showcaseinvolvement(){
         $involvement = Involvement::all();
         return view('maintenance.caseinvolvement')->withInvolvement($involvement);
+    }
+     public function showcaseinvolvementregister(){
+       
+        return view('maintenance.caseinvolvement_reg');
     }
 
     public function ciregister(Request $request){
@@ -415,9 +439,13 @@ public function showadverseregister(){
        return redirect('/schedule/register');
 
     }
-        public function showcourttyperegister(){
+     public function showcourttype(){
         $courttypes = courttype::all();
         return view('maintenance.courttype')->withcourttypes($courttypes);
+    }
+        public function showcourttyperegister(){
+       $courttypes = courttype::all();
+        return view('maintenance.courttype_reg')->withcourttypes($courttypes);
     }
 
     public function courttyperegister(Request $request){
@@ -444,11 +472,15 @@ public function showadverseregister(){
        return redirect('/courttype/register');
 
     }
-     public function showcourtregister(){
+     public function showcourt(){
         $courts = Court::all();
         $courttypes = courttype::all();
         return view('maintenance.court')->withCourts($courts)
         ->withcourttypes($courttypes);
+    }
+     public function showcourtregister(){
+       $courttypes = courttype::all();
+        return view('maintenance.court_reg') ->withcourttypes($courttypes);
     }
 
     public function courtregister(Request $request){
