@@ -11,6 +11,7 @@ use App\Category;
 use App\Position;
 use App\courttype;
 use App\Court;
+use Schedule;
 
 class DeleteController extends Controller
 {
@@ -76,6 +77,15 @@ class DeleteController extends Controller
         $cou->delete();
 
         return redirect('/court/register');
+    }
+     public function scheddelete($id)
+    {
+       
+        $sched = Schedule::find($id);
+        
+        $sched->delete();
+
+        return redirect('/schedule/register');
     }
 
 

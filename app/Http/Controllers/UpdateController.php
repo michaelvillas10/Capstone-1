@@ -10,6 +10,7 @@ use App\Category;
 use App\Position;
 use App\courttype;
 use App\Court;
+use App\Schedule;
 
 
 class UpdateController extends Controller
@@ -34,7 +35,7 @@ class UpdateController extends Controller
     	$client->save();
 
     	//Flashy::success('Succesfully edited guest', '#');
-        return redirect()->to('guest');
+        return redirect('/client/register');
     }
    
 
@@ -145,6 +146,22 @@ class UpdateController extends Controller
         
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/court/register');
+    }
+      public function schededit($id, Request $request)
+    {
+        $this->validate($request, [
+           
+        ]);
+ 
+        $sched = Schedule::find($id);
+
+        $sched-> name = $request->name;
+        $sched-> start = $request->start;
+        $sched-> end = $request->end;
+        $sched->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/schedule/register');
     }
 
     

@@ -380,6 +380,10 @@ public function showadverseregister(){
        return redirect('/caseinvolvement/register');
 
     }
+     public function schedule(){
+        $schedules = Schedule::all();
+        return view('maintenance.schedules')->withSchedules($schedules);
+    }
      public function showschedule(){
         $schedules = Schedule::all();
         return view('maintenance.showschedule')->withSchedules($schedules);

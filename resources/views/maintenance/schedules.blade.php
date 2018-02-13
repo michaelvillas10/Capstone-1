@@ -8,53 +8,17 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>Position </h1>
+					<h1>Schedule</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Position </li>
+						<li class="active">Schedule </li>
 						<div class="pull-right">
-							<button type="button" data-target=".bs-example-modal-full" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Position</a>
+							<a class="btn btn-green" href="{{url('/schedule/register')}}"><i class="fa fa-plus"></i>New Schedule</a>
 						</div>
 					</ol>
 				</header>
 				<!-- /page title -->
-<div class="modal .fade  bs-example-modal-full" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
 
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Add Position</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form action="{{ url('/position/register') }}" method="POST">
-      {{ csrf_field() }}
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control required">
-				</div>
-				
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green">Submit</button>
-      </div>
-
-    </div>
-  </div>
-</div>
-</form>
 				<div id="content" class="padding-20">
 
 					<!-- 
@@ -71,7 +35,7 @@
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>Position</strong> <!-- panel title -->
+								<strong>Schedule</strong> <!-- panel title -->
 							</span>
 
 							<!-- right options -->
@@ -98,41 +62,48 @@
 								<thead>
 									<tr>
 										<th>Name</th>
-										
+										<th>Start date and time</th>
+										<th>End date and time</th>
 										<th>Edit</th>
 										<th>Delete</th>
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($positions as $position)
+								@foreach ($schedules as $schedule)
 									<tr>
 										<td>
-											 {{$position->name}}
+											 {{$schedule->name}}
+										</td>
+										<td>
+											 {{$schedule->start}}
+										</td>
+										<td>
+											 {{$schedule->end}}
 										</td>
 									
 										<td>
-											  <button type="submit" data-target=".bs-example-modal-update{{ $position->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
+											  <button type="submit" data-target=".bs-example-modal-update{{ $schedule->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
 										</td>
 										<td>
-											<form action="{{ route('deletepos',$position->id) }}" method = "post">
+											<form action="{{ route('deletesched',$schedule->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletepos',$position->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletesched',$schedule->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>
-<div class="modal fade bs-example-modal-update{{ $position->id }}" id =".bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+<div class="modal fade bs-example-modal-update{{ $schedule->id }}" id =".bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-full">
     <div class="modal-content">
 
       <!-- Modal Header -->
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit Position</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit Schedule</h4>
       </div>
 
       <!-- Modal Body -->
-      <form id="update-language-form" action="{{ route('editpos',$position->id) }}" method="post">
+      <form id="update-language-form" action="{{ route('schededit',$schedule->id) }}" method="post">
       {{ csrf_field() }}
        <input type="hidden" name="_method" value="PUT">
       <div class="modal-body">
@@ -140,7 +111,7 @@
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="{{$position->name}}" class="form-control ">
+					<input type="text" name="name" value="{{$schedule->name}}" class="form-control ">
 				</div>
 				
 			</div>
