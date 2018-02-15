@@ -34,6 +34,11 @@ class Client extends Model
     {
     	return $this->hasOne(Interviewee::class);
     }
+     public function casetobehandled()
+    {
+        return $this->hasOne(casetobehandled::class);
+    }
+  
 
 
 }

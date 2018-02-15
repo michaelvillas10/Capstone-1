@@ -79,6 +79,9 @@ Route::get('/court/edit/{id}','UpdateController@showcouedit')->name('showcou');
 Route::put('/court/edit/{id}','UpdateController@couedit')->name('editcou');
 Route::delete('/court/delete/{id}','DeleteController@coudelete')->name('delcou');
 
+Route::get('request/approve/{id}','RequestController@approve')->name('request.approve');
+Route::get('request/view','RequestController@view')->name('request.view');
+
 
 
 //Route::resource('clients', 'ClientController');

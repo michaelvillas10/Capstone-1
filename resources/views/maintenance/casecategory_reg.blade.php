@@ -5,7 +5,7 @@
 <section id="middle">
   <div class="container">
 <header>
-       <h4>Add Category</h4>
+       <h5>Add Category</h5>
 </header>
 
       <!-- Modal Body -->

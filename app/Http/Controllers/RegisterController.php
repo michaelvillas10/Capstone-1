@@ -25,9 +25,25 @@ use DB;
 
 class RegisterController extends Controller
 {
+   // $event = Event::where('status', '1')->with('sponsor')->first();
+        
+        //$guest = Guest::where('group_id',$group->id)->get();
+      
+
+        // return $schedule;
+        // if(empty($event))
+        // {
+       
+        //     return view('maintenance');
+        // }
+        // else{
+        // $schedule = Schedule::where('event_id', $event->id)->with('speaker')->get();
+        // $group = Group::where('event_id', $event->id)->get();
+        
     
 public function showreqtable(){
-    $clients = Client::orderBy('cllname','asc')->get();
+    $clients = Client::where('cl_status','Pending')->orderBy('cllname','asc')->get();
+    //->with('casetobehandled')->with('adverse');
         
     return view('maintenance.client_table')->withClients($clients);
 }

@@ -56,12 +56,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="main-icon fa fa-database"></i> <span>Queries</span>
                             </a>
                         </li>
                         <li>
-                            <a href="">
+                            <a href="#">
                                 <i class="main-icon fa fa-print"></i> <span>Reports</span>
                             </a>
                         </li>

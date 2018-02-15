@@ -8,10 +8,10 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>CLIENT TABLE</h1>
+					<h1>Request TABLE</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Client tables</li>
+						<li class="active">Request tables</li>
 						<div class="pull-right">
 							<a  class="btn btn-green" href="/client/register" ><i class="fa fa-plus"></i> New Request</a>
 						</div>
@@ -77,8 +77,8 @@
 										<th>Full Name</th>
 										<th>Nature of Request</th>
 										<th>Email</th>
-										<th>Edit</th>
-										<th>Delete</th>
+										<th>Approve</th>
+										<th>Deny</th>
 									</tr>
 								</thead>
 				
@@ -87,7 +87,10 @@
 									<tr>
 									
 										<td>
-											 {{$client->cllname}}, {{$client->clfname}}, {{$client->clmname}}
+											 {{$client->cllname}}, {{$client->clfname}}  @if ( $client->clmname != "none" )
+											 ,{{$client->clmname}}
+											 @endif
+											 
 										</td>
 										<td>
 											 {{$client->clcontact}}
@@ -96,12 +99,12 @@
 											 {{$client->clemail}}
 										</td>
 										<td>
-											<a class="edit" href="javascript:;">
-											Edit </a>
+											<a  href="{{route('request.approve',$client->id)}}">
+											Approve </a>
 										</td>
 										<td>
 											<a class="delete" href="javascript:;">
-											Delete </a>
+											Deny </a>
 										</td>
 									</tr>
 								@endforeach	
