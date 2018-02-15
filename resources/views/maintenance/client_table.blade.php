@@ -99,11 +99,11 @@
 											 {{$client->clemail}}
 										</td>
 										<td>
-											<a  href="{{route('request.approve',$client->id)}}">
+											<a class = "btn btn-success" href="{{route('request.approve',$client->id)}}">
 											Approve </a>
 										</td>
 										<td>
-											<a class="delete" href="javascript:;">
+											<a  class = "btn btn-danger" href="javascript:;">
 											Deny </a>
 										</td>
 									</tr>
