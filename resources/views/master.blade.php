@@ -75,7 +75,11 @@
 
         </div>
 
-
+                <footer class="footer">
+                        <div class="row">   <br>
+                    <STRONG><h4 class="pull-right">PUBLIC ATTORNEY'S OFFICE</h4></STRONG>
+                    </div>
+                </footer>
 
     
         <!-- JAVASCRIPT FILES -->
