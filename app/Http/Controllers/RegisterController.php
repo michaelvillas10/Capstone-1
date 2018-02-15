@@ -260,7 +260,7 @@ public function showadverseregister(){
         $position->save();
        
      
-        return redirect('/position/register');
+        return redirect('/position/show');
         
 
    
@@ -302,7 +302,7 @@ public function showadverseregister(){
         
 
    
-       return redirect('/education/register');
+       return redirect('/education/show');
 
     }
      public function showlanguage(){
@@ -335,7 +335,7 @@ public function showadverseregister(){
         
 
    
-       return redirect('/language/register');
+       return redirect('/language/show');
 
     }
      public function showcasecategory(){
@@ -368,12 +368,12 @@ public function showadverseregister(){
         
 
    
-       return redirect('/casecategory/register');
+       return redirect('/casecategory/show');
 
     }
      public function showcaseinvolvement(){
-        $involvement = Involvement::all();
-        return view('maintenance.caseinvolvement')->withInvolvement($involvement);
+        $involvements = Involvement::all();
+        return view('maintenance.caseinvolvement')->withInvolvements($involvements);
     }
      public function showcaseinvolvementregister(){
        
@@ -401,7 +401,7 @@ public function showadverseregister(){
         
 
    
-       return redirect('/caseinvolvement/register');
+       return redirect('/caseinvolvement/show');
 
     }
      public function schedule(){
@@ -436,7 +436,7 @@ public function showadverseregister(){
         
 
    
-       return redirect('/schedule/register');
+       return redirect('/schedule/show');
 
     }
      public function showcourttype(){
@@ -469,7 +469,7 @@ public function showadverseregister(){
         
 
    
-       return redirect('/courttype/register');
+       return redirect('/courttype/show');
 
     }
      public function showcourt(){
@@ -505,7 +505,7 @@ public function showadverseregister(){
         
 
    
-       return redirect('/court/register');
+       return redirect('/court/show');
 
     }
 

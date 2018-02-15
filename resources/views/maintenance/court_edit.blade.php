@@ -5,16 +5,17 @@
 <section id="middle">
   <div class="container">
 <header>
-        <h4>Add Court </h4>
+        <h4> Edit Court </h4>
 </header>
       <!-- Modal Body -->
-      <form action="{{ url('court/register') }}" method="POST">
+      <form action="{{ route('editcou', $courts->id) }}" method="POST">
       {{ csrf_field() }}
+      {{ method_field('PUT') }}
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control ">
+					<input type="text" name="name" value="{{$courts->name}}" class="form-control ">
 				</div>
 				<div class="col-md-4">
 					<label>Court type *</label>

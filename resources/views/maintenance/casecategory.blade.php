@@ -75,7 +75,7 @@
 										</td>
 										
 										<td>
-											  <a class="btn btn-sm btn-warning update-button" href="/position/register" ><i class="fa fa-pencil"></i> Edit</a>
+											  <a class="btn btn-sm btn-warning update-button" href="{{ route('showcc',$casecategories->id) }}" ><i class="fa fa-pencil"></i> Edit</a>
 										</td>
 										<td>
 											<form action="{{ route('deletecat',$casecategories->id) }}" method = "post">

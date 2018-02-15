@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active"> Educational Attainment </li>
 						<div class="pull-right">
-							<a href ="/education/register" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i>New Educational Attainment</a>
+							<a href ="/education/register" class="btn btn-sm btn-green" ><i class="fa fa-plus"></i>New Educational Attainment</a>
 						</div>
 					</ol>
 				</header>
@@ -75,7 +75,7 @@
 										</td>
 										
 										<td>
-											   <a class="btn btn-sm btn-warning update-button" href="/position/register" ><i class="fa fa-pencil"></i> Edit</a>
+											   <a class="btn btn-sm btn-warning update-button" href="{{ route('showeduc',$education->id) }}" ><i class="fa fa-pencil"></i> Edit</a>
 										</td>
 										<td>
 											<form action="{{ route('deleteeduc',$education->id) }}" method = "post">

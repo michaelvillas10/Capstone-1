@@ -9,13 +9,14 @@
 </header><br>
   
       <!-- Modal Body -->
-      <form action="{{ url('caseinvolvement/register') }}" method="POST">
+      <form action="{{ route('editinvo', $involvements->id) }}" method="POST">
       {{ csrf_field() }}
+      {{ method_field('PUT') }}
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control required">
+					<input type="text" name="name" value="{{$involvements->name}}" class="form-control required">
 				</div>
 				
 			</div>

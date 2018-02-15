@@ -5,17 +5,18 @@
 <section id="middle">
 <div class="container">
       <header>
-        <h4 class="modal-title" id="myModalLabel">Add Language Spoken</h4>
+        <h4 class="modal-title" id="myModalLabel">Edit Language Spoken</h4>
       </header>
 <br>
       <!-- Modal Body -->
-      <form action="{{ url('/language/register') }}" method="POST">
+      <form action="{{ route('editlang', $languages->id) }}" method="POST">
       {{ csrf_field() }}
+      {{ method_field('PUT') }}
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control required">
+					<input type="text" name="name" value="{{$languages->name}}" class="form-control required">
 				</div>
 				
 			</div>

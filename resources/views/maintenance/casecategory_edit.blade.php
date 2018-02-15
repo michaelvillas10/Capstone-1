@@ -5,17 +5,18 @@
 <section id="middle">
   <div class="container">
 <header>
-       <h4>Add Category</h4>
+       <h4>Edit Category</h4>
 </header>
 
       <!-- Modal Body -->
-      <form action="{{ url('casecategory/register') }}" method="POST">
+      <form action="{{ route('editcat', $category->id) }}" method="POST">
       {{ csrf_field() }}
+      {{ method_field('PUT') }}
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control required">
+					<input type="text" name="name" value="{{$category->name}}" class="form-control required">
 				</div>
 				
 			</div>

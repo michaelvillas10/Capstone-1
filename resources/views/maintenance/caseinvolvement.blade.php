@@ -68,15 +68,15 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($involvement as $involve)
+								@foreach ($involvements as $involve)
 									<tr>
 										<td>
 											 {{$involve->name}}
 										</td>
 										
 										<td>
-											  <a class="btn btn-sm btn-warning update-button" href="/position/register" ><i class="fa fa-pencil"></i> Edit</a>
-											 <button type="submit" data-target=".bs-example-modal-update{{ $involve->id }}" class="btn btn-sm btn-warning update-button" data-toggle="modal" ><i class="fa fa-pencil"></i> Edit</a>
+											  <a class="btn btn-sm btn-warning update-button" href="{{ route('showci',$involve->id) }}" ><i class="fa fa-pencil"></i> Edit</a>
+											
 										</td>
 										<td>
 											<form action="{{ route('deleteinvo',$involve->id) }}" method = "post">
