@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Citizenship </li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="#" ><i class="fa fa-plus"></i>New Citizenship</a>
+							<a  class="btn btn-green" href="{{url('citizenships/create')}}" ><i class="fa fa-plus"></i>New Citizenship</a>
 						</div>
 					</ol>
 				</header>

@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Religion </li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="#" ><i class="fa fa-plus"></i>New Religion</a>
+							<a  class="btn btn-green" href="{{url('religions/create')}}" ><i class="fa fa-plus"></i>New Religion</a>
 						</div>
 					</ol>
 				</header>

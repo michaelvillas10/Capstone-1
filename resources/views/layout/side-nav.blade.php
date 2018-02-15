@@ -22,12 +22,12 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/position/show">Position</a></li>
-                                <li><a href="/employees">Employees</a></li>
+                                <li><a href="/employees">Employees w</a></li>
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i> Client Info</a>
                                     <ul>
                                 
-                                <li><a href="/religions">Religion </a></li>
-                                <li><a href="/citizenships">Citizenship </a></li>
+                                <li><a href="/religions">Religion w </a></li>
+                                <li><a href="/citizenships">Citizenship w</a></li>
                              <li><a href="/language/show">Language Spoken</a></li>
                                 <li><a href="/education/show">Educational Attainment </a></li>
                                 </li></ul>

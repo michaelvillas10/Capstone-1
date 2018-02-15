@@ -26,7 +26,7 @@ class CitizenshipController extends Controller
      */
     public function create()
     {
-        //
+         return view('maintenance.citizenship_reg');
     }
 
     /**

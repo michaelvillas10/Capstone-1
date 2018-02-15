@@ -7,10 +7,10 @@
 <div class="container">
 <br><br>
       <!-- Modal Header -->
-      <header>
+     <center> <header>
       
         <h4>Add Client</h4>
-      </header>
+      </header></center>
 
       <!-- Modal Body -->
       <form action="{{ url('client/register') }}" id="client" method="POST">

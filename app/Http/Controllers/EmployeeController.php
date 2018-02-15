@@ -29,7 +29,10 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+         $employees = Employee::all();
+         $positions = Position::orderBy('name','asc')->get();
+         return view('maintenance.employee_register')->withEmployees($employees)
+        ->withPositions($positions);
     }
 
     /**

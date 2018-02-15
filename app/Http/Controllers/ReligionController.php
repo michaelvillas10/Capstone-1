@@ -26,7 +26,7 @@ class ReligionController extends Controller
      */
     public function create()
     {
-        //
+         return view('maintenance.religion_register');
     }
 
     /**

@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Employee </li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="/employees" ><i class="fa fa-plus"></i>New Employee</a>
+							<a  class="btn btn-green" href="{{url('employees/create')}}" ><i class="fa fa-plus"></i>New Employee</a>
 						</div>
 					</ol>
 				</header>
