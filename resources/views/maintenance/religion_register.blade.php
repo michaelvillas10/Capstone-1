@@ -5,14 +5,13 @@
 <section class="middle">
 <div class="container">
       <!-- Modal Header -->
-      <header>
-        <h4">Add Religion</h4>
+      <header><br>
+        <h4>Add Religion</h4><br>
       </header>
 
       <!-- Modal Body -->
       <form action="{{ url('religions') }}" method="POST">
       {{ csrf_field() }}
-      <div class="modal-body">
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
@@ -24,13 +23,13 @@
 		</div>
 
  
-      </div>
+      
 
       <!-- Modal Footer -->
-      <div class="modal-footer">
+      <footer>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <button type="submit" class="btn btn-green">Submit</button>
-      </div>
+      </footer>
 
     </div>
   </div>
