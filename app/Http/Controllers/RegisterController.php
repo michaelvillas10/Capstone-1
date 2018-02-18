@@ -159,23 +159,26 @@ public function showreqtable(){
               
               
         //         ));
-        $clients = Client::find($id)->orderBy('id','desc')->take(1)->get();
+        $clients = Client::select('id')->orderBy('id','desc')->take(1)->get();
+        foreach ($clients as $key => $client) {
+          
+        
             
             $casetobehandled = new casetobehandled;
     
        
         $casetobehandled-> casename = $request->lawsuit;
         $casetobehandled-> interviewer = $request->employee;
-         $casetobehandled-> nature_of_case ="w";
+         $casetobehandled-> nature_of_case =$request->casetype;
        
         $casetobehandled-> clcase_involvement = $request->involvement;
         $casetobehandled-> clcomplainant_victim_of = $request->Category;
        
       
-             $casetobehandled-> clients_id = $clients; 
+             $casetobehandled-> clients_id = $client->id; 
        
             
-        
+        }
        
        
         $casetobehandled->save();
@@ -220,16 +223,18 @@ public function showadverseregister(){
          
           $adverse = new Adverse;
       
-       $casetbh = casetobehandled::find($id)->orderBy('id','desc')->take(1)->get();
+       $casetbh = casetobehandled::select('id')->orderBy('id','desc')->take(1)->get();
+     foreach ($casetbh as $key => $casetb) {
+   
      
         $adverse-> advprtyfname = $request->fname;
         $adverse-> advprtymname = $request->mname;
         $adverse-> advprtylname = $request->lname;
         $adverse-> advprtyaddress = $request->addr;
         $adverse-> advprtytype = $request->atype;
-        $adverse-> casetobehandleds_id = $casetbh;
+        $adverse-> casetobehandleds_id = $casetb->id;
        
-        
+        }
       
         $adverse->save();
 
