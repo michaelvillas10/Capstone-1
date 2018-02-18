@@ -333,7 +333,7 @@ h3,
 h4,
 h5,
 h6 {
-	margin:0;
+	margin:0;  color:#000;
 	margin: 0 0 30px 0;
 	line-height:1.5;
 	-webkit-font-smoothing: antialiased;
@@ -360,7 +360,7 @@ h4 {
 h5 {
 	font-size: 1em;
 	letter-spacing: normal;
-	margin: 0 35px 20px 0;
+	margin: 0 0 20px 0;
 }
 
 h6 {
