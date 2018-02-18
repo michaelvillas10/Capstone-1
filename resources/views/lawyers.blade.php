@@ -45,7 +45,7 @@
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>Layers</strong> <!-- panel title -->
+								<strong>Lawyers</strong> <!-- panel title -->
 							</span>
 
 							<!-- right options -->
@@ -73,15 +73,15 @@
 								<thead>
 									<tr>
 										<th>Handle Case</th>
-										<th>Layer Name</th>
-										<th>Case COunt</th>
+										<th>Lawyer Name</th>
+										<th>Case Count</th>
 									</tr>
 								</thead>
 								<tbody>
 									<tr>
-										<td><input type="checkbox" name="handled case"></td>
-										<td>ryan</td>
-										<td>baog</td>
+										<td><input type="checkbox" name="handled case[]"></td>
+										<td></td>
+										<td></td>
 									</tr>
 								</tbody>
 						

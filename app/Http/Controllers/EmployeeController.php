@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Employee;
 use App\Position;
+use App\Lawyer;
 
 class EmployeeController extends Controller
 {
@@ -50,7 +51,18 @@ class EmployeeController extends Controller
         $employee-> emname = $request->emname;
         $employee-> elname = $request->elname;
         $employee-> email = $request->email;
+
         $employee-> position = $request->position;
+        $employ = Employee::select('id')->orderBy('id','desc')->take(1)->get();
+        foreach ($employ as $key => $value) {
+             if ($request->position = "Lawyer"||"lawyer") {
+           $lawyer = new Lawyer;
+           $lawyer-> employees_id = $value->id;
+
+            $lawyer->save();
+        }
+        }
+       
         $employee-> contact = $request->contact;
         $employee-> clients_id = $request->clients_id;
         
