@@ -97,7 +97,7 @@
 										{{--	 {{$client->clemail}}  --}}
 										</td>
 										<td>
-											<a class = "btn btn-primary" href="">
+											<a class = "btn btn-green" href="">
 											Case Transfer </a>
 										</td>
 										

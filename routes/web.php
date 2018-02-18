@@ -110,3 +110,6 @@ Route::get('/approve/show', function () {
     return view('approvedtbl');
 });
 
+Route::get('lawyers', function () {
+    return view('lawyers');
+});

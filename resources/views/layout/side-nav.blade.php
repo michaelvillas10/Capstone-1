@@ -21,7 +21,7 @@
                                 <i class="main-icon fa fa-briefcase"></i> <span>Case </span>
                             </a>
                             <ul><!-- submenus -->
-                                <li><a href="#">Lawyers</a></li>
+                                <li><a href="lawyers">Lawyers</a></li>
                                 <li><a href="#">Manage Case</a></li>
                                </ul>
                         </li>

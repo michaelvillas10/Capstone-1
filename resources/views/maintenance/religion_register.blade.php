@@ -2,7 +2,7 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
-<section class="middle">
+<section id="middle">
 <div class="container">
       <!-- Modal Header -->
       <header><br>
