@@ -6,14 +6,24 @@
                             </a>
                         </li>
                         <li>
-                            <a href="/client/show">
-                                <i class="main-icon fa fa-bar-chart-o"></i> <span>Request</span>
+                            <a href="#">
+                                <i class="fa fa-menu-arrow pull-right"></i>
+                                <i class="main-icon fa fa-chart o"></i> <span>Request </span>
                             </a>
+                            <ul><!-- submenus -->
+                                <li><a href="/client/show">New Request</a></li>
+                                <li><a href="/approve/show">Approved Requests</a></li>
+                               </ul>
                         </li>
                        <li>
-                            <a href="/Distribution">
-                                <i class="main-icon fa fa-briefcase"></i> <span>Case Distribution</span>
+                            <a href="#">
+                                <i class="fa fa-menu-arrow pull-right"></i>
+                                <i class="main-icon fa fa-briefcase"></i> <span>Case </span>
                             </a>
+                            <ul><!-- submenus -->
+                                <li><a href="#">Lawyers</a></li>
+                                <li><a href="#">Manage Case</a></li>
+                               </ul>
                         </li>
                          <li class="submenu">
                             <a href="#">

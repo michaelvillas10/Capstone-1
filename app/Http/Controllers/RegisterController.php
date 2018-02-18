@@ -42,8 +42,11 @@ class RegisterController extends Controller
         
     
 public function showreqtable(){
-    $clients = Client::where('cl_status','Pending')->orderBy('cllname','asc')->get();
-    //->with('casetobehandled')->with('adverse');
+    $clients = Client::where('cl_status','Pending')->orderBy('cllname','asc')
+    // ->with('casetobehandled')
+    // ->with('adverse')
+    ->get();
+   
         
     return view('maintenance.client_table')->withClients($clients);
 }
@@ -156,7 +159,7 @@ public function showreqtable(){
               
               
         //         ));
-       $clients = DB::table('clients')->select('id')->orderBy('id','desc')->take(1)->get();
+        $clients = Client::find($id)->orderBy('id','desc')->take(1)->get();
             
             $casetobehandled = new casetobehandled;
     
@@ -217,14 +220,14 @@ public function showadverseregister(){
          
           $adverse = new Adverse;
       
-       
+       $casetbh = casetobehandled::find($id)->orderBy('id','desc')->take(1)->get();
      
- $adverse-> advprtyfname = $request->fname;
+        $adverse-> advprtyfname = $request->fname;
         $adverse-> advprtymname = $request->mname;
         $adverse-> advprtylname = $request->lname;
         $adverse-> advprtyaddress = $request->addr;
         $adverse-> advprtytype = $request->atype;
-        $adverse-> casetobehandleds_id = "1";
+        $adverse-> casetobehandleds_id = $casetbh;
        
         
       

@@ -80,8 +80,12 @@ Route::put('/court/edit/{id}','UpdateController@couedit')->name('editcou');
 Route::delete('/court/delete/{id}','DeleteController@coudelete')->name('delcou');
 
 Route::get('request/approve/{id}','RequestController@approve')->name('request.approve');
-Route::get('request/view','RequestController@view')->name('request.view');
+Route::get('request/view/{id}','RequestController@view')->name('request.view');
+Route::get('request/deny/{id}','RequestController@deny')->name('request.deny');
+Route::get('request/casetransfer/{id}','RequestController@transfer')->name('request.transfer');
+Route::get('request/lawyers/{id}','RequestController@availablelawyer')->name('request.lawyer');
 
+Route::get('approve/show/{id}','RequestController@approvedtbl')->name('approvedtbl');
 
 
 //Route::resource('clients', 'ClientController');
@@ -102,4 +106,7 @@ Route::get('/Distribution', function () {
     return view('casedistribution');
 });
 
+Route::get('/approve/show', function () {
+    return view('approvedtbl');
+});
 

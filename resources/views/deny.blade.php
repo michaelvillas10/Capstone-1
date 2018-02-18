@@ -8,7 +8,7 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>TRANSFER CASE</h1>
+					<h1>NOT QUALIFIED FORM</h1>
 					
 			</header>
 
@@ -42,42 +42,13 @@
 									
 										<form>
 											<div class="form-group">
-										<label>Case Name :</label>
-										</div>
-										<div class="form-group">
-										<label>Interviewer :</label>
-										</div>
-										<div class="form-group">
-										<label>Nature of Request :</label>
-										</div>
-										<div class="form-group">
-										<label>Case Category :</label>
-										</div>
-										<div class="form-group">
-										<label>Nature of Case :</label>
-										</div>
-										<div class="form-group">
-										<label>Case Involvement :</label>
-										</div>
+									<p>Sorry but you are not qualified to be a client of PAO</p>
 											</form>
 										</div>
 										</div>
 										</div>
 								<div class="col-md-6">
-							<div class="card">
-								<div class="container">
-									
-								<h1>Lawyer Names</h1>
-								<select style="width: 50%">
-									<option></option>
-									<option>Lawyer Names</option>
-								</select>
-								<br><br>
-        						<button type="submit" style="align-items: center;" class="btn btn-green"/>TRANSFER
-							</div>
-	
-								<br><br>
-						</div><br>
+							
 						</div>
 						
 										</div>

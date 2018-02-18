@@ -22,10 +22,7 @@ class Client extends Model
     {
     	return $this->hasOne(Education::class);
     }
-     public function casetbh()
-    {
-    	return $this->hasMany(casetobehandled::class);
-    }
+    
     public function lawyer()
     {
     	return $this->hasOne(Lawyer::class);

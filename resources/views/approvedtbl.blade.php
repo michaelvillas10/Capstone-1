@@ -8,13 +8,11 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>Request TABLE</h1>
+					<h1>Approved Requests</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Request tables</li>
-						<div class="pull-right">
-							<a  class="btn btn-green" href="/client/register" ><i class="fa fa-plus"></i> New Request</a>
-						</div>
+						<li class="active">Approved Requests</li>
+						
 					</ol>
 				</header>
 				<!-- /page title -->
@@ -77,42 +75,38 @@
 										<th>Full Name</th>
 										<th>Nature of Request</th>
 										<th>Email</th>
-										<th>Approve</th>
-										<th>Deny</th>
+										<th>Case Transfer</th>
 										<th>View</th>
 									</tr>
 								</thead>
 				
 								<tbody>
-								@foreach ($clients as $client)
+								{{--@foreach ($clients as $client)--}}
 									<tr>
 									
 										<td>
-											 {{$client->cllname}}, {{$client->clfname}}  @if ( $client->clmname != "none" )
+										{{--	 {{$client->cllname}}, {{$client->clfname}}  @if ( $client->clmname != "none" )
 											 ,{{$client->clmname}}
 											 @endif
-											 
+											 --}}
 										</td>
 										<td>
-											 {{$client->clcontact}}
+										{{--	 {{$client->clcontact}}  --}}
 										</td>
 										<td class="center">
-											 {{$client->clemail}}
+										{{--	 {{$client->clemail}}  --}}
 										</td>
 										<td>
-											<a class = "btn btn-success" href="{{route('request.approve',$client->id)}}">
-											Approve </a>
+											<a class = "btn btn-primary" href="">
+											Case Transfer </a>
 										</td>
+										
 										<td>
-											<a  class = "btn btn-danger" href="{{route('request.deny',$client->id)}}">
-											Deny </a>
-										</td>
-										<td>
-											<a  class = "btn btn-info" href="{{route('request.view',$client->id)}}">
+											<a  class = "btn btn-info" href="">
 											View </a>
 										</td>
 									</tr>
-								@endforeach	
+								
 								</tbody>
 								
 							</table>
