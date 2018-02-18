@@ -77,7 +77,7 @@
 
                 <footer class="footer">
                         <div class="row">   <br>
-                    <STRONG><h5 class="pull-right">PUBLIC ATTORNEY'S OFFICE</h5></STRONG>
+                    <STRONG><h4 class="pull-right">PUBLIC ATTORNEY'S OFFICE</h4></STRONG>
                     </div>
                 </footer>
 

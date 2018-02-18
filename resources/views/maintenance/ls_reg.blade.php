@@ -4,8 +4,8 @@
 @section('content')
 <section id="middle">
 <div class="container">
-      <header><br>
-        <h4 class="modal-title" id="myModalLabel">Add Language Spoken</h4><br>
+      <header>
+        <h4 class="modal-title" id="myModalLabel">Add Language Spoken</h4>
       </header>
 <br>
       <!-- Modal Body -->

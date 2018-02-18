@@ -5,8 +5,8 @@
 @section('content')
 <section id="middle">
   <div class="container">
-<header><br>
-        <h4>Add Educational Attainment</h4><br>
+<header>
+        <h4>Add Educational Attainment</h4>
 </header>
 
       <!-- Modal Body -->

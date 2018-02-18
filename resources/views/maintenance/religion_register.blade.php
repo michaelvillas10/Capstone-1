@@ -5,8 +5,8 @@
 <section class="middle">
 <div class="container">
       <!-- Modal Header -->
-      <header><br>
-        <h4>Add Religion</h4><br>
+      <header>
+        <h4>Add Religion</h4>
       </header>
 
       <!-- Modal Body -->
