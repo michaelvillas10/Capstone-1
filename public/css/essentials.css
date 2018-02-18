@@ -337,7 +337,6 @@ h6 {
 	margin: 0 0 30px 0;
 	line-height:1.5;
 	-webkit-font-smoothing: antialiased;
-	 color: #eeeeee;
 }
 
 h1 {
@@ -368,13 +367,19 @@ h6 {
 	letter-spacing: normal;
 	margin: 0 0 20px 0;
 }
-
+h7 {
+	font-size: 1em;
+	letter-spacing: normal;
+	margin: 0 35px 20px 0;
+	color: white;
+}
 h1 > span,
 h2 > span,
 h3 > span,
 
 h5 > span,
-h6 > span { 
+h6 > span,
+h7 > span { 
 	color: #1ABC9C; 
 }
 

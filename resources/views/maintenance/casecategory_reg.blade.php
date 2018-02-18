@@ -4,8 +4,8 @@
 @section('content')
 <section id="middle">
   <div class="container">
-<header>
-       <h5>Add Category</h5>
+<header><br>
+       <h4>Add Category</h4>
 </header>
 
       <!-- Modal Body -->

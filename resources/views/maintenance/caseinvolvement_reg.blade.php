@@ -4,7 +4,7 @@
 @section('content')
 <section id="middle">
 <div class="container">
-<header>
+<header><br>
         <h4 class="modal-title" id="myModalLabel">Case Involvement</h4>
 </header><br>
   

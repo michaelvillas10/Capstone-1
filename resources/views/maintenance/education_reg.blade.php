@@ -5,7 +5,7 @@
 @section('content')
 <section id="middle">
   <div class="container">
-<header>
+<header><br>
         <h4>Add Educational Attainment</h4>
 </header>
 

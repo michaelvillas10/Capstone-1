@@ -4,7 +4,7 @@
 @section('content')
 <section id="middle">
   <div class="container">
-<header>
+<header><br>
         <h4>Add Court type</h4>
 </header>
       <!-- Modal Body -->

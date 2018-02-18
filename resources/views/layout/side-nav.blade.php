@@ -8,7 +8,7 @@
                         <li>
                             <a href="#">
                                 <i class="fa fa-menu-arrow pull-right"></i>
-                                <i class="main-icon fa fa-chart o"></i> <span>Request </span>
+                                <i class="main-icon fa fa-folder"></i> <span>Request </span>
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/client/show">New Request</a></li>
