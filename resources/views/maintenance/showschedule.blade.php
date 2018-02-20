@@ -44,10 +44,10 @@
         </div>
     </div>
     <center>
-    <div class="footer"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <footer><br><br><br><br><br><br><br><br>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
         <button type="submit" class="btn btn-green"/>Submit
-      </div></center></form>
+      </footer></center></form>
 </div>
 </section>  
 @stop

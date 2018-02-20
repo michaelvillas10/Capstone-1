@@ -32,9 +32,7 @@
         <button type="submit" class="btn btn-green">Submit</button>
       </div>
 
-    </div>
-  </div>
-</div>
+   
 </form>
 </div>
 </section> 

@@ -332,7 +332,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+h7 {
 	margin:0;  color:#000;
 	margin: 0 0 30px 0;
 	line-height:1.5;
@@ -370,7 +371,7 @@ h6 {
 h7 {
 	font-size: 1em;
 	letter-spacing: normal;
-	margin: 0 35px 20px 0;
+	margin: 0 55px 20px 0;
 	color: white;
 }
 h1 > span,
@@ -879,6 +880,7 @@ video.fullvideo 		{ width:100%; height:100%; }
 .parallax h4,
 .parallax h5,
 .parallax h6,
+.parallax h7,
 .parallax p,
 .parallax .btn,
 .parallax img,
@@ -7114,6 +7116,7 @@ section.dark .dropdown-menu>li>a>h3,
 section.dark .dropdown-menu>li>a>h4,
 section.dark .dropdown-menu>li>a>h5,
 section.dark .dropdown-menu>li>a>h6,
+section.dark .dropdown-menu>li>a>h7,
 section.dark .note-popover .popover .popover-content .note-para .dropdown-menu i.fa, 
 section.dark .note-toolbar .note-para .dropdown-menu i.fa {
 	color:#000;
@@ -7263,12 +7266,14 @@ div.alert.alert-dark {
 	div.alert.alert-theme-color h4,
 	div.alert.alert-theme-color h5,
 	div.alert.alert-theme-color h6,
+	div.alert.alert-theme-color h7,
 	div.alert.alert-dark h1,
 	div.alert.alert-dark h2,
 	div.alert.alert-dark h3,
 	div.alert.alert-dark h4,
 	div.alert.alert-dark h5,
-	div.alert.alert-dark h6 {
+	div.alert.alert-dark h6,
+	div.alert.alert-dark h7 {
 		color:#fff;
 	}
 
@@ -8280,7 +8285,8 @@ img.mfp-img {
 	.lightbox-ajax >h3,
 	.lightbox-ajax >h4,
 	.lightbox-ajax >h5,
-	.lightbox-ajax >h6 {
+	.lightbox-ajax >h6,
+	.lightbox-ajax >h7 {
 		background-color: #F9F9F9;
 		border-bottom: 1px solid #EEE;
 		padding: 20px 30px;

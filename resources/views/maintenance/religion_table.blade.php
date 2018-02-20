@@ -75,7 +75,52 @@
 										</td>
 										 
 										<td>
-											  <a class="btn btn-sm btn-warning update-button" href="/position/register" ><i class="fa fa-pencil"></i> Edit</a>
+											  <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg">
+											  	<i class="fa fa-pencil"></i> Edit</button>
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+						<div class="modal-dialog modal-lg">
+							<div class="modal-content">
+
+								<!-- header modal -->
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+									<h4 class="modal-title" id="myLargeModalLabel">Edit Religion</h4>
+								</div>
+
+								<!-- body modal -->
+								<div class="modal-body">
+				 
+
+						      <!-- Modal Body -->
+						      <form action="{{ url('religions') }}" method="POST">
+						      {{ csrf_field() }}
+						      	<div class="row">
+									<div class="form-group">
+										<div class="col-md-4">
+														</div>
+										<div class="col-md-4">
+											<label>Name *</label>
+											<input type="text" name="name" value="" class="form-control required">
+										</div>
+										
+									</div>
+								</div>
+
+						 </form>
+						      </div>
+
+						      <!-- Modal Footer -->
+						      <div class="modal-footer"><center>
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="submit" class="btn btn-green">Submit</button></center>
+						      </div>
+						   
+							
+							</div>
+
+		</div>
+	</div>
+
 										</td>
 										<td>
 											<form action="{{ url('religions',$religion->id) }}" method = "post">
@@ -101,4 +146,7 @@
 
 				</div>
 			</section>
+			<script type="text/javascript">
+            var plugin_path = "{{URL::asset('plugins')}}/"
+        </script>
 @stop

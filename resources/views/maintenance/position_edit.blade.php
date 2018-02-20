@@ -30,8 +30,7 @@
       </footer>
 
     </div>
-  </div>
-</div>
+  
 </form>
 </div>
 </section>
