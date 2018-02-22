@@ -20,8 +20,8 @@ class CreateAdversesTable extends Migration
             $table->string('advprtymname',50);
             $table->string('advprtylname',50);
             $table->string('advprtyaddress',150);
-            $table->foreign('casetobehandleds_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
-            $table->integer('casetobehandleds_id')->unsigned();
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->integer('client_id')->unsigned();
             $table->timestamps();
         });
     }

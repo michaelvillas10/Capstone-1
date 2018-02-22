@@ -79,13 +79,15 @@
 
 										
 										<td>
-											   <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg">
+											   <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $cou->id }}">
 											  	<i class="fa fa-pencil"></i> Edit</button>
 
-											  	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+											  	<div class="modal fade bs-example-modal-lg{{ $cou->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
-
+<form id="update-language-form" action="{{ route('editcou',$cou->id) }}" method="post">
+                            {{ csrf_field() }}
+{{ method_field('PUT') }}
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myLargeModalLabel">Edit Court</h4>
@@ -99,7 +101,7 @@
 									<div class="form-group">
 										<div class="col-md-4">
 											<label>Name *</label>
-											<input type="text" name="name" value="" class="form-control ">
+											<input type="text" name="name" value="{{ $cou->name }}" class="form-control ">
 										</div>
 										<div class="col-md-4">
 											<label>Court type *</label>

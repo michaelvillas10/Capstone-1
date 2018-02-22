@@ -74,27 +74,27 @@
 									<tr>
 										<th>Full Name</th>
 										<th>Nature of Request</th>
-										<th>Email</th>
+										<th>Monthly Income</th>
 										<th>Case Transfer</th>
 										<th>View</th>
 									</tr>
 								</thead>
 				
 								<tbody>
-								{{--@foreach ($clients as $client)--}}
+								@foreach ($clients as $client)
 									<tr>
 									
 										<td>
-										{{--	 {{$client->cllname}}, {{$client->clfname}}  @if ( $client->clmname != "none" )
+											 {{$client->cllname}}, {{$client->clfname}}  @if ( $client->clmname != "none" )
 											 ,{{$client->clmname}}
 											 @endif
-											 --}}
+											 
 										</td>
 										<td>
-										{{--	 {{$client->clcontact}}  --}}
+											 {{$client->nature_of_request}}  
 										</td>
 										<td class="center">
-										{{--	 {{$client->clemail}}  --}}
+											 {{$client->clmonthly_net_income}}  
 										</td>
 										<td>
 											<a class = "btn btn-green" href="">
@@ -102,13 +102,13 @@
 										</td>
 										
 										<td>
-											<a  class = "btn btn-info" href="">
+											<a  class = "btn btn-info" href="{{route('request.view',$client->id)}}">
 											View </a>
 										</td>
 									</tr>
 								
 								</tbody>
-								
+								@endforeach
 							</table>
 
 						</div>

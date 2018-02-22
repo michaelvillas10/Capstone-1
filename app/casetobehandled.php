@@ -10,10 +10,7 @@ class casetobehandled extends Model
     {
     	return $this->belongsTo(Client::class);
     }
-    public function adverse()
-    {
-    	return $this->hasMany(Adverse::class);
-    }
+    
      public function approvedcase()
     {
     	return $this->hasMany(casetobehandleds_has_approvedcases::class);

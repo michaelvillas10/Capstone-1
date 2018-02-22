@@ -85,7 +85,7 @@ Route::get('request/deny/{id}','RequestController@deny')->name('request.deny');
 Route::get('request/casetransfer/{id}','RequestController@transfer')->name('request.transfer');
 Route::get('request/lawyers/{id}','RequestController@availablelawyer')->name('request.lawyer');
 
-Route::get('approve/show/{id}','RequestController@approvedtbl')->name('approvedtbl');
+Route::get('/approve/show','RequestController@approvedtbl');
 
 
 //Route::resource('clients', 'ClientController');
@@ -106,10 +106,8 @@ Route::get('/Distribution', function () {
     return view('casedistribution');
 });
 
-Route::get('/approve/show', function () {
-    return view('approvedtbl');
-});
 
-Route::get('lawyers', function () {
+
+Route::get('/lawyers', function () {
     return view('lawyers');
 });

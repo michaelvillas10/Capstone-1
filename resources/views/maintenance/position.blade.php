@@ -68,10 +68,10 @@
 										</td>
 									
 										<td>
-											  	<button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg">
+											  	<button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{$position->id}}">
 											  	<i class="fa fa-pencil"></i> Edit</button>
 
-					<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal fade bs-example-modal-lg{{$position->id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
 
@@ -92,7 +92,7 @@
 														</div>
 													<div class="col-md-4">	
 														<label>Name *</label>
-														<input type="text" name="name" value="" class="form-control required">
+														<input type="text" name="name" value="{{$position->name}}" class="form-control required">
 													</div>
 
 													

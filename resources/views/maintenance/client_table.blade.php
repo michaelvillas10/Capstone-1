@@ -76,7 +76,7 @@
 									<tr>
 										<th>Full Name</th>
 										<th>Nature of Request</th>
-										<th>Email</th>
+										<th>Monthly Income</th>
 										<th>Approve</th>
 										<th>Deny</th>
 										<th>View</th>
@@ -94,10 +94,10 @@
 											 
 										</td>
 										<td>
-											 {{$client->clcontact}}
+											 {{$client->nature_of_request}}
 										</td>
 										<td class="center">
-											 {{$client->clemail}}
+											 {{$client->clmonthly_net_income}}
 										</td>
 										<td>
 											<a class = "btn btn-success" href="{{route('request.approve',$client->id)}}">

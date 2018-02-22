@@ -43,13 +43,17 @@ class RegisterController extends Controller
     
 public function showreqtable(){
     $clients = Client::where('cl_status','Pending')->orderBy('cllname','asc')
-    // ->with('casetobehandled')
-    // ->with('adverse')
+    ->with('casetobehandled')
+    ->with('adverse')
     ->get();
-   
+  
+   return view('maintenance.client_table')->withClients($clients);
+    }
+    // return $clients;
+  
         
-    return view('maintenance.client_table')->withClients($clients);
-}
+    
+
 
 
     public function showclientregister(){
@@ -159,7 +163,7 @@ public function showreqtable(){
               
               
         //         ));
-        $clients = Client::select('id')->orderBy('id','desc')->take(1)->get();
+          $clients = Client::select('id')->orderBy('id','desc')->take(1)->get();
         foreach ($clients as $key => $client) {
           
         
@@ -175,7 +179,7 @@ public function showreqtable(){
         $casetobehandled-> clcomplainant_victim_of = $request->Category;
        
       
-             $casetobehandled-> clients_id = $client->id; 
+             $casetobehandled-> client_id = $client->id; 
        
             
         }
@@ -223,8 +227,8 @@ public function showadverseregister(){
          
           $adverse = new Adverse;
       
-       $casetbh = casetobehandled::select('id')->orderBy('id','desc')->take(1)->get();
-     foreach ($casetbh as $key => $casetb) {
+       $client = Client::select('id')->orderBy('id','desc')->take(1)->get();
+     foreach ($client as $key => $clien) {
    
      
         $adverse-> advprtyfname = $request->fname;
@@ -232,7 +236,7 @@ public function showadverseregister(){
         $adverse-> advprtylname = $request->lname;
         $adverse-> advprtyaddress = $request->addr;
         $adverse-> advprtytype = $request->atype;
-        $adverse-> casetobehandleds_id = $casetb->id;
+        $adverse-> client_id = $clien->id;
        
         }
       

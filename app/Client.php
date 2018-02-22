@@ -35,6 +35,10 @@ class Client extends Model
     {
         return $this->hasOne(casetobehandled::class);
     }
+    public function adverse()
+    {
+        return $this->hasOne(Adverse::class);
+    }
   
 
 

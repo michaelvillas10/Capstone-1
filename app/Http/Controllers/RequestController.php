@@ -9,12 +9,20 @@ use DB;
 use App\casetobehandled;
 use App\Adverse;
 use App\Interviewee;
+use App\approvedcase;
 
 class RequestController extends Controller
 {
     public function approve($id){
       $approved = Client::find($id);
         $approved->cl_status = 'Approved';
+
+      
+            $caseapprove = casetobehandled::find($id);
+            $caseapproved = new approvedcase;
+            $caseapproved->casetobehandleds_id = $id;
+            $caseapproved->save();
+        
         $approved->save();
     }
 
@@ -27,7 +35,7 @@ class RequestController extends Controller
     }
 
     public function view($id){
-        $all = Client::find($id)->with('casetobehandled')->with('adverses')->with('interviewees');
+        $all = Client::find($id)->with('casetobehandled')->with('adverse');
         // DB::table('clients')
         //     ->join('interviewees', 'clients.id', '=', 'interviewees.clients_id')
         //     ->join('casetobehandleds', 'clients.id', '=', 'casetobehandleds.clients_id')
@@ -35,7 +43,7 @@ class RequestController extends Controller
         //     ->select('clients.*','casetobehandleds.*','adverses.*','interviewees.*' )
         //     ->where('cl_status','=','Pending')
         //     ->get();
-        return view('view clientalldata');
+        return view('view clientalldata')->withClients($all);
     }
     public function transfer($id){
 
@@ -44,9 +52,15 @@ class RequestController extends Controller
     public function availablelawyer($id){
 
     }
-    public function approvedtbl($id){
-
-        return view('approvedtbl');
+    public function approvedtbl(){
+        $clients = Client::where('cl_status','Approved')
+        ->orderBy('cllname','asc')
+        ->with('casetobehandled')
+        ->with('adverse')
+        ->get();
+        
+       
+        return view('approvedtbl')->withClients($clients);
     }
 
 }

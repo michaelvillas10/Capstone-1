@@ -8,7 +8,7 @@ class Adverse extends Model
 {
     public function casetobehandled()
     {
-    	return $this->belongsTo(casetobehandled::class);
+    	return $this->belongsTo(Client::class);
     }
     
 }
