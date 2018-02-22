@@ -13,39 +13,65 @@
 					
 						<div id="client" class="tab-content">
 							<div class="card1">
-							<div class="container">
+							<div class="container"><br>
 										<div class="form-group">
-										<label>Case Name :</label>
+										<label>First Name :</label>
 										</div>
 										<div class="form-group">
-										<label>Interviewer :</label>
+										<label>Middle Name :</label>
+										</div>
+										<div class="form-group">
+										<label>Last Name :</label>
+										</div>
+										<div class="form-group">
+										<label>Religion :</label>
+										</div>
+										<div class="form-group">
+										<label>Citizenship :</label>
+										</div>
+										<div class="form-group">
+										<label>Address :</label>
+										</div>
+										<div class="form-group">
+										<label>Email :</label>
+										</div>
+										<div class="form-group">
+										<label>Birthday :</label>
+										</div>
+										<div class="form-group">
+										<label>Contact Number :</label>
+										</div>
+										<div class="form-group">
+										<label>Monthly Income :</label>
+										</div><div class="form-group">
+										<label>Language Spoken :</label>
+										</div>
+										<div class="form-group">
+										<label>Educational Attainment :</label>
+										</div>
+										<div class="form-group">
+										<label>Gender :</label>
+										</div>
+										<div class="form-group">
+										<label>Detained(?) :</label>
+										</div>
+										<div class="form-group">
+										<label>Civil Status :</label>
 										</div>
 										<div class="form-group">
 										<label>Nature of Request :</label>
-										</div>
-										<div class="form-group">
-										<label>Case Category :</label>
-										</div>
-										<div class="form-group">
-										<label>Nature of Case :</label>
-										</div>
-										<div class="form-group">
-										<label>Case Involvement :</label>
-										</div>
+										</div><br>
 							</div>
 							</div>								
 						</div>
 						<div id="case" class="tab-content">
 							<div class="card1">
-							<div class="container">
+							<div class="container"><br>
 										<div class="form-group">
-										<label>Cases :</label>
+										<label>Cases Name :</label>
 										</div>
 										<div class="form-group">
 										<label>Interviewer :</label>
-										</div>
-										<div class="form-group">
-										<label>Nature of Request :</label>
 										</div>
 										<div class="form-group">
 										<label>Case Category :</label>
@@ -55,30 +81,27 @@
 										</div>
 										<div class="form-group">
 										<label>Case Involvement :</label>
-										</div>
+										</div><br>
 							</div>
 							</div>								
 						</div>
 						<div id="adverse" class="tab-content">
 							<div class="card1">
-							<div class="container">
+							<div class="container"><br>
 										<div class="form-group">
-										<label>Casesss :</label>
+										<label>Adverse Party Type :</label>
 										</div>
 										<div class="form-group">
-										<label>Interviewer :</label>
+										<label>First Name :</label>
 										</div>
 										<div class="form-group">
-										<label>Nature of Request :</label>
+										<label>Middle Name :</label>
 										</div>
 										<div class="form-group">
-										<label>Case Category :</label>
+										<label>Last Name :</label>
 										</div>
 										<div class="form-group">
-										<label>Nature of Case :</label>
-										</div>
-										<div class="form-group">
-										<label>Case Involvement :</label>
+										<label>Address :</label>
 										</div>
 							</div>
 							</div>								

@@ -21,11 +21,11 @@
 				<div class="col-md-4">
 					<label>First Name *</label>
 					<input type="text" name="fname" value="" class="form-control "required>
-				</div><br>
+				</div>
 				<div class="col-md-4">
 					<label>Middle Name </label>
 					<input type="text" name="mname" value="" class="form-control ">
-				</div><br>
+				</div>
 				<div class="col-md-4">
 					<label>Last Name *</label>
 					<input type="text" name="lname" value="" class="form-control "required><br>
