@@ -60,12 +60,12 @@
 
             <!-- HEADER -->
             <header id="header">
-
+                <button id="mobileMenuBtn"></button>
                 @yield('header-main')
 
             </header>
             <!-- /HEADER -->
-
+            
 
   
                 <section id="middle">
@@ -86,7 +86,7 @@
 
        
         <!-- PAGE LEVEL SCRIPT -->
-
+        <script type="text/javascript" src="{{URL::asset('js/scripts.js')}}"></script>
         <script type= "text/javascript" src="{{asset('js/jquery-3.3.1.min.js') }}"></script>   
         <script type= "text/javascript" src="{{URL::asset('js/app.js') }}"></script>
          <script type= "text/javascript" src="{{URL::asset('js/jquery.datetimepicker.full.js') }}"></script>
@@ -277,6 +277,22 @@ $("#datetimepicker7").on("dp.change",function (e) {
 });
     });
 
+</script>
+
+<script>
+    $(function(){
+        $('.tab-content').hide();
+        $('ul.nav-tabs li:first').addClass('active');
+        $('.tab-content:first').show();
+        $('ul.nav-tabs li').on('click',function(){
+            $('ul.nav-tabs li').removeClass('active');
+            $(this).addClass('active')
+            $('.tab-content').hide();
+            var activeTab = $(this).find('a').attr('href');
+            $(activeTab).show();
+            return false;
+        });
+    })
 </script>
     </body>
 </html>

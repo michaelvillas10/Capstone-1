@@ -22,7 +22,7 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="lawyers">Lawyers</a></li>
-                                <li><a href="#">Manage Case</a></li>
+                                <li><a href="casess">Manage Case</a></li>
                                </ul>
                         </li>
                          <li class="submenu">

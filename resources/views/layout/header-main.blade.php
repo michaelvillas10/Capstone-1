@@ -1,6 +1,5 @@
 @section('header-main')
 <!-- Mobile Button -->
-                <button id="mobileMenuBtn"></button>
 
                 <!-- Logo -->
                 <span class="logo pull-left">
@@ -26,16 +25,12 @@
                             </a>
                             <ul class="dropdown-menu hold-on-click">
                                 <li><!-- my inbox -->
-                                    <a href="#"><i class="fa fa-envelope"></i> Inbox
+                                    <a href="#"><i class="fa fa-envelope"></i> Request
                                         <span class="pull-right label label-default">0</span>
                                     </a>
                                 </li>
 
                                 <li class="divider"></li>
-
-                                <li><!-- lockscreen -->
-                                    <a href="page-lock.html"><i class="fa fa-lock"></i> Lock Screen</a>
-                                </li>
                                 <li><!-- logout -->
                                     <a href="layout/login"><i class="fa fa-power-off"></i> Log Out</a>
                                 </li>

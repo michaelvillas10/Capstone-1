@@ -21,11 +21,11 @@
 				<div class="col-md-4">
 					<label>First Name *</label>
 					<input type="text" name="fname" value="" class="form-control "required>
-				</div>
+				</div><br>
 				<div class="col-md-4">
 					<label>Middle Name </label>
 					<input type="text" name="mname" value="" class="form-control ">
-				</div>
+				</div><br>
 				<div class="col-md-4">
 					<label>Last Name *</label>
 					<input type="text" name="lname" value="" class="form-control "required><br>
@@ -59,7 +59,7 @@
 				<div class="col-md-6">
 					<label>Email *</label>
 					<input type="email" name="Email" value="" class="form-control "required>
-				</div>
+				</div><br>
 				<div class="col-md-6">
 					<label>Birthday *</label>
 					<input type="date" name="Birthday" value="" class="form-control "required><br>
@@ -67,7 +67,7 @@
 				<div class="col-md-6">
 					<label>Contact Number *</label>
 					<input type="number" name="Contact" value="" class="form-control "required>
-				</div>				
+				</div>			<br>	
 				<div class="col-md-6">
 					<label>Monthly Income *</label>
 					<input type="number" name="Income" value="" class="form-control "required><br>
@@ -111,7 +111,7 @@
     				</div>
 				</div>
 				
-				<div class="col-md-6">
+				<div class="col-md-6"><br>																			
 					<label>Civil Status *</label><br>
 					<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" value="single"  id="noCheck"> Single
           			<input type="radio" onclick="javascript:civilstatCheck();" name="civilstat" id="marriedCheck" value="married" > Married
@@ -122,7 +122,7 @@
         			Spouse Address<input type="text" name="spouse_addr" value="" class="form-control ">
         			Spouse Contact Number<input type="text" name="spouse_con" value="" class="form-control ">
     				</div>
-				</div>
+				</div><br>
 				<div class="col-md-6">
 					<label>Nature of Request *</label>
 					<select name="nor" class="form-control "required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
@@ -142,10 +142,10 @@
 
       <!-- Modal Footer -->
       <footer><center>
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
         <button type="submit" class="btn btn-green ">Next</button>
          <br><br><br><br></center>
-      </footer>
+      </footer><br>
 </form>
 
 
