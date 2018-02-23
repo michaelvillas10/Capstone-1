@@ -36,7 +36,9 @@
 						 panel content -->
 						<div class="panel-body">
 							<div class="container-fluid">
-								<div class="col-md-6">
+								<div class="col-md-4">
+								</div>
+								<div class="col-md-4">
 						<div class="card1">
 								<div class="container">
 									
@@ -47,7 +49,7 @@
 										</div>
 										</div>
 										</div>
-								<div class="col-md-6">
+								<div class="col-md-4">
 							
 						</div>
 						
