@@ -10,6 +10,7 @@ use App\casetobehandled;
 use App\Adverse;
 use App\Interviewee;
 use App\approvedcase;
+use App\Lawyer;
 
 class RequestController extends Controller
 {
@@ -17,11 +18,15 @@ class RequestController extends Controller
       $approved = Client::find($id);
         $approved->cl_status = 'Approved';
 
-      
+      $case = 
+
             $caseapprove = casetobehandled::find($id);
             $caseapproved = new approvedcase;
             $caseapproved->casetobehandleds_id = $id;
+           
             $caseapproved->save();
+
+            
         
         $approved->save();
     }
@@ -43,7 +48,7 @@ class RequestController extends Controller
         //     ->select('clients.*','casetobehandleds.*','adverses.*','interviewees.*' )
         //     ->where('cl_status','=','Pending')
         //     ->get();
-        return view('view clientalldata')->withClients($all);
+        return view('viewer')->withClients($all);
     }
     public function transfer($id){
 

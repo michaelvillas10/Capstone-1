@@ -111,9 +111,7 @@ Route::get('/Distribution', function () {
 Route::get('/lawyers', function () {
     return view('lawyers');
 });
-Route::get('/', function () {
-    return view('maintenance/viewer');
-});
+
 Route::get('casess', function () {
     return view('casedistribution');
 });

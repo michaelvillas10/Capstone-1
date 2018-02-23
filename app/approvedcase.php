@@ -12,6 +12,6 @@ class approvedcase extends Model
     }
      public function casetobehandled()
     {
-    	return $this->hasMany(casetobehandleds_has_approvedcases::class);
+    	return $this->hasMany(casetobehandled::class);
     }
 }

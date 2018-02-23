@@ -15,8 +15,10 @@ class CreateApprovedcasesTable extends Migration
     {
         Schema::create('approvedcases', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('casetobehandleds_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
-            $table->integer('casetobehandleds_id')->unsigned();
+            $table->foreign('casetobehandled_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
+            $table->integer('casetobehandled_id')->unsigned();
+            $table->foreign('lawyer_id')->references('id')->on('lawyers')->onDelete('cascade');
+            $table->integer('lawyer_id')->unsigned();
             $table->foreign('statuses_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->integer('statuses_id')->unsigned()->nullable();
             $table->string('case_status');

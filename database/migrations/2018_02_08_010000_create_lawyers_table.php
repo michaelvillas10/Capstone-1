@@ -15,8 +15,7 @@ class CreateLawyersTable extends Migration
     {
         Schema::create('lawyers', function (Blueprint $table) {
             $table->increments('id');
-            $table->foreign('approvedcases_id')->references('id')->on('approvedcases')->onDelete('cascade');
-            $table->integer('approvedcases_id')->unsigned()->nullable();
+            
             $table->foreign('employees_id')->references('id')->on('employees')->onDelete('cascade');
             $table->integer('employees_id')->unsigned()->nullable();
             $table->foreign('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
