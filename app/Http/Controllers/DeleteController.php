@@ -22,7 +22,7 @@ class DeleteController extends Controller
         
         $language->delete();
         //Flashy::success('Succesfully deleted event');
-        return redirect('/language/register');
+        return redirect('/language/show');
     }
     public function educdelete($id)
     {
@@ -31,7 +31,7 @@ class DeleteController extends Controller
         
         $educ->delete();
         //Flashy::success('Succesfully deleted event');
-        return redirect('/education/register');
+        return redirect('/education/show');
     }
     public function invodelete($id)
     {
@@ -40,7 +40,7 @@ class DeleteController extends Controller
         
         $invo->delete();
         //Flashy::success('Succesfully deleted event');
-        return redirect('/caseinvolvement/register');
+        return redirect('/caseinvolvement/show');
     }
      public function posdelete($id)
     {
@@ -49,7 +49,7 @@ class DeleteController extends Controller
         
         $pos->delete();
         //Flashy::success('Succesfully deleted event');
-        return redirect('/position/register');
+        return redirect('/position/show');
     }
      public function ccdelete($id)
     {
@@ -58,7 +58,7 @@ class DeleteController extends Controller
         
         $cc->delete();
         //Flashy::success('Succesfully deleted event');
-        return redirect('/casecategory/register');
+        return redirect('/casecategory/show');
     }
       public function ctdelete($id)
     {
@@ -67,7 +67,7 @@ class DeleteController extends Controller
         
         $ct->delete();
 
-        return redirect('/courttype/register');
+        return redirect('/courttype/show');
     }
       public function coudelete($id)
     {
@@ -76,7 +76,7 @@ class DeleteController extends Controller
         
         $cou->delete();
 
-        return redirect('/court/register');
+        return redirect('/court/show');
     }
      public function scheddelete($id)
     {
@@ -85,7 +85,7 @@ class DeleteController extends Controller
         
         $sched->delete();
 
-        return redirect('/schedule/register');
+        return redirect('/schedule/show');
     }
 
 

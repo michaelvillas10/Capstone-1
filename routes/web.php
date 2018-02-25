@@ -112,6 +112,6 @@ Route::get('/lawyers', function () {
     return view('lawyers');
 });
 
-Route::get('casess', function () {
+Route::get('/casess', function () {
     return view('casedistribution');
 });

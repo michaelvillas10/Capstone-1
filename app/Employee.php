@@ -8,7 +8,7 @@ class Employee extends Model
 {
     public function lawyer()
     {
-    	return $this->hasMany(employees_has_lawyers::class);
+    	return $this->belongsTo(Employee::class);
     }
     
     public function position()

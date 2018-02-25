@@ -8,7 +8,7 @@ class Lawyer extends Model
 {
    public function employee()
      {
-    	return $this->hasMany(employees_has_lawyers::class);
+    	return $this->hasMany(Employee::class);
     }
      public function approvedcases()
     {

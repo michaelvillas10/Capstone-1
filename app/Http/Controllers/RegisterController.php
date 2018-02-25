@@ -20,8 +20,10 @@ use App\Lawsuit;
 use App\Schedule;
 use App\courttype;
 use App\Court;
+use App\casetype;
 use Session;
 use DB;
+use App\Requestt;
 
 class RegisterController extends Controller
 {
@@ -60,16 +62,18 @@ public function showreqtable(){
         $clients = Client::orderBy('cllname','asc')->get();
         
         $religions = Religion::orderBy('name','asc')->get();
-        $educations = Education::orderBy('name','asc')->get();
+        $educations = Education::orderBy('created_at','asc')->get();
         $involvements = Involvement::orderBy('name','asc')->get();
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
+        $requestts = Requestt::orderBy('name','asc')->get();
     	return view('maintenance.clientreg')->withClients($clients)
         ->withReligions($religions)
         ->withEducations($educations)
         ->withInvolvements($involvements)
         ->withLanguages($languages)
-        ->withCitizenships($citizenships);
+        ->withCitizenships($citizenships)
+        ->withRequestts($requestts);
     }
 
     public function clientregister(Request $request){
@@ -140,16 +144,17 @@ public function showreqtable(){
     }
        public function showcasetbhregister(){
          $clients = Client::select('id')->orderBy('id','desc')->get();
-        $employees = Employee::orderBy('efname','asc')->get();
+        $employees = Employee::where('position','Interviewer')->get();
         $lawsuits = Lawsuit::orderBy('name','asc')->get();
         $category = Category::orderBy('name','asc')->get();
         $involvements = Involvement::orderBy('name','asc')->get();
-         
+         $casetypes = casetype::orderBy('name','asc')->get();
         return view('maintenance.casereg')->withClients($clients)
         ->withLawsuits($lawsuits)
         ->withCategory($category)
         ->withInvolvements($involvements)
-        ->withEmployees($employees);
+        ->withEmployees($employees)
+        ->withcasetypes($casetypes);
     }
      public function casetbhregister(Request $request){
         

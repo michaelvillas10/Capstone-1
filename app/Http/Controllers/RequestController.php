@@ -11,36 +11,62 @@ use App\Adverse;
 use App\Interviewee;
 use App\approvedcase;
 use App\Lawyer;
+use App\Employee;
 
 class RequestController extends Controller
 {
     public function approve($id){
       $approved = Client::find($id);
-        $approved->cl_status = 'Approved';
-
-      $case = 
-
+        $approved->cl_status = 'Approved'; 
+        $approved->save();
+      $cases= DB::table('approvedcases')
+                ->join('casetobehandleds','casetobehandleds.id','=','approvedcases.casetobehandled_id')
+                ->join('lawyers','lawyers.id','=','approvedcases.lawyer_id')
+                ->select('approvedcases.*','casetobehandleds.*','lawyers.*')
+                ->get();            
+return $cases;
             $caseapprove = casetobehandled::find($id);
             $caseapproved = new approvedcase;
-            $caseapproved->casetobehandleds_id = $id;
-           
-            $caseapproved->save();
-
-            
+            $caseapproved->casetobehandled_id = $id;
+                $casetbh = casetobehandled::all();
+                $employee = Employee::all();
+                $laws = Lawyer::all();
+foreach($casetbh as $caset){
+foreach($employee as $employees) {
+foreach($laws as $law){
+                $lawyers= DB::table('lawyers')
+                ->join('approvedcases','approvedcases.lawyer_id','=','lawyers.id')
+                ->join('employees','employees.id','=','lawyers.employees_id')
+                ->select('approvedcases.*','employees.*','lawyers.*')
+                ->where('casecount')
+                ->get();
+return $lawyers;
+foreach ($lawyers as $lawyer) {
+                $case = approvedcase::where('casetobehandled_id',$caset->id)->get();
         
-        $approved->save();
-    }
+                
+            $caseapproved->lawyer_id = $lawyer->id;
+            $caseapproved->save();
+                              }
+                      }
+                                 }
+                           }
+        
+       
+           return redirect('/client/show');
+                                }
 
     public function deny($id){
-        $approved = Client::find($id);
-        $approved->cl_status = 'Denied';
-        $approved->save();
+        $denied = Client::find($id);
+        $denied->cl_status = 'Denied';
+        $denied->save();
         return view('deny');
 
     }
 
     public function view($id){
-        $all = Client::find($id)->with('casetobehandled')->with('adverse');
+        $alls = Client::find($id)->with('casetobehandled')->with('adverse')->get();
+        
         // DB::table('clients')
         //     ->join('interviewees', 'clients.id', '=', 'interviewees.clients_id')
         //     ->join('casetobehandleds', 'clients.id', '=', 'casetobehandleds.clients_id')
@@ -48,7 +74,7 @@ class RequestController extends Controller
         //     ->select('clients.*','casetobehandleds.*','adverses.*','interviewees.*' )
         //     ->where('cl_status','=','Pending')
         //     ->get();
-        return view('viewer')->withClients($all);
+        return view('viewer')->withAlls($alls);
     }
     public function transfer($id){
 

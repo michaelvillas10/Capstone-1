@@ -16,19 +16,19 @@
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>First Name *</label>
-					<input type="text" name="efname" value="" class="form-control required">
+					<input type="text" name="efname" value="" class="form-control "required>
 				</div>
 				<div class="col-md-4">
 					<label>Middle Name </label>
-					<input type="text" name="emname" value="" class="form-control required">
+					<input type="text" name="emname" value="" class="form-control ">
 				</div>
 				<div class="col-md-4">
 					<label>Last Name *</label>
-					<input type="text" name="elname" value="" class="form-control required">
+					<input type="text" name="elname" value="" class="form-control "required>
 				</div>
 				<div class="col-md-4">
 					<label>E-mail *</label>
-					<input type="text" name="email" value="" class="form-control required">
+					<input type="email" name="email" value="" class="form-control "required>
 				</div>
 				<div class="col-md-4">
 					<label>Position *</label>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-md-4">
 					<label>Contact No. *</label>
-					<input type="text" name="contact" value="" class="form-control required">
+					<input type="number" name="contact" value="" class="form-control "required>
 				</div>
 				
 				
