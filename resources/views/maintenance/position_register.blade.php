@@ -15,7 +15,7 @@
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control required">
+					<input type="text" name="name" value="" class="form-control "required>
 				</div>
 				
 			</div>
