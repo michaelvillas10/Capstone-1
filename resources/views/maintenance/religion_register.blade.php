@@ -21,10 +21,6 @@
 				
 			</div>
 		</div>
-
- 
-      
-
       <!-- Modal Footer -->
       <footer>
         <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>

@@ -54,13 +54,6 @@
 						</div>
 						
 										</div>
-						</div>
-						<!-- /panel content -->
-
-						<!-- panel footer -->
-						
-
-
-			
+						</div>			
 			</section>
 @stop
