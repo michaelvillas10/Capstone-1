@@ -46,9 +46,9 @@
 											<div class="form-group">
 									<p>Sorry but you are not qualified to be a client of PAO</p>
 											</form>
-										</div>
-										</div>
-										</div>
+										    </div>
+						</div>
+							    </div>
 								<div class="col-md-6>
 							
 						</div>
