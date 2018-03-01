@@ -13,7 +13,7 @@
 						<li><a href="#">Tables</a></li>
 						<li class="active">Employee </li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="{{url('employees/create')}}" ><i class="fa fa-plus"></i>New Employee</a>
+							<a  class="btn btn-green" href="{{url('employee/register')}}" ><i class="fa fa-plus"></i>New Employee</a>
 						</div>
 					</ol>
 				</header>
@@ -77,13 +77,15 @@
 											 {{$employee->position}}
 										</td>
 										<td>
-											 <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg">
+											   <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $employee->id }}">
 											  	<i class="fa fa-pencil"></i> Edit</button>
 
-											  	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+											  	<div class="modal fade bs-example-modal-lg{{ $employee->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
-
+<form id="update-language-form" action="{{ route('empedit',$employee->id) }}" method="post">
+                            {{ csrf_field() }}
+{{ method_field('PUT') }}
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myLargeModalLabel">Edit Employee</h4>
@@ -91,30 +93,32 @@
 
 								<!-- body modal -->
 								<div class="modal-body">
-									<form action="{{ url('employees') }}" method="POST">
-      {{ csrf_field() }}
-      	<div class="row">
+															
+								<form>
+						      	<div class="row">
+									<div class="form-group">
+										    	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>First Name *</label>
-					<input type="text" name="efname" value="" class="form-control required">
+					<input type="text" name="efname" value="{{ $employee->efname }}" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>Middle Name </label>
-					<input type="text" name="emname" value="" class="form-control required">
+					<input type="text" name="emname" value="{{ $employee->emname }}" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>Last Name *</label>
-					<input type="text" name="elname" value="" class="form-control required">
+					<input type="text" name="elname" value="{{ $employee->elname }}" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>E-mail *</label>
-					<input type="text" name="email" value="" class="form-control required">
+					<input type="text" name="email" value="{{ $employee->email }}" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>Position *</label>
 					<select name="position" class="form-control " required onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-					<option value="" selected="selected"></option>
+					<!-- <option value="" selected="selected"></option> -->
 					@foreach($positions as $position)
       <option value="{{$position->name}}">{{$position->name}}</option>
     @endforeach
@@ -126,98 +130,30 @@
 				</div>
 				<div class="col-md-4">
 					<label>Contact No. *</label>
-					<input type="text" name="contact" value="" class="form-control required">
+					<input type="text" name="contact" value="{{ $employee->contact }}" class="form-control required">
 				</div>
 				
-				
-			</div>
-	</form>
+		</div>
 
-    
-
-      <!-- Modal Footer -->
-      <div class="modal-footer"><center>
+  </div>
+											<div class="modal-footer"><center>
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        <button type="submit" class="btn btn-green">Submit</button></center>
 						      </div>
-								</div>
+										</form>
+									    </div>
 									</div></div></div>
 										</td>
 										<td>
-											<form action="{{ route('employees.destroy',$employee->id) }}" method = "post">
+											<form action="{{ route('deleteemp', $employee->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ url('employees.delete',$employee->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deleteemp',$employee->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>
 
 									</tr>
-									<div class="modal fade bs-example-modal-update{{ $employee->id }}" id =".bs-example-modal-update" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-full">
-    <div class="modal-content">
-
-      <!-- Modal Header -->
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Edit Employee</h4>
-      </div>
-
-      <!-- Modal Body -->
-      <form id="update-language-form" action="{{ route('employees.update',$employee->id) }}" method="post">
-      {{ csrf_field() }}
-       <input type="hidden" name="_method" value="PUT">
-      <div class="modal-body">
-      	<div class="row">
-			<div class="form-group">
-				<div class="col-md-4">
-					<label>First Name *</label>
-					<input type="text" name="fname" value="{{$employee->efname}}" class="form-control ">
-				</div>
-				<div class="col-md-4">
-					<label> Middle Name </label>
-					<input type="text" name="mname" value="{{$employee->emname}}" class="form-control ">
-				</div>
-				<div class="col-md-4">
-					<label> Last Name *</label>
-					<input type="text" name="fname" value="{{$employee->efname}}" class="form-control ">
-				</div>
-				<div class="col-md-4">
-					<label>Position *</label>
-					<select name="position" class="form-control "  onchange="if (this.value=='edu'){this.form['edu'].style.visibility='visible'}else {this.form['edu'].style.visibility='hidden'};">
-					<option value="{{$employee->position}}" selected="selected"></option>
-					@foreach($positions as $position)
-      <option value="{{$position->name}}">{{$position->name}}</option>
-    @endforeach
-					{{-- <option value="edu">Other</option> --}}
-					</select>
-					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
-				
-				</div>
-				<div class="col-md-4">
-					<label> Email *</label>
-					<input type="text" name="fname" value="{{$employee->email}}" class="form-control ">
-				</div>
-				<div class="col-md-4">
-					<label> Contact Number *</label>
-					<input type="text" name="fname" value="{{$employee->contact}}" class="form-control ">
-				</div>
-				
-			</div>
-		</div>
-
- 
-      </div>
-
-      <!-- Modal Footer -->
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-green">Save changes</button>
-      </div>
-
-    </div>
-  </div>
-</div>
 </form>
 									@endforeach	
 								</tbody>

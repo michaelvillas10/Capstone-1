@@ -11,6 +11,15 @@ use App\Position;
 use App\courttype;
 use App\Court;
 use App\Schedule;
+use App\Lawsuit;
+use App\Employee;
+use App\Lawyer;
+use App\Religion;
+use App\Citizenship;
+use App\Service;
+use App\casetype;
+use App\Status;
+use Session;
 
 
 class UpdateController extends Controller
@@ -206,6 +215,67 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/schedule/show');
     }
+    public function showcasetypeedit($id)
+    {
+        $casetypes = Casetype::find($id);
+        return view('maintenance.casetype_edit')->withCasetypes($casetypes);
+    }
+    public function casetypeedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $rel = Casetype::find($id);
+
+        $rel-> name = $request->name;
+       
+        $rel->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/casetype/show');
+    }
+     public function showcasestatusedit($id)
+    {
+        $status = Status::find($id);
+        return view('maintenance.casestatus_edit')->withStatus($status);
+    }
+    public function casestatusedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $rel = Status::find($id);
+
+        $rel-> name = $request->name;
+       
+        $rel->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/casestatus/show');
+    }
+    public function shownateedit($id)
+    {
+        $services = Service::find($id);
+        return view('maintenance.service_edit')->withServices($services);
+    }
+    public function natedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $nat = Service::find($id);
+
+        $nat-> name = $request->name;
+       
+        $nat->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/natureofrequest/show');
+    }
+
 
     
 }

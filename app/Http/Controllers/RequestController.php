@@ -12,55 +12,115 @@ use App\Interviewee;
 use App\approvedcase;
 use App\Lawyer;
 use App\Employee;
-
+use App\lawyercasetype;
+use App\Reason;
+use PDF;
 class RequestController extends Controller
 {
     public function approve($id){
-      $approved = Client::find($id);
+        $number = 0;
+        $approved = Client::find($id);
         $approved->cl_status = 'Approved'; 
         $approved->save();
-      $cases= DB::table('approvedcases')
-                ->join('casetobehandleds','casetobehandleds.id','=','approvedcases.casetobehandled_id')
-                ->join('lawyers','lawyers.id','=','approvedcases.lawyer_id')
-                ->select('approvedcases.*','casetobehandleds.*','lawyers.*')
-                ->get();            
-return $cases;
-            $caseapprove = casetobehandled::find($id);
-            $caseapproved = new approvedcase;
-            $caseapproved->casetobehandled_id = $id;
-                $casetbh = casetobehandled::all();
-                $employee = Employee::all();
-                $laws = Lawyer::all();
-foreach($casetbh as $caset){
-foreach($employee as $employees) {
-foreach($laws as $law){
-                $lawyers= DB::table('lawyers')
-                ->join('approvedcases','approvedcases.lawyer_id','=','lawyers.id')
-                ->join('employees','employees.id','=','lawyers.employees_id')
-                ->select('approvedcases.*','employees.*','lawyers.*')
-                ->where('casecount')
-                ->get();
-return $lawyers;
-foreach ($lawyers as $lawyer) {
-                $case = approvedcase::where('casetobehandled_id',$caset->id)->get();
+    $clientapproved = Client::where('cl_status','Approved')->orderBy('cllname','asc')
+    ->with('casetobehandled')
+    ->with('adverse')
+    ->get();
+    foreach($clientapproved as $clientapproveds){
+        $con = date('Ym',strtotime($clientapproveds->created_at)) . substr($clientapproveds->nature_of_request, 0,2) . $number+=1;
         
+        $caseapprove = casetobehandled::orderBy('created_at','desc')->first();
+        $caseapprove -> control_number = date('Y-M',strtotime($clientapproveds->created_at)) . substr($clientapproveds->nature_of_request, 0,1) . $number+=1;
+        $caseapprove ->case_status = 'Ongoing';
+        $caseapprove->control_number = $con;
+        $caseapproved = new approvedcase;
+        $caseapproved->casetobehandled_id = $caseapprove->id;
+                    }
+        $caseapproved->control_number = $con;
+                                  
+
+  
+
+    $casetype = casetobehandled::orderBy('created_at','desc')
+    ->with('casetype')
+    ->first();
+    
+ //    $newapproved = approvedcase::
+ //    orderBy('created_at','desc')
+ //    ->with('casetobehandled')
+ //    ->first(); 
+
+ // foreach ($newapproved as $key => $newapproveds) 
+ // {
+
+   
+
+    $newcase = casetobehandled::orderBy('created_at','desc')
+                ->with('approvedcase')
+                ->first();  
+            
+
+$lawyers= Lawyer::inRandomOrder()
+        // [$newcases->casetobehandled->nature_of_case,'<>',$casetype->casetobehandled->nature_of_case]
+            ->with('employee')
+
+                // ->min('casecount');
+                ->get();
+
+   
+foreach ($lawyers as $lawyer) {
+             
                 
             $caseapproved->lawyer_id = $lawyer->id;
             $caseapproved->save();
                               }
-                      }
-                                 }
-                           }
+                    
+                                 
+    //     $clientapproved = Client::where('cl_status','Approved')->orderBy('cllname','asc')
+    // ->with('casetobehandled')
+    // ->with('adverse')
+    // ->get();
+    //     $pdf = PDF::loadView('pdf.deny', array(
+    //     'name' => $denied->clfname . ' ' . $denied->clmname . ' ' . $denied->cllname,
+    //     'reason' => $denied->companyname,
+        
+
+    //     ));
+    //     return $pdf->download($denied->firstname . '_' . $denied->lastname . '_denied.pdf');
+    //     return view('deny')->withClients($denied);                
         
        
            return redirect('/client/show');
                                 }
+    public function reason()
+    {
+        
+        return view('reason');
+    }
+   
+    public function reasonpost(Request $request){
 
+        $reason = new Reason;
+        $reason->reason = $request->reason;
+        $reason->save();
+        return redirect('/');
+    }
     public function deny($id){
         $denied = Client::find($id);
         $denied->cl_status = 'Denied';
+        $papersize = array(0, 0, 360, 360);
+        $pdf = PDF::loadView('pdf.deny', array(
+        'name' => $denied->clfname . ' ' . $denied->clmname . ' ' . $denied->cllname,
+        'reason' => $denied->reason
+        ));
         $denied->save();
-        return view('deny');
+        
+        
+        
+
+        
+        return $pdf->download($denied->firstname . '_' . $denied->lastname . '_denied.pdf');
+        return view('pdf.deny');
 
     }
 

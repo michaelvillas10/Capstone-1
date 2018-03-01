@@ -22,5 +22,6 @@ class Lawyer extends Model
     {
     	return $this->hasOne(Court::class);
     }
+ 
 
 }

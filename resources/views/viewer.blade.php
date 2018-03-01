@@ -2,7 +2,7 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')	
 @section('content')
-<section><br>
+<section id="middle"><br>
 				<div class="container">
 					<ul class="nav nav-tabs">
 						<li><a href="#clientp">Client Personal Information</a></li>

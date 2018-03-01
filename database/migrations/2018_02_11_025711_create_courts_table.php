@@ -15,8 +15,8 @@ class CreateCourtsTable extends Migration
     {
         Schema::create('courts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',100);
-            $table->string('type',100);
+            $table->string('district',100);
+            $table->string('branch',100);
            
             $table->timestamps();
         });

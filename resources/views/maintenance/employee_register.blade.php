@@ -6,29 +6,29 @@
 	<div class="container">
 <header>
        <br>
-        <h4>Add Employee</h4><br>
+        <h4>Add Employeez</h4><br>
  </header>
 
       <!-- Modal Body -->
-      <form action="{{ url('employees') }}" method="POST">
+      <form action="{{ url('employee/register') }}" method="POST">
       {{ csrf_field() }}
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>First Name *</label>
-					<input type="text" name="efname" value="" class="form-control "required>
+					<input type="text" name="efname" value="" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>Middle Name </label>
-					<input type="text" name="emname" value="" class="form-control ">
+					<input type="text" name="emname" value="" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>Last Name *</label>
-					<input type="text" name="elname" value="" class="form-control "required>
+					<input type="text" name="elname" value="" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>E-mail *</label>
-					<input type="email" name="email" value="" class="form-control "required>
+					<input type="text" name="email" value="" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					<label>Position *</label>
@@ -45,7 +45,7 @@
 				</div>
 				<div class="col-md-4">
 					<label>Contact No. *</label>
-					<input type="number" name="contact" value="" class="form-control "required>
+					<input type="text" name="contact" value="" class="form-control required">
 				</div>
 				
 				

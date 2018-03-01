@@ -12,7 +12,7 @@ class approvedcase extends Model
     }
      public function casetobehandled()
     {
-    	return $this->hasMany(casetobehandled::class);
+    	return $this->belongsTo(casetobehandled::class);
     }
     public function lawyer()
     {

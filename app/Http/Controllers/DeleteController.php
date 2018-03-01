@@ -11,6 +11,22 @@ use App\Category;
 use App\Position;
 use App\courttype;
 use App\Court;
+use App\Lawsuit;
+use App\Employee;
+use App\Religion;
+use App\Citizenship;
+use App\Service;
+use App\casetype;
+use App\Status;
+use Schedule;use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Language;
+use App\Education;
+use App\Involvement;
+use App\Category;
+use App\Position;
+use App\courttype;
+use App\Court;
 use Schedule;
 
 class DeleteController extends Controller

@@ -13,7 +13,15 @@ class casetobehandled extends Model
     
      public function approvedcase()
     {
-    	return $this->belongsTo(approvedcase::class);
+    	return $this->hasMany(approvedcase::class);
+    }
+    public function lawyer()
+    {
+    	return $this->hasOne(Lawyer::class);
+    }
+    public function casetype()
+    {
+        return $this->hasOne(lawyercasetype::class);
     }
 
 

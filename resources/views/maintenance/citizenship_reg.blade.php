@@ -10,13 +10,13 @@
       </header>
 
       <!-- Modal Body -->
-      <form action="{{ url('citizenships') }}" method="POST">
+      <form action="{{ url('citizenship/register') }}" method="POST">
       {{ csrf_field() }}
       	<div class="row">
 			<div class="form-group">
 				<div class="col-md-4">
 					<label>Name *</label>
-					<input type="text" name="name" value="" class="form-control "required>
+					<input type="text" name="name" value="" class="form-control required">
 				</div>
 				<div class="col-md-4">
 					

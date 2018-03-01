@@ -75,13 +75,15 @@
 										</td>
 										 
 										<td>
-											  <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg">
+									<button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $religion->id }}">
 											  	<i class="fa fa-pencil"></i> Edit</button>
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+
+											  	<div class="modal fade bs-example-modal-lg{{ $religion->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
-
-								<!-- header modal -->
+ <form id="update-language-form" action="{{ route('editrel',$religion->id) }}" method="post">
+                            {{ csrf_field() }}
+{{ method_field('PUT') }}
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 									<h4 class="modal-title" id="myLargeModalLabel">Edit Religion</h4>
@@ -89,48 +91,35 @@
 
 								<!-- body modal -->
 								<div class="modal-body">
-				 
+									
+										 <form>
+									      	<div class="row">
+												<div class="form-group">
+													<div class="col-md-4"></div>
+														<div class="col-md-4">
+														<label>Name *</label>
+														<input type="text" name="name" value="{{ $religion->name }}" class="form-control required">
+													</div>
+												</div>
+											</div>
 
-						      <!-- Modal Body -->
-						      <form action="{{ url('religions') }}" method="POST">
-						      {{ csrf_field() }}
-						      	<div class="row">
-									<div class="form-group">
-										<div class="col-md-4">
-														</div>
-										<div class="col-md-4">
-											<label>Name *</label>
-											<input type="text" name="name" value="" class="form-control required">
-										</div>
-										
-									</div>
-								</div>
-
-						 </form>
-						      </div>
-
-						      <!-- Modal Footer -->
-						      <div class="modal-footer"><center>
+											<div class="modal-footer"><center>
 						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 						        <button type="submit" class="btn btn-green">Submit</button></center>
 						      </div>
-						   
-							
-							</div>
-
-		</div>
-	</div>
-
+										</form>
+									    </div>
+									</div></div></div>
 										</td>
 										<td>
-											<form action="{{ url('religions',$religion->id) }}" method = "post">
+											<form action="{{ route('delrel', $religion->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ url('religions',$religion->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('delct',$religion->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>
-	
+
 									</tr>
 									@endforeach	
 								</tbody>

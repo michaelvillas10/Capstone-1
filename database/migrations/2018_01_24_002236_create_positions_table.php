@@ -16,8 +16,6 @@ class CreatePositionsTable extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name',50);
-            $table->foreign('employees_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->integer('employees_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

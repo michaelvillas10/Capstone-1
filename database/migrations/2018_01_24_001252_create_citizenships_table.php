@@ -14,10 +14,10 @@ class CreateCitizenshipsTable extends Migration
     public function up()
     {
         Schema::create('citizenships', function (Blueprint $table) {
-             $table->increments('id');
+            $table->increments('id');
             $table->string('name',50);
-            $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->integer('clients_id')->unsigned()->nullable();
+             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->integer('client_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
