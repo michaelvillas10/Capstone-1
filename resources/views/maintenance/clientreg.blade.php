@@ -127,8 +127,8 @@
 					<label>Nature of Request *</label>
 					<select name="nor" class="form-control "required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
-					@foreach($services as $requestt)
-      <option value="{{$requestt->name}}">{{$requestt->name}}</option>
+					@foreach($religions as $religion)
+      <option value="{{$religion->name}}">{{$religion->name}}</option>
     @endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>

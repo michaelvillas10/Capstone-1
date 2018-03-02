@@ -2,6 +2,7 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')  
 @section('content')
+<br><br>
 <section id="middle">
   <div class="container">
 <header><br>

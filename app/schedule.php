@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class schedule extends Model
 {
-      public function employee()
+      public function lawyer()
     {
-    	return $this->belongsTo(Employee::class);
+    	return $this->belongsTo(Lawyer::class);
     }
 }

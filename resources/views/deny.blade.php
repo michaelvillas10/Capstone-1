@@ -1,62 +1,66 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title></title>
-	<style type="text/css">
-		* { margin: 0; padding: 0; }
-		@page { size: 210mm 74.25mm; }
-		body{
-			background-color: #34495E;
-			color: white;
-			font-family: monospace;
-		}
-		#qrimg img{
-			position: absolute;
-			width: 70mm;
-			height: 74.25mm;
-			z-index: -1;
-		}
-		#infowrapper{
-			position: relative;
-			text-align: center;
-			width: 130mm;
-			left: 75mm;
-			top: 15mm;
-		}
-		#name h1{
-			font-size: 25px;
-		}
-		#name p{
-			margin-bottom: 10%;
-		}
+@extends('master')
+@extends('layout/side-nav')
+@extends('layout/header-main')	
+@section('content')
 
-		#companyname h1{
-			font-size: 20px;
-		}
-		#companyname p{
-			margin-bottom: 10%;
-		}
+<section id="middle">
 
-		#designation h1{
-			font-size: 15px;
-		}
-		#designation p{
-			margin-bottom: 10%;
-		}
-	</style>
-</head>
-<body>
-	{{-- <img src="http://via.placeholder.com/350x150" id="qrimg"> --}}
-		<div id="infowrapper">
-		<div id="name">
-			<h1>{{ucwords($name)}}</h1>
-			<p>(Client Name)</p>
-		</div>
-		<div id="companyname">
-			<h1>{{ucwords($reason)}}</h1>
-			<p>(Reason)</p>
-		</div>
+
+				<!-- page title -->
+				<header id="page-header">
+					<h1>NOT QUALIFIED FORM</h1>
+					
+			</header>
+
+					<!-- 
+						PANEL CLASSES:
+							panel-default
+							panel-danger
+							panel-warning
+							panel-info
+							panel-success
+
+						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
+								All pannels should have an unique ID or the panel collapse status will not be stored!
+					-->
+					
+						<!--<div class="row">
+							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+								<div class="pull-right">
+									<a href="#createprojects" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i> New Request</a>
+									
+								</div>
+							</div>
+							
+						</div>
+						 panel content -->
+						<div class="panel-body">
+							<div class="container-fluid">
+								<div class="col-md-4">
+								</div>
+								<div class="col-md-4">
+						<div class="card1">
+								<div class="container">
+									
+										<form>
+											<div class="form-group">
+									<p>Sorry but you are not qualified to be a client of PAO</p>
+											</form>
+										</div>
+										</div>
+										</div>
+								<div class="col-md-4">
+							
+						</div>
+						
+										</div>
+						</div>
+						<!-- /panel content -->
+
+						<!-- panel footer -->
+						
+
+
 			
-	</div>
-</body>
-</html>
+			</section>
+@stop
