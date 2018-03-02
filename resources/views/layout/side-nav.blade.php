@@ -51,8 +51,8 @@
                              <li><a href="/casecategory/show">Case Category </a></li>    
                              <li><a href="/lawsuit/show">Case</a></li>
                              <li><a href="/caseinvolvement/show">Case Involvement </a></li>
-                             <li><a href="#">Case Type </a></li>
-                             <li><a href="#">Case Status </a></li>
+                             <li><a href="/casetype/show">Case Type </a></li>
+                             <li><a href="/casestatus/show">Case Status </a></li>
                                 
 
                                 </li></ul>

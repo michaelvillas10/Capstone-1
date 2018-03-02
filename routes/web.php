@@ -41,6 +41,13 @@ Route::get('/lawsuit/edit{id}','UpdateController@showcaseedit')->name('showcs');
 Route::put('/lawsuit/edit/{id}','UpdateController@caseedit')->name('editcs');
 Route::delete('/lawsuit/delete/{id}','DeleteController@casedelete')->name('delcs');
 //
+Route::get('/request/show','RegisterController@shownat');
+Route::get('/natureofrequest/register','RegisterController@shownatregister');
+Route::post('/natureofrequest/register','RegisterController@natregister');
+Route::get('/natureofrequest/edit/{id}','UpdateController@shownatedit')->name('shownat');
+Route::put('/natureofrequest/edit/{id}','UpdateController@natedit')->name('natedit');
+Route::delete('/natureofrequest/delete/{id}','DeleteController@natdelete')->name('deletenat');
+//
 Route::get('/citizenship/show','RegisterController@showcitizenship');
 Route::get('/citizenship/register','RegisterController@showcitizenshipregister');
 Route::post('/citizenship/register', 'RegisterController@citizenshipregister');
@@ -93,6 +100,20 @@ Route::post('/casetbh/register','RegisterController@casetbhregister');
 Route::get('/adverse/register','RegisterController@showadverseregister');
 Route::post('/adverse/register','RegisterController@adverseregister');
 
+Route::get('/casetype/show','RegisterController@showcasetype');
+Route::get('/casetype/register','RegisterController@showcasetyperegister');
+Route::post('/casetype/register','RegisterController@casetyperegister');
+Route::get('/casetype/edit/{id}','UpdateController@showcasetypeedit')->name('showcasetype');
+Route::put('/casetype/edit/{id}','UpdateController@casetypeedit')->name('casetypeedit');
+Route::delete('/casetype/delete/{id}','DeleteController@casetypedelete')->name('deletecasetype');
+
+Route::get('/casestatus/show','RegisterController@showcasestatus');
+Route::get('/casestatus/register','RegisterController@showcasestatusregister');
+Route::post('/casestatus/register', 'RegisterController@casestatusregister');
+Route::get('/casestatus/edit{id}','UpdateController@showcasestatusedit')->name('showcs');
+Route::put('/casestatus/edit/{id}','UpdateController@casestatusedit')->name('editcs');
+Route::delete('/casestatus/delete/{id}','DeleteController@casestatusdelete')->name('delcs');
+
 Route::get('/schedule/show','RegisterController@schedule');
 Route::get('/schedule/register','RegisterController@showschedule');
 Route::post('/schedule/register','RegisterController@scheduleregister');
@@ -139,6 +160,9 @@ Route::resource('interviewees', 'IntervieweeController');
 
 
 Route::get('/', function () {
+    return view('auth.login');
+});
+Route::get('/home', function () {
     return view('home');
 });
 
@@ -154,3 +178,7 @@ Route::get('/lawyers', function () {
     return view('lawyers');
 });
 
+
+Auth::routes();
+
+// Route::get('/home', 'HomeController@index')->name('home');

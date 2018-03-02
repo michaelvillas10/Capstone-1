@@ -8,12 +8,12 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>NATURE OF REQUEST </h1>
+					<h1>CASE TYPE</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Nature Of Request </li>
+						<li class="active">Case Type </li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="{{url('natureofrequest/register')}}" ><i class="fa fa-plus"></i>New Nature Of Request</a>
+							<a  class="btn btn-green" href="/casetype/register" ><i class="fa fa-plus"></i>New Case Type</a>
 						</div>
 					</ol>
 				</header>
@@ -35,7 +35,7 @@
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>NATURE OF REQUEST</strong> <!-- panel title -->
+								<strong>Case Type</strong> <!-- panel title -->
 							</span>
 
 							<!-- right options -->
@@ -67,25 +67,25 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($services as $service)
+								@foreach ($casetypes as $ct)
 									<tr>
 										<td>
-											 {{$service->name}}
+											 {{$ct->name}}
 										</td>
 										
 										<td>
-											  <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $service->id }}">
+											  <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $ct->id }}">
 											  	<i class="fa fa-pencil"></i> Edit</button>
 
-											  	<div class="modal fade bs-example-modal-lg{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+											  	<div class="modal fade bs-example-modal-lg{{ $ct->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
- <form id="update-language-form" action="{{ route('natedit',$service->id) }}" method="post">
+ <form id="update-language-form" action="{{ route('editct',$ct->id) }}" method="post">
                             {{ csrf_field() }}
 {{ method_field('PUT') }}
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="myLargeModalLabel">Edit natureofrequest</h4>
+									<h4 class="modal-title" id="myLargeModalLabel">Edit Case Type</h4>
 								</div>
 
 								<!-- body modal -->
@@ -97,7 +97,7 @@
 													<div class="col-md-4"></div>
 														<div class="col-md-4">
 														<label>Name *</label>
-														<input type="text" name="name" value="{{ $service->name }}" class="form-control required">
+														<input type="text" name="name" value="{{ $ct->name }}" class="form-control required">
 													</div>
 												</div>
 											</div>
@@ -111,10 +111,10 @@
 									</div></div></div>
 										</td>
 										<td>
-											<form action="{{ route('deletenat', $service->id) }}" method = "post">
+											<form action="{{ route('delct', $ct->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletenat',$service->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('delct',$ct->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>

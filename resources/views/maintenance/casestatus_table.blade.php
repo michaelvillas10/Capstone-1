@@ -8,12 +8,12 @@
 
 				<!-- page title -->
 				<header id="page-header">
-					<h1>NATURE OF REQUEST </h1>
+					<h1>CASE STATUS</h1>
 					<ol class="breadcrumb">
 						<li><a href="#">Tables</a></li>
-						<li class="active">Nature Of Request </li>
+						<li class="acsive">Case Status </li>
 						<div class="pull-right">
-							<a  class="btn btn-green" href="{{url('natureofrequest/register')}}" ><i class="fa fa-plus"></i>New Nature Of Request</a>
+							<a  class="btn btn-green" href="/casestatus/register" ><i class="fa fa-plus"></i>New Case Status</a>
 						</div>
 					</ol>
 				</header>
@@ -29,13 +29,13 @@
 							panel-info
 							panel-success
 
-						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() function).
+						INFO: 	panel collapse - stored on user localStorage (handled by app.js _panels() funcsion).
 								All pannels should have an unique ID or the panel collapse status will not be stored!
 					-->
 					<div id="panel-1" class="panel panel-default">
 						<div class="panel-heading">
 							<span class="title elipsis">
-								<strong>NATURE OF REQUEST</strong> <!-- panel title -->
+								<strong>Case Status</strong> <!-- panel title -->
 							</span>
 
 							<!-- right options -->
@@ -50,7 +50,7 @@
 						<!--<div class="row">
 							<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 								<div class="pull-right">
-									<a href="#createprojects" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i> New Request</a>
+									<a href="#createprojecss" class="btn btn-sm btn-green" data-toggle="modal"><i class="fa fa-plus"></i> New Request</a>
 									
 								</div>
 							</div>
@@ -67,25 +67,25 @@
 									</tr>
 								</thead>
 <tbody>
-								@foreach ($services as $service)
+								@foreach ($status as $cs)
 									<tr>
 										<td>
-											 {{$service->name}}
+											 {{$cs->name}}
 										</td>
 										
 										<td>
-											  <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $service->id }}">
+											  <button type="button" class="btn btn-primary" data-toggle="modal" href=".bs-example-modal-lg{{ $cs->id }}">
 											  	<i class="fa fa-pencil"></i> Edit</button>
 
-											  	<div class="modal fade bs-example-modal-lg{{ $service->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+											  	<div class="modal fade bs-example-modal-lg{{ $cs->id }}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 						<div class="modal-dialog modal-lg">
 							<div class="modal-content">
- <form id="update-language-form" action="{{ route('natedit',$service->id) }}" method="post">
+ <form id="update-language-form" action="{{ route('editcs',$cs->id) }}" method="post">
                             {{ csrf_field() }}
 {{ method_field('PUT') }}
 								<div class="modal-header">
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-									<h4 class="modal-title" id="myLargeModalLabel">Edit natureofrequest</h4>
+									<h4 class="modal-title" id="myLargeModalLabel">Edit Case Status</h4>
 								</div>
 
 								<!-- body modal -->
@@ -97,7 +97,7 @@
 													<div class="col-md-4"></div>
 														<div class="col-md-4">
 														<label>Name *</label>
-														<input type="text" name="name" value="{{ $service->name }}" class="form-control required">
+														<input type="text" name="name" value="{{ $cs->name }}" class="form-control required">
 													</div>
 												</div>
 											</div>
@@ -111,10 +111,10 @@
 									</div></div></div>
 										</td>
 										<td>
-											<form action="{{ route('deletenat', $service->id) }}" method = "post">
+											<form action="{{ route('delcs', $cs->id) }}" method = "post">
 												{{ csrf_field() }}
         {{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletenat',$service->id) }}"><i class="fa fa-trash"></i>
+											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('delcs',$cs->id) }}"><i class="fa fa-trash"></i>
 											Delete </button>
 										</form>
 										</td>

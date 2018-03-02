@@ -210,14 +210,10 @@ class DatabaseSeeder extends Seeder
              ]);
              
              DB::table('education')->insert([
-            'name' => 'Masteral'
-     
-      
+            'name' => 'Graduate'
              ]);
              
-             DB::table('education')->insert([
-            'name' => 'Doctoral'
-             ]);
+            
         
 
    
@@ -308,14 +304,14 @@ class DatabaseSeeder extends Seeder
             ]);
                 
             DB::table('requestts')->insert([
+            'name' => 'Administration of oath',
+             
+            ]); 
+
+            DB::table('requestts')->insert([
             'name' => 'Mediation',
              
             ]); 
-                
-            DB::table('requestts')->insert([
-            'name' => 'Administration of oath',
-             
-            ]);
                 
             DB::table('requestts')->insert([
             'name' => 'Representation of quasi-judicial bodies',

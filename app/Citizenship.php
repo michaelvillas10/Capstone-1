@@ -8,6 +8,6 @@ class Citizenship extends Model
 {
      public function client()
     {
-    	return $this->hasMany(Client::class);
+    	return $this->belongsTo(Client::class);
     }
 }

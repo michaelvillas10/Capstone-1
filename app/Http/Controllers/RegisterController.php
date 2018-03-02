@@ -534,13 +534,7 @@ public function showadverseregister(){
       
        
         $cou->save();
-       
-     
-        
-        
-
-   
-       return redirect('/court/show');
+        return redirect('/court/show');
 
     }
      public function showemp(){
@@ -681,7 +675,7 @@ public function showadverseregister(){
         $service->save();
        
      
-        return redirect('/natureofrequest/show');
+        return redirect('/request/show');
         
 
    

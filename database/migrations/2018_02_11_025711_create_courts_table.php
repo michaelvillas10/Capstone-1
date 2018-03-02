@@ -17,7 +17,6 @@ class CreateCourtsTable extends Migration
             $table->increments('id');
             $table->string('district',100);
             $table->string('branch',100);
-           
             $table->timestamps();
         });
     }

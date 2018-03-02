@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Court extends Model
 {
-     public function lawyer()
+     public function employee()
     {
-    	return $this->belongsTo(Lawyer::class);
+    	return $this->belongsTo(Employee::class);
     }
     public function courttype()
      {
     	return $this->hasMany(courttype::class);
     }
+    public function branch()
+     {
+    	return $this->hasMany(Branch::class);
+    }
+
 }

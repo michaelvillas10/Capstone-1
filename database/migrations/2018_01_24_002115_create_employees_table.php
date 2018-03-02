@@ -30,6 +30,7 @@ class CreateEmployeesTable extends Migration
             $table->integer('casecount')->unsigned()->nullable()->default('0');
             $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
             $table->integer('position_id')->unsigned()->nullable();
+            $table->tinyint('status')->unsigned()->default('1');
             $table->timestamps();
         });
     }
