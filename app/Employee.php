@@ -8,18 +8,13 @@ class Employee extends Model
 {
     public function lawyer()
     {
-    	return $this->belongsTo(Employee::class);
+    	return $this->hasMany(employees_has_lawyers::class);
     }
     
     public function position()
     {
     	return $this->hasOne(Position::class);
     }
-     public function schedules()
-    {
-    	return $this->hasMany(schedule::class);
-    }
-
 
 
 }

@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Status extends Model
 {
-    public function casetobehandled()
+    public function approvedcase()
     {
-    	return $this->belongsTo(casetobehandled::class);
+    	return $this->belongsTo(approvedcase::class);
     }
 }

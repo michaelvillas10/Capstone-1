@@ -52,15 +52,16 @@ class EmployeeController extends Controller
         $employee-> elname = $request->elname;
         $employee-> email = $request->email;
 
-        $employee->position = $request->position;
-        
-             if ($request->position == "Lawyer") {
-           $employee->lawyer_id = $employee->lawyer_id += 1;
+        $employee-> position = $request->position;
+        $employ = Employee::select('id')->orderBy('id','desc')->take(1)->get();
+        foreach ($employ as $key => $value) {
+             if ($request->position = "Lawyer"||"lawyer") {
            $lawyer = new Lawyer;
-           $lawyer->save();
-          
-                                                          }
-        
+           $lawyer-> employees_id = $value->id;
+
+            $lawyer->save();
+        }
+        }
        
         $employee-> contact = $request->contact;
         $employee-> clients_id = $request->clients_id;
