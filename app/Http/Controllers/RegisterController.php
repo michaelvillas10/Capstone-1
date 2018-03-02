@@ -69,7 +69,7 @@ public function showreqtable(){
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
         $services = Service::orderBy('name','asc')->get();
-    	return view('maintenance.clientreg')->withClients($clients)
+    	return view('realrequest')->withClients($clients)
         ->withReligions($religions)
         ->withEducations($educations)
         ->withInvolvements($involvements)

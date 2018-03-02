@@ -288,32 +288,32 @@ class DatabaseSeeder extends Seeder
              
              ]);   
             
-       DB::table('requestts')->insert([
+       DB::table('services')->insert([
             'name' => 'Legal Advice',
              
             ]);
              
-            DB::table('requestts')->insert([
+            DB::table('services')->insert([
             'name' => 'Legal Assistance',
              
             ]);
                
-            DB::table('requestts')->insert([
+            DB::table('services')->insert([
             'name' => 'Legal Documentation',
              
             ]);
                 
-            DB::table('requestts')->insert([
+            DB::table('services')->insert([
             'name' => 'Administration of oath',
              
             ]); 
 
-            DB::table('requestts')->insert([
+            DB::table('services')->insert([
             'name' => 'Mediation',
              
             ]); 
                 
-            DB::table('requestts')->insert([
+            DB::table('services')->insert([
             'name' => 'Representation of quasi-judicial bodies',
              
             ]);     

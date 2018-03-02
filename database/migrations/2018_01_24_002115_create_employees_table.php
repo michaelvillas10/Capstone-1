@@ -25,12 +25,12 @@ class CreateEmployeesTable extends Migration
             $table->integer('clients_id')->unsigned()->nullable();
             $table->foreign('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->integer('schedules_id')->unsigned()->nullable();
-            $table->foreign('courts_id')->references('id')->on('courts')->onDelete('cascade');
-            $table->integer('courts_id')->unsigned()->nullable();
+            $table->foreign('casetobehandled_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
+            $table->integer('casetobehandled_id')->unsigned();
             $table->integer('casecount')->unsigned()->nullable()->default('0');
             $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
             $table->integer('position_id')->unsigned()->nullable();
-            $table->tinyint('status')->unsigned()->default('1');
+            $table->boolean('status')->unsigned()->default('1');
             $table->timestamps();
         });
     }

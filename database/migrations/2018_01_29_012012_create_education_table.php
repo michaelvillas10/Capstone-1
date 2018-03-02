@@ -15,7 +15,7 @@ class CreateEducationTable extends Migration
     {
         Schema::create('education', function (Blueprint $table) {
            $table->increments('id');
-            $table->string('name',50);
+            $table->string('name',50)->unique();
             $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
             $table->integer('clients_id')->unsigned()->nullable();
             $table->timestamps();
