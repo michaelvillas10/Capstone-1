@@ -43,10 +43,7 @@ class DatabaseSeeder extends Seeder
              
              ]);
              
-             DB::table('citizenships')->insert([
-            'name' => 'African',
              
-             ]); 
              
              DB::table('citizenships')->insert([
             'name' => 'Dutch',

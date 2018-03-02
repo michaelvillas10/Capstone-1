@@ -26,6 +26,7 @@ use App\casetype;
 use App\Status;
 use Session;
 use DB;
+use Carbon\Carbon;
 
 class RegisterController extends Controller
 {
@@ -109,7 +110,8 @@ public function showreqtable(){
 
             $client = new Client;
       
-       
+     $age =  Carbon::parse($this->attributes[$request->Birthday])->age;
+     return $age;
         $client-> clfname = $request->fname;
         $client-> clmname = $request->mname;
         $client-> cllname = $request->lname;
@@ -121,14 +123,14 @@ public function showreqtable(){
 
         $client-> cldetained = $request->detained;
         $client-> cldetained_since = $request->DetainedDate;
-        $client-> clbdate = $request->Birthday;
+        $client-> clage = $age;
         $client-> clgender = $request->gender;
         $client-> clcivil_status = $request->civilstat;
         $client-> cleducational_attainment = $request->Educational;
         $client-> cllanguage = $request->Language;
         $client-> clcontact_no = $request->Contact;
         $client-> clspouse = $request->clspouse;
-       $client-> claddress_of_spouse = $request->claddress_of_spouse;
+        $client-> claddress_of_spouse = $request->claddress_of_spouse;
         $client-> clcontact_no_of_spouse = $request->clcontact_no_of_spouse;
         $client-> clplace_of_detention = $request->DetainedPlace;
         $client-> nature_of_request = $request->nor;

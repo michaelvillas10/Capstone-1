@@ -15,7 +15,7 @@ class CreateScheduletypesTable extends Migration
     {
         Schema::create('scheduletypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',50);
+            $table->string('name',50)->unique();
             $table->foreign('schedule_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->integer('schedule_id')->unsigned()->nullable();
             $table->timestamps();

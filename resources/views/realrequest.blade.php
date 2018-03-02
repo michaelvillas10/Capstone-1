@@ -16,6 +16,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="form-group">
+							<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
 							<div class="col-md-4">
 								<label>
 									Nature of Request*
@@ -167,6 +169,7 @@
 				</div>
 			</div>
 		</div>
+	</form>
 		<div id="adverse" class="tab-content">
 			<div class="card1">
 				<div class="container">

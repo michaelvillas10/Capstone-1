@@ -109,7 +109,7 @@ foreach ($lawyers as $lawyer) {
         $denied = Client::find($id);
         $denied->cl_status = 'Denied';
         $papersize = array(0, 0, 360, 360);
-        $pdf = PDF::loadView('pdf.badge', array(
+        $pdf = PDF::loadView('pdf.AFFIDAVIT', array(
         'name' => $denied->clfname . ' ' . $denied->clmname . ' ' . $denied->cllname
         
         ));

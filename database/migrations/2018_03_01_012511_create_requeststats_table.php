@@ -15,7 +15,7 @@ class CreateRequeststatsTable extends Migration
     {
         Schema::create('requeststats', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name',50)->unique();
             $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade');
             $table->integer('service_id')->unsigned()->nullable();
             $table->timestamps();

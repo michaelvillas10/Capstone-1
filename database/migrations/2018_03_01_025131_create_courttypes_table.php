@@ -15,7 +15,7 @@ class CreateCourttypesTable extends Migration
     {
         Schema::create('courttypes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',50);
+            $table->string('name',50)->unique();
             $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
             $table->integer('court_id')->unsigned()->nullable();
             $table->timestamps();
