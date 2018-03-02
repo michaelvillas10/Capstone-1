@@ -68,14 +68,14 @@ public function showreqtable(){
         $involvements = Involvement::orderBy('name','asc')->get();
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
-        $requestts = Requestt::orderBy('name','asc')->get();
+        $services = Service::orderBy('name','asc')->get();
     	return view('maintenance.clientreg')->withClients($clients)
         ->withReligions($religions)
         ->withEducations($educations)
         ->withInvolvements($involvements)
         ->withLanguages($languages)
         ->withCitizenships($citizenships)
-        ->withRequestts($requestts);
+        ->withServices($services);
     }
 
     public function clientregister(Request $request){
