@@ -145,18 +145,19 @@ public function showreqtable(){
 
     public function showclientregister(){
         $clients = Client::orderBy('cllname','asc')->get();
-        
+        $services = Service::orderBy('name','asc')->get();
         $religions = Religion::orderBy('name','asc')->get();
         $educations = Education::orderBy('name','asc')->get();
         $involvements = Involvement::orderBy('name','asc')->get();
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
-    	return view('maintenance.clientreg')->withClients($clients)
+    	return view('realrequest')->withClients($clients)
         ->withReligions($religions)
         ->withEducations($educations)
         ->withInvolvements($involvements)
         ->withLanguages($languages)
-        ->withCitizenships($citizenships);
+        ->withCitizenships($citizenships)
+        ->withservices($services);
     }
 
     public function clientregister(Request $request){
@@ -189,9 +190,9 @@ public function showreqtable(){
                 // ));
 
             $client = new Client;
-      
-     $age =  Carbon::parse($this->attributes[$request->Birthday])->age;
-     return $age;
+    
+
+
         $client-> clfname = $request->fname;
         $client-> clmname = $request->mname;
         $client-> cllname = $request->lname;
@@ -203,7 +204,7 @@ public function showreqtable(){
 
         $client-> cldetained = $request->detained;
         $client-> cldetained_since = $request->DetainedDate;
-        $client-> clage = $age;
+        $client-> clbdate = $request->Birthday;
         $client-> clgender = $request->gender;
         $client-> clcivil_status = $request->civilstat;
         $client-> cleducational_attainment = $request->Educational;

@@ -15,17 +15,17 @@
 		<div id="nature" class="tab-content">
 			<div class="card1">
 				<div class="container">
-<<<<<<< HEAD
+
 					<div class="row">
 						<div class="form-group">
-							<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
-                  {{ csrf_field() }}
+						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }} --}}
 							<div class="col-md-4">
-=======
+
 					<div class="row" style="height: 520px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">
->>>>>>> 75d4bca9406136ae9fa9bb9942b770e787fef0a4
+
 								<label>
 									Nature of Request*
 								</label>
@@ -39,13 +39,16 @@
 							</div>
 						</div>
 					</div>
-					<footer style="margin-bottom: 20px; text-align: center;">
+					<footer style="margin-bottom: 20%; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green">Next</button>
+					         <a href= "clientinfo" class="btn btn-green">Next</a>
 				    </footer>
 				</div>
 			</div>
 		</div>
+	</div>
+</div>
+</div>
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -191,6 +194,7 @@
 				</div>
 			</div>
 		</div>
+	</form>
 		<div id="case" class="tab-content">
 			<div class="card1">
 				<div class="container">

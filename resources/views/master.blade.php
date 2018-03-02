@@ -279,7 +279,7 @@ $("#datetimepicker7").on("dp.change",function (e) {
 
 </script>
 
-<script>
+// <script>
     $(function(){
         $('.tab-content').hide();
         $('ul.nav-tabs li:first').addClass('active');
@@ -293,6 +293,7 @@ $("#datetimepicker7").on("dp.change",function (e) {
             return false;
         });
     })
-</script>
+    
+// </script>
     </body>
 </html>

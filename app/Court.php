@@ -8,7 +8,7 @@ class Court extends Model
 {
      public function lawyer()
     {
-    	return $this->belongsTo(Lawyer::class);
+    	return $this->belongsTo(Employee::class);
     }
     public function courttype()
      {

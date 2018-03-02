@@ -13,7 +13,7 @@ class Employee extends Model
     
     public function position()
     {
-    	return $this->hasOne(Position::class);
+    	return $this->hasMany(Position::class);
     }
 
 

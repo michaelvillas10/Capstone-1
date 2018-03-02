@@ -16,7 +16,7 @@ class Client extends Model
     }
      public function citizenship()
     {
-    	return $this->hasOne(Citizenship::class);
+    	return $this->hasMany(Citizenship::class);
     }
     public function education()
     {
@@ -25,7 +25,7 @@ class Client extends Model
     
     public function lawyer()
     {
-    	return $this->hasOne(Lawyer::class);
+    	return $this->hasMany(Lawyer::class);
     }
         public function interviewee()
     {
