@@ -160,7 +160,7 @@ Route::resource('interviewees', 'IntervieweeController');
 
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('home');
 });
 Route::get('/home', function () {
     return view('home');
