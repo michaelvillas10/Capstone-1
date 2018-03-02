@@ -2623,3 +2623,10 @@ ul.easypiecharts li span.stat-title {
    color: white;
    text-align: center;
 }
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+	    color:#eeeeee;
+    cursor: default;
+    background-color: #346635;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+}

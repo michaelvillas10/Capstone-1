@@ -2,8 +2,17 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')	
 @section('content')
-<section id="middle"><br>
-	<div class="container">
+				
+<section id="middle">
+				<header id="page-header">
+					<h1>New Requests</h1>
+					<ol class="breadcrumb">
+						<li><a href="#">Add</a></li>
+						<li class="active">New Requests</li>
+						
+					</ol>
+				</header>
+	<div class="container-fluid">
 		<ul class="nav nav-tabs">
 			<li><a href="#nature">Nature of Request</a></li>
 			<li><a href="#clientinfo">Client Info</a></li>
@@ -15,7 +24,7 @@
 		<div id="nature" class="tab-content">
 			<div class="card1">
 				<div class="container">						
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }} --}}
 						<div class="form-group"><br>
@@ -34,16 +43,8 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-<<<<<<< HEAD
+					        <a class="btn btn-default btnPrevious" >Back</a>	
 					         <a class="btn btn-green btnNext" >Next</a>
-=======
-
-					         <a class="btn btn-green btnNext" >Next</a>
-
-					       
-
->>>>>>> ab8ac5a9c4004d33917808b60573c976cd45c695
 				    </footer>
 				</div>
 			</div>
@@ -51,7 +52,7 @@
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%"><br>
+					<div class="row" style="height: 490px; width: 100%"><br>
 						<div class="form-group">
 							<div class="col-md-4">
 								<label>First Name *</label>
@@ -138,7 +139,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					        <a class="btn btn-default btnPrevious" >Back</a>
 					         <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
@@ -147,7 +148,7 @@
 		<div id="clientmarital" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">																			
 								<label>Civil Status *</label><br>
@@ -173,7 +174,7 @@
 		<div id="detention" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">	
 								<label>Detained(?) *</label><br>
@@ -187,7 +188,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					        <a class="btn btn-default btnPrevious" >Back</a>
 					         <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
@@ -197,7 +198,7 @@
 		<div id="case" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-12">
 								<label>Case Name *</label><br>	
@@ -237,7 +238,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					        <a class="btn btn-default btnPrevious" >Back</a>
 					        <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
@@ -247,7 +248,7 @@
 		<div id="adverse" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 						<div class="col-md-12">
 							<label>Case Involvement *</label>
@@ -279,7 +280,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					        <a class="btn btn-default btnPrevious" >Back</a>
 					        <button type="submit" class="btn btn-green">Submit</button>
 				    </footer>
 				</div>
