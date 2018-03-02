@@ -268,7 +268,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green">Next</button>
+					        <button type="submit" class="btn btn-green">Submit</button>
 				    </footer>
 				</div>
 			</div>
