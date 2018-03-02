@@ -143,6 +143,7 @@ Route::get('request/lawyers/{id}','RequestController@availablelawyer')->name('re
 
 Route::get('/approve/show','RequestController@approvedtbl');
 
+Route::get('/lawyerside/show','LawyerSideController@home');
 
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');
