@@ -41,7 +41,11 @@
 					</div>
 					<footer style="margin-bottom: 20%; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+<<<<<<< HEAD
 					         <a href= "clientinfo" class="btn btn-green">Next</a>
+=======
+					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
+>>>>>>> 7f362ba594028e96d5f416fbc31eb6b305484b2e
 				    </footer>
 				</div>
 			</div>
@@ -140,7 +144,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green">Next</button>
+					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
 				    </footer>
 				</div>
 			</div>
@@ -166,7 +170,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green">Next</button>
+					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
 				    </footer>
 				</div>
 			</div>
@@ -189,7 +193,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green">Next</button>
+					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
 				    </footer>
 				</div>
 			</div>
@@ -239,7 +243,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green">Next</button>
+					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
 				    </footer>
 				</div>
 			</div>
@@ -317,6 +321,15 @@
         }
     }
    
+   </script>
+   <script type="text/javascript">
+   	$(function(){
+   	$(".nav-tabs").tabs();
+	$("#nexttab").click(function() {
+    var selected = $(".nav-tabs").nav-tabs("option", "selected");
+    $(".nav-tabs").nav-tabs("option", "selected", selected + 1);
+	});
+	})
    </script>
 </section>
 @stop
