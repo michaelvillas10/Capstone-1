@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class LawyerSideController extends Controller
 {
     public function home(){
-    	return view('lawyer ui');
+    	return view('lawyer ui/lawyer ui');
     }
 }
