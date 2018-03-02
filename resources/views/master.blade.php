@@ -293,7 +293,13 @@ $("#datetimepicker7").on("dp.change",function (e) {
             return false;
         });
     })
-    
+  $('.btnNext').click(function(){
+  $('.nav-tabs > .active').next('li').find('a').trigger('click');
+});
+   $('.btnPrevious').click(function(){
+  $('.nav-tabs > .active').prev('li').find('a').trigger('click');
+});
+
 // </script>
     </body>
 </html>

@@ -14,18 +14,12 @@
 		</ul>
 		<div id="nature" class="tab-content">
 			<div class="card1">
-				<div class="container">
-
-					<div class="row">
-						<div class="form-group">
+				<div class="container">						
+					<div class="row" style="height: 520px; width: 100%">
 						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }} --}}
-							<div class="col-md-4">
-
-					<div class="row" style="height: 520px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">
-
 								<label>
 									Nature of Request*
 								</label>
@@ -39,20 +33,13 @@
 							</div>
 						</div>
 					</div>
-					<footer style="margin-bottom: 20%; text-align: center;">
+					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-<<<<<<< HEAD
-					         <a href= "clientinfo" class="btn btn-green">Next</a>
-=======
-					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
->>>>>>> 7f362ba594028e96d5f416fbc31eb6b305484b2e
+					         <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
-</div>
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -144,7 +131,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
+					         <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
 			</div>
@@ -169,8 +156,8 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
+					         <a class="btn btn-default btnPrevious" >Back</a>
+					         <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
 			</div>
@@ -193,7 +180,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
+					         <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
 			</div>
@@ -243,7 +230,7 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-					        <button type="submit" class="btn btn-green" id="nexttab">Next</button>
+					        <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
 			</div>
@@ -321,15 +308,6 @@
         }
     }
    
-   </script>
-   <script type="text/javascript">
-   	$(function(){
-   	$(".nav-tabs").tabs();
-	$("#nexttab").click(function() {
-    var selected = $(".nav-tabs").nav-tabs("option", "selected");
-    $(".nav-tabs").nav-tabs("option", "selected", selected + 1);
-	});
-	})
-   </script>
+   </script>>
 </section>
 @stop
