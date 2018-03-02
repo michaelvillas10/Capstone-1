@@ -8,7 +8,7 @@
         <h4> Edit Court </h4>
 </header>
       <!-- Modal Body -->
-      <form action="{{ route('editcou', $courts->id) }}" method="POST">
+      <form action="{{ route('editcs', $courts->id) }}" method="POST">
       {{ csrf_field() }}
       {{ method_field('PUT') }}
       	<div class="row">

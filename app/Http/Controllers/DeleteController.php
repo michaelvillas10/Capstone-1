@@ -18,15 +18,6 @@ use App\Citizenship;
 use App\Service;
 use App\casetype;
 use App\Status;
-use Schedule;use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Language;
-use App\Education;
-use App\Involvement;
-use App\Category;
-use App\Position;
-use App\courttype;
-use App\Court;
 use Schedule;
 
 class DeleteController extends Controller
@@ -39,6 +30,51 @@ class DeleteController extends Controller
         $language->delete();
         //Flashy::success('Succesfully deleted event');
         return redirect('/language/show');
+    }
+    public function natdelete($id)
+    {
+       
+        $service = Service::find($id);
+        
+        $service->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/natureofrequest/show');
+    }
+    public function casetypedelete($id)
+    {
+       
+        $casetype = CaseType::find($id);
+        
+        $casetype->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/casetype/show');
+    }
+     public function casestatusdelete($id)
+    {
+       
+        $status = Status::find($id);
+        
+        $status->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/casestatus/show');
+    }
+    public function citizendelete($id)
+    {
+       
+        $citizenship = Citizenship::find($id);
+        
+        $citizenship->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/citizenship/show');
+    }
+    public function empdelete($id)
+    {
+       
+        $employee = Employee::find($id);
+        
+        $employee->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/employee/show');
     }
     public function educdelete($id)
     {
@@ -66,6 +102,15 @@ class DeleteController extends Controller
         $pos->delete();
         //Flashy::success('Succesfully deleted event');
         return redirect('/position/show');
+    }
+    public function reldelete($id)
+    {
+       
+        $rel = Religion::find($id);
+        
+        $rel->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/religion/show');
     }
      public function ccdelete($id)
     {
@@ -102,6 +147,14 @@ class DeleteController extends Controller
         $sched->delete();
 
         return redirect('/schedule/show');
+    }
+     public function casedelete($id)
+    {
+       
+        $lawsuit = Lawsuit::find($id);
+        
+        $lawsuit->delete();
+        return redirect('/lawsuit/show');
     }
 
 

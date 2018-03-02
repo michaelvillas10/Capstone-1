@@ -43,7 +43,89 @@ class RegisterController extends Controller
         // else{
         // $schedule = Schedule::where('event_id', $event->id)->with('speaker')->get();
         // $group = Group::where('event_id', $event->id)->get();
+
+       public function showemp(){
+        $employees = Employee::all();
+        $positions = Position::all();
+
+        return view('maintenance.employee_table')->withPositions($positions)->withEmployees($employees);
+    }
+        public function showempregister(){
+       $positions = Position::all();
+        return view('maintenance.employee_register')->withPositions($positions);
+    }
+
+    public function empregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'efname'=>'required',
+               ));
+
+         $employee = new Employee;
+          
+
+        $employee-> efname = $request->efname;
+        $employee-> emname = $request->emname;
+        $employee-> elname = $request->elname;
+        $employee-> email = $request->email;
+
+        $employee-> position = $request->position;
+        // $employee = Employee::select('id')->orderBy('id','desc')->take(1)->first();
+        // foreach ($employee as $key => $value) {
+        //      if ($request->position = "Lawyer"||"lawyer") {
+        //    $lawyer = new Lawyer;
+        //    $lawyer-> employees_id = $value['id'];
+
+        //     $lawyer->save();
+        // }
+        // }
+       
+        $employee-> contact = $request->contact;
+        $employee-> clients_id = $request->clients_id;
         
+        $employee->save();
+       
+     
+        
+        Session::flash('message', 'The employee was successfuly added! aye.'); 
+        Session::flash('alert-class', 'alert-danger'); 
+
+   
+       return redirect('/employee/show');
+
+    }     
+ 
+     public function showcase(){
+        $lawsuits = Lawsuit::all();
+
+        return view('maintenance.case_table', ['lawsuits' => $lawsuits]);
+    }
+        public function showcaseregister(){
+       $lawsuits = Lawsuit::all();
+        return view('maintenance.case_reg')->withLawsuits($lawsuits);
+    }
+
+    public function caseregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+               ));
+
+         $lawsuit = new Lawsuit;
+
+          $lawsuit-> name = $request->name;
+        $lawsuit-> casetobehandleds_id = $request->casetobehandleds_id;
+        $lawsuit->save();
+       
+     
+        
+        Session::flash('message', 'The case was successfuly added! aye.'); 
+        Session::flash('alert-class', 'alert-danger'); 
+
+   
+       return redirect('/lawsuit/show');
+
+    }       
     
 public function showreqtable(){
     $clients = Client::where('cl_status','Pending')->orderBy('cllname','asc')
@@ -64,18 +146,16 @@ public function showreqtable(){
         $clients = Client::orderBy('cllname','asc')->get();
         
         $religions = Religion::orderBy('name','asc')->get();
-        $educations = Education::orderBy('created_at','asc')->get();
+        $educations = Education::orderBy('name','asc')->get();
         $involvements = Involvement::orderBy('name','asc')->get();
         $languages = Language::orderBy('name','asc')->get();
         $citizenships = Citizenship::orderBy('name','asc')->get();
-        $services = Service::orderBy('name','asc')->get();
-    	return view('realrequest')->withClients($clients)
+    	return view('maintenance.clientreg')->withClients($clients)
         ->withReligions($religions)
         ->withEducations($educations)
         ->withInvolvements($involvements)
         ->withLanguages($languages)
-        ->withCitizenships($citizenships)
-        ->withServices($services);
+        ->withCitizenships($citizenships);
     }
 
     public function clientregister(Request $request){
@@ -146,17 +226,16 @@ public function showreqtable(){
     }
        public function showcasetbhregister(){
          $clients = Client::select('id')->orderBy('id','desc')->get();
-        $employees = Employee::where('position','Interviewer')->get();
+        $employees = Employee::orderBy('efname','asc')->get();
         $lawsuits = Lawsuit::orderBy('name','asc')->get();
         $category = Category::orderBy('name','asc')->get();
         $involvements = Involvement::orderBy('name','asc')->get();
-         $casetypes = casetype::orderBy('name','asc')->get();
+         
         return view('maintenance.casereg')->withClients($clients)
         ->withLawsuits($lawsuits)
         ->withCategory($category)
         ->withInvolvements($involvements)
-        ->withEmployees($employees)
-        ->withcasetypes($casetypes);
+        ->withEmployees($employees);
     }
      public function casetbhregister(Request $request){
         
@@ -296,6 +375,186 @@ public function showadverseregister(){
        
      
         return redirect('/position/show');
+        
+
+   
+        //return redirect()->route('interviewees.create');
+
+    }
+
+     public function showcasestatus(){
+
+        $status = Status::all();
+        return view('maintenance.casestatus_table')->withStatus($status);
+    }
+     public function showcasestatusregister(){
+
+       
+        return view('maintenance.casestatus_register');
+    }
+
+    public function casestatusregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $status = new Status;
+     
+       
+        $status-> name = $request->name;
+       
+       
+        $status->save();
+       
+     
+        return redirect('/casestatus/show');
+        
+
+   
+        //return redirect()->route('interviewees.create');
+
+    }
+
+    public function shownat(){
+
+        $services = Service::all();
+        return view('maintenance.natureofrequest_table')->withservices($services);
+    }
+     public function shownatregister(){
+
+       
+        return view('maintenance.natureofrequest_register');
+    }
+
+    public function natregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $service = new Service;
+     
+       
+        $service-> name = $request->name;
+       
+       
+        $service->save();
+       
+     
+        return redirect('/natureofrequest/show');
+        
+
+   
+        //return redirect()->route('interviewees.create');
+
+    }
+
+    public function showcasetype(){
+
+        $casetypes = CaseType::all();
+        return view('maintenance.casetype_table')->withcasetypes($casetypes);
+    }
+     public function showcasetyperegister(){
+
+       
+        return view('maintenance.casetype_register');
+    }
+
+    public function casetyperegister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $casetype = new CaseType;
+     
+       
+        $casetype-> name = $request->name;
+       
+       
+        $casetype->save();
+       
+     
+        return redirect('/casetype/show');
+        
+
+   
+        //return redirect()->route('interviewees.create');
+
+    }
+
+    public function showcitizenship(){
+
+        $citizenships = Citizenship::all();
+        return view('maintenance.citizenship_table')->withcitizenships($citizenships);
+    }
+     public function showcitizenshipregister(){
+
+       
+        return view('maintenance.citizenship_register');
+    }
+
+    public function citizenshipregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $citizenship = new Citizenship;
+     
+       
+        $citizenship-> name = $request->name;
+       
+       
+        $citizenship->save();
+       
+     
+        return redirect('/citizenship/show');
+        
+
+   
+        //return redirect()->route('interviewees.create');
+
+    }
+
+     public function showrel(){
+
+        $religions = Religion::all();
+        return view('maintenance.religion_table')->withReligions($religions);
+    }
+     public function showrelregister(){
+
+       
+        return view('maintenance.religion_register');
+    }
+
+    public function relregister(Request $request){
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $religion = new Religion;
+     
+       
+        $religion-> name = $request->name;
+       
+       
+        $religion->save();
+       
+     
+        return redirect('/religion/show');
         
 
    
@@ -507,6 +766,9 @@ public function showadverseregister(){
        return redirect('/courttype/show');
 
     }
+
+
+
      public function showcourt(){
         $courts = Court::all();
         $courttypes = courttype::all();
@@ -534,263 +796,15 @@ public function showadverseregister(){
       
        
         $cou->save();
-        return redirect('/court/show');
-
-    }
-     public function showemp(){
-        $employees = Employee::all();
-        $positions = Position::all();
-
-        return view('maintenance.employee_table')->withPositions($positions)->withEmployees($employees);
-    }
-        public function showempregister(){
-       $positions = Position::all();
-        return view('maintenance.employee_register')->withPositions($positions);
-    }
-
-    public function empregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'efname'=>'required',
-               ));
-
-         $employee = new Employee;
-          
-
-        $employee-> efname = $request->efname;
-        $employee-> emname = $request->emname;
-        $employee-> elname = $request->elname;
-        $employee-> email = $request->email;
-
-        $employee-> position = $request->position;
-        
-       
-        $employee-> contact = $request->contact;
-        $employee-> clients_id = $request->clients_id;
-        
-        $employee->save();
        
      
         
-        Session::flash('message', 'The employee was successfuly added! aye.'); 
-        Session::flash('alert-class', 'alert-danger'); 
-
-   
-       return redirect('/employee/show');
-
-    }     
- 
-     public function showcase(){
-        $lawsuits = Lawsuit::all();
-
-        return view('maintenance.case_table', ['lawsuits' => $lawsuits]);
-    }
-        public function showcaseregister(){
-       $lawsuits = Lawsuit::all();
-        return view('maintenance.case_reg')->withLawsuits($lawsuits);
-    }
-
-    public function caseregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'name'=>'required',
-               ));
-
-         $lawsuit = new Lawsuit;
-
-          $lawsuit-> name = $request->name;
-        $lawsuit-> casetobehandleds_id = $request->casetobehandleds_id;
-        $lawsuit->save();
-       
-     
-        
-        Session::flash('message', 'The case was successfuly added! aye.'); 
-        Session::flash('alert-class', 'alert-danger'); 
-
-   
-       return redirect('/lawsuit/show');
-
-    }
-    public function showcasestatus(){
-
-        $status = Status::all();
-        return view('maintenance.casestatus_table')->withStatus($status);
-    }
-     public function showcasestatusregister(){
-
-       
-        return view('maintenance.casestatus_register');
-    }
-
-    public function casestatusregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'name'=>'required',
-                
-              
-                ));
-
-            $status = new Status;
-     
-       
-        $status-> name = $request->name;
-       
-       
-        $status->save();
-       
-     
-        return redirect('/casestatus/show');
         
 
    
-        //return redirect()->route('interviewees.create');
+       return redirect('/court/show');
 
     }
-
-    public function shownat(){
-
-        $services = Service::all();
-        return view('maintenance.natureofrequest_table')->withservices($services);
-    }
-     public function shownatregister(){
-
-       
-        return view('maintenance.natureofrequest_register');
-    }
-
-    public function natregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'name'=>'required',
-                
-              
-                ));
-
-            $service = new Service;
-     
-       
-        $service-> name = $request->name;
-       
-       
-        $service->save();
-       
-     
-        return redirect('/request/show');
-        
-
-   
-        //return redirect()->route('interviewees.create');
-
-    }
-
-    public function showcasetype(){
-
-        $casetypes = CaseType::all();
-        return view('maintenance.casetype_table')->withcasetypes($casetypes);
-    }
-     public function showcasetyperegister(){
-
-       
-        return view('maintenance.casetype_register');
-    }
-
-    public function casetyperegister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'name'=>'required',
-                
-              
-                ));
-
-            $casetype = new CaseType;
-     
-       
-        $casetype-> name = $request->name;
-       
-       
-        $casetype->save();
-       
-     
-        return redirect('/casetype/show');
-        
-
-   
-        //return redirect()->route('interviewees.create');
-
-    }
-
-    public function showcitizenship(){
-
-        $citizenships = Citizenship::all();
-        return view('maintenance.citizenship_table')->withcitizenships($citizenships);
-    }
-     public function showcitizenshipregister(){
-
-       
-        return view('maintenance.citizenship_register');
-    }
-
-    public function citizenshipregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'name'=>'required',
-                
-              
-                ));
-
-            $citizenship = new Citizenship;
-     
-       
-        $citizenship-> name = $request->name;
-       
-       
-        $citizenship->save();
-       
-     
-        return redirect('/citizenship/show');
-        
-
-   
-        //return redirect()->route('interviewees.create');
-
-    }
-
-     public function showrel(){
-
-        $religions = Religion::all();
-        return view('maintenance.religion_table')->withReligions($religions);
-    }
-     public function showrelregister(){
-
-       
-        return view('maintenance.religion_register');
-    }
-
-    public function relregister(Request $request){
-        //dd('gdgfgf'); 
-        $this->validate($request, array(
-                'name'=>'required',
-                
-              
-                ));
-
-            $religion = new Religion;
-     
-       
-        $religion-> name = $request->name;
-       
-       
-        $religion->save();
-       
-     
-        return redirect('/religion/show');
-        
-
-   
-        //return redirect()->route('interviewees.create');
-
-    }       
-
 
 
 }

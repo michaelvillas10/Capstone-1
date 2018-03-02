@@ -24,10 +24,10 @@
 			<div class="form-group">
 				<div class="col-md-6">
 					<label>Case Name *</label>
-					<select name="lawsuit" class="form-control " required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
+					<select name="lawsuit" class="form-control " onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
-					@foreach($lawsuits as $lawsuit)
-      <option value="{{$lawsuit->name}}">{{$lawsuit->name}}</option>
+					@foreach($employees as $employee)
+      <option value="{{$employee->efname}}">{{$employee->efname}}</option>
     @endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>
@@ -35,7 +35,7 @@
 				</div>
 				<div class="col-md-6">
 					<label>Interviewer *</label>
-					<select name="employee" class="form-control " required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
+					<select name="employee" class="form-control " onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
 					@foreach($employees as $employee)
       <option value="{{$employee->elname}} , {{$employee->efname}} {{$employee->emname}}">{{$employee->elname}} , {{$employee->efname}} {{$employee->emname}}</option>
@@ -62,8 +62,8 @@
 					<label>Nature of Case  *</label>
 					<select name="casetype" class="form-control "required onchange="if (this.value=='otherss'){this.form['otherss'].style.visibility='visible'}else {this.form['otherss'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
-					@foreach($casetypes as $casetype)
-      <option value="{{$casetype->name}}">{{$casetype->name}}</option>
+					@foreach($employees as $employee)
+      <option value="{{$employee->efname}}">{{$employee->efname}}</option>
     @endforeach
 					{{-- <option value="otherss">Other</option> --}}
 					</select>
@@ -77,7 +77,7 @@
 					@foreach($involvements as $involvement)
       <option value="{{$involvement->name}}">{{$involvement->name}}</option>
     @endforeach
-					
+					<option value="edu">Other</option>
 					</select>
 					<input type="textbox" name="edu" class="form-control required" style="visibility:hidden;"/>
 				

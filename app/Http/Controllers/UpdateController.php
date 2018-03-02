@@ -69,6 +69,51 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/language/show');
     }
+    public function showempedit($id)
+    {
+        $employee = Employee::find($id);
+        return view('maintenance.ls_edit')->withEmployees($employee);
+    }
+   
+
+    public function empedit($id, Request $request)
+    {
+         $this->validate($request, array(
+                'efname'=>'required',
+               ));
+
+         $employee = Employee::find($id);
+          
+
+        $employee-> efname = $request->efname;
+        $employee-> emname = $request->emname;
+        $employee-> elname = $request->elname;
+        $employee-> email = $request->email;
+        // $employee = Employee::select('id')->orderBy('id','desc')->take(1)->first();
+        // foreach ($employee as $key => $value) {
+        //      if ($request->position = "Lawyer"||"lawyer") {
+        //    $lawyer = new Lawyer;
+        //    $lawyer-> employees_id = $value['id'];
+
+        //     $lawyer->save();
+        // }
+        // }
+       
+        $employee-> position = $request->position;
+
+       
+        $employee-> contact = $request->contact;
+        
+        $employee->save();
+       
+     
+        
+        Session::flash('message', 'The employee was successfuly added! aye.'); 
+        Session::flash('alert-class', 'alert-danger'); 
+
+   
+       return redirect('/employee/show');
+    }
     public function showeducedit($id)
     {
         $education = Education::find($id);
@@ -110,26 +155,112 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/caseinvolvement/show');
     }
-    public function showposeedit($id)
+    public function showreleedit($id)
     {
-        $positions = Position::find($id);
-        return view('maintenance.position_edit')->withPositions($positions);
+        $religions = Religion::find($id);
+        return view('maintenance.religion_edit')->withReligions($religions);
     }
-    public function posedit($id, Request $request)
+    public function reledit($id, Request $request)
     {
         $this->validate($request, [
             'name'=>'required',
         ]);
  
-        $pos = Position::find($id);
+        $rel = Religion::find($id);
 
-        $pos-> name = $request->name;
+        $rel-> name = $request->name;
        
-        $pos->save();
+        $rel->save();
         
         //Flashy::success('Succesfully edited guest', '#');
-       return redirect('/position/show');
+       return redirect('/religion/show');
     }
+
+    public function showcasetypeedit($id)
+    {
+        $casetypes = Casetype::find($id);
+        return view('maintenance.casetype_edit')->withCasetypes($casetypes);
+    }
+    public function casetypeedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $rel = Casetype::find($id);
+
+        $rel-> name = $request->name;
+       
+        $rel->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/casetype/show');
+    }
+
+     public function showcasestatusedit($id)
+    {
+        $status = Status::find($id);
+        return view('maintenance.casestatus_edit')->withStatus($status);
+    }
+    public function casestatusedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $rel = Status::find($id);
+
+        $rel-> name = $request->name;
+       
+        $rel->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/casestatus/show');
+    }
+
+    public function shownateedit($id)
+    {
+        $services = Service::find($id);
+        return view('maintenance.service_edit')->withServices($services);
+    }
+    public function natedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $nat = Service::find($id);
+
+        $nat-> name = $request->name;
+       
+        $nat->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/natureofrequest/show');
+    }
+
+
+    public function showcitizeneedit($id)
+    {
+        $citizenships = Citizenship::find($id);
+        return view('maintenance.citizenship_edit')->withCitizenships($citizenships);
+    }
+    public function citizenedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $cit = Citizenship::find($id);
+
+        $cit-> name = $request->name;
+       
+        $cit->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/citizenship/show');
+    }
+
     public function showccedit($id)
     {
         $category = Category::find($id);
@@ -154,6 +285,27 @@ class UpdateController extends Controller
     {
         $courttype = courttype::find($id);
         return view('maintenance.courttype_edit')->withcourttypes($courttype);
+    }
+     public function showcaseedit($id)
+    {
+        $lawsuit = Lawsuit::find($id);
+        return view('maintenance.case_edit')->withLawsuits($lawsuit);
+    }
+     public function caseedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $lawsuit = Lawsuit::find($id);
+
+        $lawsuit-> name = $request->name;
+        $lawsuit-> casetobehandleds_id = $request->casetobehandleds_id;
+       
+        $lawsuit->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/lawsuit/show');
     }
     public function ctedit($id, Request $request)
     {
@@ -215,67 +367,6 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/schedule/show');
     }
-    public function showcasetypeedit($id)
-    {
-        $casetypes = Casetype::find($id);
-        return view('maintenance.casetype_edit')->withCasetypes($casetypes);
-    }
-    public function casetypeedit($id, Request $request)
-    {
-        $this->validate($request, [
-            'name'=>'required',
-        ]);
- 
-        $rel = Casetype::find($id);
-
-        $rel-> name = $request->name;
-       
-        $rel->save();
-        
-        //Flashy::success('Succesfully edited guest', '#');
-       return redirect('/casetype/show');
-    }
-     public function showcasestatusedit($id)
-    {
-        $status = Status::find($id);
-        return view('maintenance.casestatus_edit')->withStatus($status);
-    }
-    public function casestatusedit($id, Request $request)
-    {
-        $this->validate($request, [
-            'name'=>'required',
-        ]);
- 
-        $rel = Status::find($id);
-
-        $rel-> name = $request->name;
-       
-        $rel->save();
-        
-        //Flashy::success('Succesfully edited guest', '#');
-       return redirect('/casestatus/show');
-    }
-    public function shownateedit($id)
-    {
-        $services = Service::find($id);
-        return view('maintenance.service_edit')->withServices($services);
-    }
-    public function natedit($id, Request $request)
-    {
-        $this->validate($request, [
-            'name'=>'required',
-        ]);
- 
-        $nat = Service::find($id);
-
-        $nat-> name = $request->name;
-       
-        $nat->save();
-        
-        //Flashy::success('Succesfully edited guest', '#');
-       return redirect('/natureofrequest/show');
-    }
-
 
     
 }

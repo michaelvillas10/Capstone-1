@@ -11,14 +11,9 @@ class casetobehandled extends Model
     	return $this->belongsTo(Client::class);
     }
     
-     
-    public function employee()
+     public function approvedcase()
     {
-    	return $this->hasMany(Employee::class);
-    }
-    public function casetype()
-    {
-        return $this->hasOne(lawyercasetype::class);
+    	return $this->belongsTo(approvedcase::class);
     }
 
 
