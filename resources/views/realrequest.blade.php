@@ -35,7 +35,15 @@
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+<<<<<<< HEAD
 					         <a class="btn btn-green btnNext" >Next</a>
+=======
+
+					         <a class="btn btn-green btnNext" >Next</a>
+
+					       
+
+>>>>>>> ab8ac5a9c4004d33917808b60573c976cd45c695
 				    </footer>
 				</div>
 			</div>
