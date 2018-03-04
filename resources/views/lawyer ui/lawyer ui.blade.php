@@ -53,14 +53,14 @@
                     @yield('nav')
                 </nav>
 
-                <span id="asidebg"><!-- aside fixed background --></span>
+                <span id="asidebg"  style="background-color: #182634;"><!-- aside fixed background --></span>
             </aside>
             <!-- /ASIDE -->
 
 
             <!-- HEADER -->
-            <header id="header">
-                <button id="mobileMenuBtn"></button>
+            <header id="header" style="background-color: #182634;">
+                
                 @yield('header')
 
             </header>
@@ -75,7 +75,7 @@
 
         </div>
 
-                <footer class="footer">
+                <footer class="footer" style="background-color: #273a4d;">
                         <div class="row">   <br>
                     <STRONG><h7 class="pull-right">PUBLIC ATTORNEY'S OFFICE</h7></STRONG>
                     </div>

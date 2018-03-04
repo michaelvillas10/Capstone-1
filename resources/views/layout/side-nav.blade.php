@@ -48,9 +48,15 @@
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
                               <li><a href="/courttype/show">Court type</a></li>
+<<<<<<< HEAD
                               <li><a href="/branch/show">Branch</a></li>
                               <li><a href="/court/show">Court  </a></li>    
                               <li><a href="/casecategory/show">Case Category </a></li>    
+=======
+                              <li><a href="/court/show">Court  </a></li>    
+                             
+                             <li><a href="/casecategory/show">Case Category </a></li>    
+>>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
                              <li><a href="/lawsuit/show">Case</a></li>
                              <li><a href="/caseinvolvement/show">Case Involvement </a></li>
                              <li><a href="/casetype/show">Case Type</a></li>
@@ -81,4 +87,4 @@
                             </a>
                         </li>
 </ul>
-@stop
+@stop 

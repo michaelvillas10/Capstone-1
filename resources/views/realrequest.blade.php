@@ -2,8 +2,17 @@
 @extends('layout/side-nav')
 @extends('layout/header-main')	
 @section('content')
-<section id="middle"><br>
-	<div class="container">
+				
+<section id="middle">
+				<header id="page-header">
+					<h1>New Requests</h1>
+					<ol class="breadcrumb">
+						<li><a href="#">Add</a></li>
+						<li class="active">New Requests</li>
+						
+					</ol>
+				</header>
+	<div class="container-fluid">
 		<ul class="nav nav-tabs">
 			<li><a href="#nature">Nature of Request</a></li>
 			<li><a href="#clientinfo">Client Info</a></li>
@@ -15,6 +24,7 @@
 		<form action="/client/register" method="post" enctype="multipart/form-data">
 		<div id="nature" class="tab-content">
 			<div class="card1">
+<<<<<<< HEAD
 				<div class="container">
 
 					<div class="row">
@@ -24,9 +34,14 @@
 							<div class="col-md-4">
 
 					<div class="row" style="height: 520px; width: 100%">
+=======
+				<div class="container">						
+					<div class="row" style="height: 490px; width: 100%">
+						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }} --}}
+>>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
 						<div class="form-group"><br>
 							<div class="col-md-6">
-
 								<label>
 									Nature of Request*
 								</label>
@@ -41,24 +56,23 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
-
+					        <a class="btn btn-default btnPrevious" >Back</a>	
 					         <a class="btn btn-green btnNext" >Next</a>
-
-					       
-
 				    </footer>
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
 </div>
 </div>
 
+=======
+>>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%"><br>
+					<div class="row" style="height: 490px; width: 100%"><br>
 						<div class="form-group">
 							<div class="col-md-4">
 								<label>First Name *</label>
@@ -162,11 +176,16 @@
 					    </div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
+<<<<<<< HEAD
 					         <a class="btn btn-default btnPrevious" >Back</a>
                              <button type="submit" class="btn btn-green ">Submit</button>
                              <div id = "ifMarried"  style="display:none;">
 					         <a  class="btn btn-green btnNext" >Next</a>
 					        </div>
+=======
+					        <a class="btn btn-default btnPrevious" >Back</a>
+					         <a class="btn btn-green btnNext" >Next</a>
+>>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
 				    </footer>
 				</div>
 			</div>
@@ -174,7 +193,7 @@
 		<div id="clientmarital" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">																			
 								
@@ -196,7 +215,7 @@
 		<div id="detention" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-6">	
 								
@@ -208,8 +227,13 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
+<<<<<<< HEAD
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 					         <button type="submit" class="btn btn-green ">Submit</button>
+=======
+					        <a class="btn btn-default btnPrevious" >Back</a>
+					         <a class="btn btn-green btnNext" >Next</a>
+>>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
 				    </footer>
 				</div>
 			</div>
@@ -218,7 +242,7 @@
 		{{-- <div id="case" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 							<div class="col-md-12">
 								<label>Case Name *</label><br>	
@@ -258,7 +282,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					        <a class="btn btn-default btnPrevious" >Back</a>
 					        <a class="btn btn-green btnNext" >Next</a>
 				    </footer>
 				</div>
@@ -268,7 +292,7 @@
 		<div id="adverse" class="tab-content">
 			<div class="card1">
 				<div class="container">
-					<div class="row" style="height: 520px; width: 100%">
+					<div class="row" style="height: 490px; width: 100%">
 						<div class="form-group"><br>
 						<div class="col-md-12">
 							<label>Case Involvement *</label>
@@ -300,7 +324,7 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
+					        <a class="btn btn-default btnPrevious" >Back</a>
 					        <button type="submit" class="btn btn-green">Submit</button>
 				    </footer>
 				</div>
@@ -340,6 +364,7 @@ var strUser = e.options[e.selectedIndex].value;
     }
 
    
+<<<<<<< HEAD
    </script>
    <script type ="text/javascript">
 	    window.onload = function() {
@@ -365,5 +390,8 @@ var strUser = e.options[e.selectedIndex].value;
 	});
 	})
    </script>
+=======
+   </script>>
+>>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
 </section>
 @stop

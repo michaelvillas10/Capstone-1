@@ -60,7 +60,7 @@
 
             <!-- HEADER -->
             <header id="header">
-                <button id="mobileMenuBtn"></button>
+                
                 @yield('header-main')
 
             </header>
