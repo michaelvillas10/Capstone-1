@@ -45,9 +45,9 @@
                                
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
-                              
+                              <li><a href="/courttype/show">Court type</a></li>
                               <li><a href="/court/show">Court  </a></li>    
-                             <li><a href="/courttype/show">Court type</a></li>
+                             
                              <li><a href="/casecategory/show">Case Category </a></li>    
                              <li><a href="/lawsuit/show">Case</a></li>
                              <li><a href="/caseinvolvement/show">Case Involvement </a></li>
@@ -76,4 +76,4 @@
                             </a>
                         </li>
 </ul>
-@stop
+@stop 
