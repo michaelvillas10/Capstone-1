@@ -167,6 +167,9 @@ Route::put('request/lawyers/{id}','RequestController@availablelawyer')->name('re
 
 Route::get('/approve/show','RequestController@approvedtbl');
 
+Route::get('/approve/sheet','RequestController@approvesheet');
+
+
 Route::get('/lawyerside/show','LawyerSideController@home');
 
 Route::get('/lawyer/show','RegisterController@showlawyer');

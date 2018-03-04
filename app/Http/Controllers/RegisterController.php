@@ -249,7 +249,8 @@ class RegisterController extends Controller
             $client-> clcontact_no_of_spouse = $request->clcontact_no_of_spouse;
             $client-> clplace_of_detention = $request->DetainedPlace;
             $client-> nature_of_request = $request->nor;
-            if ($request->nor == 'Legal Advice' || 'Legal Assistance') 
+           
+            if ($request->nor == 'Legal Advice' || $request->nor == 'Legal Assistance') 
             {
               $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
               $client->cl_status = "Walkin";
@@ -262,12 +263,13 @@ class RegisterController extends Controller
                   
                   $lawyers->clients_id = $lawyerclients->id;
                   $lawyers->save();
+                  return redirect('/lawyer/show');
                  }
 
                   
                 }
 
-                return redirect('/lawyer/show');
+                
 
             }
             elseif ($request->nor == 'Administration of oath' ) 
@@ -282,13 +284,14 @@ class RegisterController extends Controller
                  {
                   
                   $lawyers->clients_id = $lawyerclients->id;
-                  $lawyers->save();
+                  $lawyers->save(); 
+                  return view('/lawyer/show');
                  }
 
                   
               }
 
-              return view('/lawyer/show');
+             
 
             }
              elseif ($request->nor == 'Legal Documentation' ) 
@@ -304,34 +307,36 @@ class RegisterController extends Controller
                   
                   $lawyers->clients_id = $lawyerclients->id;
                   $lawyers->save();
-            
+                  return redirect('/lawyer/show');
                  }
             
           
-             return redirect('/lawyer/show');      
+                  
               }
 
               
 
             }
-            elseif ($request->nor =='Mediation' || 'Representation of quasi-judicial bodies') 
+            elseif ($request->nor == 'Mediation' || $request->nor == 'Representation of quasi-judicial bodies') 
             {
               $client->cl_status = "Pending";
               $client->save();
               $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
+               $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
               foreach ($lawyer as $key => $lawyers) 
               {
                  foreach ($lawyerclient as $key => $lawyerclients) 
                  {
                   
                   $lawyers->clients_id = $lawyerclients->id;
-                  $lawyers->save();
+                  $lawyers->save(); 
+                  return redirect('/casetbh/register');
                  }
 
                   
               }
 
-              return redirect('/casetbh/register');
+             
             }
 
        }
@@ -339,16 +344,18 @@ class RegisterController extends Controller
        {
 
           $clients = Client::select('id')->orderBy('id','desc')->get();
-          $employees = Employee::orderBy('efname','asc')->get();
+          $employees = Employee::where('position','Interviewer')->get();
           $lawsuits = Lawsuit::orderBy('name','asc')->get();
           $category = Category::orderBy('name','asc')->get();
           $involvements = Involvement::orderBy('name','asc')->get();
+          $casetypes = casetype::orderBy('name','asc')->get();
            
           return view('maintenance.casereg')->withClients($clients)
           ->withLawsuits($lawsuits)
           ->withCategory($category)
           ->withInvolvements($involvements)
-          ->withEmployees($employees);
+          ->withEmployees($employees)
+          ->withcasetypes($casetypes);
        }
 
      public function casetbhregister(Request $request)

@@ -21,25 +21,26 @@
 			{{-- <li><a href="#case">Case Details</a></li>
 			<li><a href="#adverse">Case Adverse</a></li> --}}
 		</ul>
-		<form action="/client/register" method="post" enctype="multipart/form-data">
+		<form class ="horizontal" action="/client/register" method="post" enctype="multipart/form-data">
+		 {{ csrf_field() }}
 		<div id="nature" class="tab-content">
 			<div class="card1">
-<<<<<<< HEAD
+
 				<div class="container">
 
 					<div class="row">
 						<div class="form-group">
-							<form class="form-horizontal" >
-                  {{ csrf_field() }}
+							
+                 
 							<div class="col-md-4">
 
 					<div class="row" style="height: 520px; width: 100%">
-=======
+
 				<div class="container">						
 					<div class="row" style="height: 490px; width: 100%">
 						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }} --}}
->>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
+
 						<div class="form-group"><br>
 							<div class="col-md-6">
 								<label>
@@ -62,13 +63,15 @@
 				</div>
 			</div>
 		</div>
-<<<<<<< HEAD
+
 	</div>
 </div>
 </div>
+</div>
+</div>
 
-=======
->>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
+
+
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -176,20 +179,20 @@
 					    </div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-<<<<<<< HEAD
+
 					         <a class="btn btn-default btnPrevious" >Back</a>
                              <button type="submit" class="btn btn-green ">Submit</button>
                              <div id = "ifMarried"  style="display:none;">
 					         <a  class="btn btn-green btnNext" >Next</a>
 					        </div>
-=======
-					        <a class="btn btn-default btnPrevious" >Back</a>
-					         <a class="btn btn-green btnNext" >Next</a>
->>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
+
+					       
+
 				    </footer>
 				</div>
 			</div>
 		</div>
+	</div>
 		<div id="clientmarital" class="tab-content">
 			<div class="card1">
 				<div class="container">
@@ -227,13 +230,13 @@
 						</div>
 					</div>
 					<footer style="margin-bottom: 20px; text-align: center;">
-<<<<<<< HEAD
+
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 					         <button type="submit" class="btn btn-green ">Submit</button>
-=======
+
 					        <a class="btn btn-default btnPrevious" >Back</a>
 					         <a class="btn btn-green btnNext" >Next</a>
->>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
+
 				    </footer>
 				</div>
 			</div>
@@ -364,7 +367,7 @@ var strUser = e.options[e.selectedIndex].value;
     }
 
    
-<<<<<<< HEAD
+
    </script>
    <script type ="text/javascript">
 	    window.onload = function() {
@@ -390,8 +393,8 @@ var strUser = e.options[e.selectedIndex].value;
 	});
 	})
    </script>
-=======
+
    </script>>
->>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
+
 </section>
 @stop

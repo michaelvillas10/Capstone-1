@@ -26,8 +26,8 @@
 					<label>Case Name *</label>
 					<select name="lawsuit" class="form-control " onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
-					@foreach($employees as $employee)
-      <option value="{{$employee->efname}}">{{$employee->efname}}</option>
+					@foreach($lawsuits as $lawsuit)
+      <option value="{{$lawsuit->name}}"></option>
     @endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>
@@ -62,8 +62,8 @@
 					<label>Nature of Case  *</label>
 					<select name="casetype" class="form-control "required onchange="if (this.value=='otherss'){this.form['otherss'].style.visibility='visible'}else {this.form['otherss'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
-					@foreach($employees as $employee)
-      <option value="{{$employee->efname}}">{{$employee->efname}}</option>
+					@foreach($casetypes as $casetype)
+      <option value="{{$casetype->name}}"></option>
     @endforeach
 					{{-- <option value="otherss">Other</option> --}}
 					</select>

@@ -19,13 +19,11 @@ class RequestController extends Controller
       $approved = Client::find($id);
         $approved->cl_status = 'Approved';
 
-      $case = 
+     
 
             $caseapprove = casetobehandled::find($id);
-            $caseapproved = new approvedcase;
-            $caseapproved->casetobehandleds_id = $id;
-           
-            $caseapproved->save();
+            $caseapprove->client_id =  $approved->id;
+            $caseapprove->save();
 
             
         
@@ -128,6 +126,10 @@ class RequestController extends Controller
         
        
         return view('approvedtbl')->withClients($clients);
+    }
+    public function approvesheet()
+    {
+        return view('forms.interviewsheet');
     }
 
 }
