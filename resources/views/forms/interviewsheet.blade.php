@@ -1,6 +1,5 @@
 @extends('master')
-@extends('layout/side-nav')
-@extends('layout/header-main')	
+
 @section('content')
 				<!-- /page title -->
 
@@ -14,13 +13,13 @@
 									<h1 style="text-align: center;">INTERVIEW SHEET/CLIENTS PROFILE</h1>
 								</header>
 								<div class="col-md" style="text-align: center;">
-									<h5> Region _______________________</h5>
-									<h5> District Office _______________________</h5>
+									<h5> Region NCR</h5>
+									<h5> District Office Central Office</h5>
 								</div>
 
 								<div class="col-md-6 col-sm-6 text-left">
 
-									<h5> Date: _________________________________________________</h5>
+									<h5> Date: </h5>
 									<h5> Control No: ___________________________________________</h5>
 									<br>
 									<h5> Interviewer: __________________________________________</h5>
