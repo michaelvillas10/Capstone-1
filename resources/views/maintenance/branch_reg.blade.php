@@ -6,10 +6,10 @@
 <section id="middle">
   <div class="container">
 <header><br>
-        <h4>Add Case</h4>
+        <h4>Add Branch</h4>
 </header>
       <!-- Modal Body -->
-      <form action="{{ url('lawsuit/register') }}" method="POST">
+      <form action="{{ url('branch/register') }}" method="POST">
       {{ csrf_field() }}
       	<div class="row">
 			<div class="form-group">

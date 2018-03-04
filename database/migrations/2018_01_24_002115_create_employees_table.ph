@@ -26,10 +26,9 @@ class CreateEmployeesTable extends Migration
             $table->foreign('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
             $table->integer('schedules_id')->unsigned()->nullable();
             $table->foreign('casetobehandled_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
-            $table->integer('casetobehandled_id')->unsigned();
+            $table->integer('casetobehandled_id')->unsigned()->nullable();
             $table->integer('casecount')->unsigned()->nullable()->default('0');
-            $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
-            $table->integer('position_id')->unsigned()->nullable();
+           
             $table->boolean('status')->unsigned()->default('1');
             $table->timestamps();
         });

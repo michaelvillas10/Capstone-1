@@ -9,12 +9,13 @@ use DB;
 use App\casetobehandled;
 use App\Adverse;
 use App\Interviewee;
-use App\approvedcase;
-use App\Lawyer;
+use App\Employee;
+use PDF;
 
 class RequestController extends Controller
 {
-    public function approve($id){
+    public function approve($id)
+    {
       $approved = Client::find($id);
         $approved->cl_status = 'Approved';
 
@@ -31,7 +32,8 @@ class RequestController extends Controller
         $approved->save();
     }
 
-    public function deny($id){
+    public function deny($id)
+    {
 
         $denied = Client::find($id);
         $denied->cl_status = 'Denied';
@@ -57,7 +59,8 @@ class RequestController extends Controller
 
     }
 
-    public function view($id){
+    public function view($id)
+    {
         $all = Client::find($id)->with('casetobehandled')->with('adverse');
         // DB::table('clients')
         //     ->join('interviewees', 'clients.id', '=', 'interviewees.clients_id')
@@ -68,14 +71,55 @@ class RequestController extends Controller
         //     ->get();
         return view('viewer')->withClients($all);
     }
+    public function print($id)
+    {
+       $client = Client::find($id);
+
+         
+
+      
+
+ 
+      
+  
+       $papersize = array(0, 0, 360, 360);
+       $pdf = PDF::loadView('pdf.affidavit', array(
+        'name' => $client->clfname . ' ' . $client->clmname . ' ' . $client->cllname,
+        'citizen' => $client->clcitizenship,
+        'civilstat' => $client->clcivil_status,
+        'spouse' => $client->clspouse,
+        'address' => $client->claddress,
+        
+        
+
+       ));
+
+     
+
+       return $pdf->download($client->clfname . '_' . $client->cllname . '_affidavit.pdf');
+        return redirect('/home');                                
+    }
     public function transfer($id){
 
         return view('casedistribution');
     }
-    public function availablelawyer($id){
-
+    public function showlawyers()
+    {
+      $employees = Employee::where('position','Lawyer')
+                            ->get();
+                            
+      return view('lawyers')->withEmployees($employees);
     }
-    public function approvedtbl(){
+    public function availablelawyer($id, Request $request )
+    {
+      $employee = Employee::where('id',$request->handledcase)->get();
+      return $employee;
+      $employee -> status = 0;
+      $employee ->save();
+      return redirect('/home');
+    }
+    public function approvedtbl()
+    {
         $clients = Client::where('cl_status','Approved')
         ->orderBy('cllname','asc')
         ->with('casetobehandled')

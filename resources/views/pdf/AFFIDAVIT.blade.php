@@ -818,9 +818,8 @@ mso-fareast-language:EN-PH'>&nbsp;<o:p></o:p></span></p>
 normal'><span style='font-size:10.0pt;font-family:"Bookman Old Style","serif";
 mso-fareast-font-family:"Times New Roman";mso-bidi-font-family:"Times New Roman";
 color:black;mso-fareast-language:EN-PH'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-I,&nbsp; {{ucwords($name)}} , Filipino citizen, of legal age,
-single/married to (Insert Name of Spouse if any), and a resident of (Insert
-Address of Affiant), after having been duly sworn in accordance with law,
+I,&nbsp; {{ucwords($name)}} , {{ucfirst($citizen)}}, of legal age,
+{{ucfirst($civilstat)}} {{ucfirst($spouse)}} and a resident of {{$address}}, after having been duly sworn in accordance with law,
 hereby depose and say:</span><span style='font-size:13.5pt;font-family:"Times New Roman","serif";
 mso-fareast-font-family:"Times New Roman";color:black;mso-fareast-language:
 EN-PH'><o:p></o:p></span></p>

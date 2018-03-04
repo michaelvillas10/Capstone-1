@@ -12,6 +12,8 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/client/show">New Request</a></li>
+                                <li><a href="/walkin/show">Legal Documentation</a></li>
+                                <li><a href="/notary/show">Administration of oath</a></li>
                                 <li><a href="/approve/show">Approved Requests</a></li>
                                </ul>
                         </li>
@@ -21,7 +23,7 @@
                                 <i class="main-icon fa fa-briefcase"></i> <span>Case </span>
                             </a>
                             <ul><!-- submenus -->
-                                <li><a href="lawyers">Lawyers</a></li>
+                                <li><a href="/request/showlawyers">Lawyers</a></li>
                                 <li><a href="casess">Manage Case</a></li>
                                </ul>
                         </li>
@@ -45,18 +47,21 @@
                                
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
-                              
+                              <li><a href="/courttype/show">Court type</a></li>
+                              <li><a href="/branch/show">Branch</a></li>
                               <li><a href="/court/show">Court  </a></li>    
-                             <li><a href="/courttype/show">Court type</a></li>
-                             <li><a href="/casecategory/show">Case Category </a></li>    
+                              <li><a href="/casecategory/show">Case Category </a></li>    
                              <li><a href="/lawsuit/show">Case</a></li>
                              <li><a href="/caseinvolvement/show">Case Involvement </a></li>
                              <li><a href="/casetype/show">Case Type</a></li>
                              <li><a href="/casestatus/show">Case Status</a></li>
+                             <li><a href="/decision/show">Decision</a></li>
+                             
                                 
 
                                 </li></ul>
                                 <li><a href="/natureofrequest/show">Nature of Request</a></li>
+                                <li><a href="/reqstat/show">Request Status</a></li>
                             </ul>
                         </li>
                         

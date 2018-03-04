@@ -49,7 +49,8 @@ Route::put('/caseinvolvement/edit/{id}','UpdateController@invoedit')->name('edit
 Route::delete('/caseinvolvement/delete/{id}','DeleteController@invodelete')->name('deleteinvo');
 
 Route::get('/client/show','RegisterController@showreqtable');
-
+Route::get('/walkin/show','RegisterController@showwalkintable');
+Route::get('/notary/show','RegisterController@shownotarytable');
 
 Route::get('/client/register','RegisterController@showclientregister');
 Route::post('/client/register', 'RegisterController@clientregister');
@@ -135,15 +136,40 @@ Route::get('/court/edit/{id}','UpdateController@showcouedit')->name('showcou');
 Route::put('/court/edit/{id}','UpdateController@couedit')->name('editcou');
 Route::delete('/court/delete/{id}','DeleteController@coudelete')->name('delcou');
 
+Route::get('/branch/show','RegisterController@showbranch');
+Route::get('/branch/register','RegisterController@showbranchregister');
+Route::post('/branch/register', 'RegisterController@branchregister');
+Route::get('/branch/edit/{id}','UpdateController@showbranchedit')->name('showbra');
+Route::put('/branch/edit/{id}','UpdateController@branchedit')->name('editbra');
+Route::delete('/branch/delete/{id}','DeleteController@branchdelete')->name('delbra');
+
+Route::get('/reqstat/show','RegisterController@showreqstat');
+Route::get('/reqstat/register','RegisterController@showreqstatregister');
+Route::post('/reqstat/register', 'RegisterController@reqstatregister');
+Route::get('/reqstat/edit/{id}','UpdateController@showreqstatedit')->name('showreqstat');
+Route::put('/reqstat/edit/{id}','UpdateController@reqstatedit')->name('editreqstat');
+Route::delete('/reqstat/delete/{id}','DeleteController@reqstatdelete')->name('delreqstat');
+
+Route::get('/decision/show','RegisterController@showdecision');
+Route::get('/decision/register','RegisterController@showdecisionregister');
+Route::post('/decision/register', 'RegisterController@decisionregister');
+Route::get('/decision/edit/{id}','UpdateController@showreqstatedit')->name('showdecision');
+Route::put('/decision/edit/{id}','UpdateController@decisionedit')->name('editdecision');
+Route::delete('/decision/delete/{id}','DeleteController@decisiondelete')->name('deldecision');
+
 Route::get('request/approve/{id}','RequestController@approve')->name('request.approve');
 Route::get('request/view/{id}','RequestController@view')->name('request.view');
 Route::get('request/deny/{id}','RequestController@deny')->name('request.deny');
+Route::get('request/print/{id}','RequestController@print')->name('request.print');
 Route::get('request/casetransfer/{id}','RequestController@transfer')->name('request.transfer');
-Route::get('request/lawyers/{id}','RequestController@availablelawyer')->name('request.lawyer');
+Route::get('request/showlawyers','RequestController@showlawyers');
+Route::put('request/lawyers/{id}','RequestController@availablelawyer')->name('requestlawyer');
 
 Route::get('/approve/show','RequestController@approvedtbl');
 
 Route::get('/lawyerside/show','LawyerSideController@home');
+
+Route::get('/lawyer/show','RegisterController@showlawyer');
 
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');

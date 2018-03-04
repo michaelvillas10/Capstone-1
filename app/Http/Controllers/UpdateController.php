@@ -19,6 +19,9 @@ use App\Citizenship;
 use App\Service;
 use App\casetype;
 use App\Status;
+use App\Branch;
+use App\requeststat;
+use App\Decision;
 use Session;
 
 
@@ -78,41 +81,41 @@ class UpdateController extends Controller
 
     public function empedit($id, Request $request)
     {
-         $this->validate($request, array(
-                'efname'=>'required',
-               ));
+             $this->validate($request, array(
+                    'efname'=>'required',
+                   ));
 
-         $employee = Employee::find($id);
-          
+             $employee = Employee::find($id);
+              
 
-        $employee-> efname = $request->efname;
-        $employee-> emname = $request->emname;
-        $employee-> elname = $request->elname;
-        $employee-> email = $request->email;
-        // $employee = Employee::select('id')->orderBy('id','desc')->take(1)->first();
-        // foreach ($employee as $key => $value) {
-        //      if ($request->position = "Lawyer"||"lawyer") {
-        //    $lawyer = new Lawyer;
-        //    $lawyer-> employees_id = $value['id'];
+            $employee-> efname = $request->efname;
+            $employee-> emname = $request->emname;
+            $employee-> elname = $request->elname;
+            $employee-> email = $request->email;
+            // $employee = Employee::select('id')->orderBy('id','desc')->take(1)->first();
+            // foreach ($employee as $key => $value) {
+            //      if ($request->position = "Lawyer"||"lawyer") {
+            //    $lawyer = new Lawyer;
+            //    $lawyer-> employees_id = $value['id'];
 
-        //     $lawyer->save();
-        // }
-        // }
+            //     $lawyer->save();
+            // }
+            // }
+           
+            $employee-> position = $request->position;
+
+           
+            $employee-> contact = $request->contact;
+            
+            $employee->save();
+           
+         
+            
+            Session::flash('message', 'The employee was successfuly added! aye.'); 
+            Session::flash('alert-class', 'alert-danger'); 
+
        
-        $employee-> position = $request->position;
-
-       
-        $employee-> contact = $request->contact;
-        
-        $employee->save();
-       
-     
-        
-        Session::flash('message', 'The employee was successfuly added! aye.'); 
-        Session::flash('alert-class', 'alert-danger'); 
-
-   
-       return redirect('/employee/show');
+           return redirect('/employee/show');
     }
     public function showeducedit($id)
     {
@@ -367,6 +370,52 @@ class UpdateController extends Controller
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/schedule/show');
     }
+    public function branchedit($id, Request $request)
+    {
+        $this->validate($request, [
+           
+        ]);
+ 
+        $branch = Branch::find($id);
+
+        $branch-> name = $request->name;
+        $branch->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/branch/show');
+    }
+    public function reqstatedit($id, Request $request)
+    {
+        $this->validate($request, [
+           
+        ]);
+ 
+        $reqstat = requeststat::find($id);
+
+        $reqstat-> name = $request->name;
+        $reqstat->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/reqstat/show');
+    }
+    public function decisionedit($id, Request $request)
+    {
+        $this->validate($request, [
+           
+        ]);
+ 
+        $decision = Decision::find($id);
+
+        $decision-> name = $request->name;
+        $decision->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/decision/show');
+    }
+
+
+
+
 
     
 }

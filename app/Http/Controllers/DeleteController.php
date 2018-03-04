@@ -18,7 +18,10 @@ use App\Citizenship;
 use App\Service;
 use App\casetype;
 use App\Status;
-use Schedule;
+use App\Schedule;
+use App\Branch;
+use App\requeststat;
+use App\Decision;
 
 class DeleteController extends Controller
 {
@@ -156,6 +159,31 @@ class DeleteController extends Controller
         $lawsuit->delete();
         return redirect('/lawsuit/show');
     }
+    public function decisiondelete($id)
+    {
+       
+        $decision = Decision::find($id);
+        
+        $decision->delete();
+        return redirect('/decision/show');
+    }
+    public function branchdelete($id)
+    {
+       
+        $branch = Branch::find($id);
+        
+        $branch->delete();
+        return redirect('/branch/show');
+    }
+    public function reqstatdelete($id)
+    {
+       
+        $reqstat = requeststat::find($id);
+        
+        $reqstat->delete();
+        return redirect('/reqstat/show');
+    }
+
 
 
 }

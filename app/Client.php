@@ -23,9 +23,9 @@ class Client extends Model
     	return $this->hasOne(Education::class);
     }
     
-    public function lawyer()
+    public function employee()
     {
-    	return $this->hasMany(Lawyer::class);
+    	return $this->hasMany(Employee::class);
     }
         public function interviewee()
     {

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePositionsTable extends Migration
+class CreateDecisionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreatePositionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('positions', function (Blueprint $table) {
+        Schema::create('decisions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',50)->unique();
-            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
-            $table->integer('employee_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreatePositionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('positions');
+        Schema::dropIfExists('decisions');
     }
 }

@@ -67,6 +67,7 @@
 							
 						</div>
 						 panel content -->
+						
 						<div class="panel-body">
 							
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
@@ -76,26 +77,36 @@
 										<th>Lawyer Name</th>
 										<th>Case Count</th>
 									</tr>
-								</thead>
+								</thead> 
+							@foreach($employees as $lawyer)
+							<form action = "{{route('requestlawyer',$lawyer->id)}}" method = "post">
+		   					{{ csrf_field() }}
+       						{{ method_field('PUT') }}
+
+								
 								<tbody>
 									<tr>
-										<td><input type="checkbox" name="handled case[]"></td>
-										<td></td>
-										<td></td>
+										<td><input type="checkbox" name="handledcase[]" value="{{$lawyer->id}}"></td>
+										<td>{{$lawyer->efname}} {{$lawyer->emname}} {{$lawyer->elname}}</td>
+										<td> {{$lawyer->casecount}} </td>
 									</tr>
 								</tbody>
+
+						 
+							@endforeach
 						
-								
 							</table>
-<footer>
-							<center><button class="btn btn-green">Submit</button></center>
-						</footer>
+ 							<footer>
+								<center> <button type="submit" class="btn btn-green ">Submit</button></center>
+							</footer>
+							</form>@endforeach
+						    
 						</div>
+                        
 						<!-- /panel content -->
 
 						<!-- panel footer -->
 						
-
 					</div>
 					<!-- /PANEL -->
 
