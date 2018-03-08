@@ -35,7 +35,6 @@ class RequestController extends Controller
                                         }
       $interviewsheet = Client::where('id',$approved->id)
                         ->with('casetobehandled')
-                        ->with('adverse')
                         ->get();
       $employeeclient = employeeclients::where('client_id',$approved->id)->get();
       foreach ($employeeclient as $key => $employeeclients) {
@@ -48,7 +47,15 @@ class RequestController extends Controller
 
      foreach ($interviewsheet as $key => $interviewsheets) 
      {
+       $clientadverse = clientadverse::where('client_id',$client->id)->get();
+       foreach($clientadverse as $clientadverses){
+        $adverse = Adverse::where('id',$clientadverses->adverse_id)->get();
+                                                 }
+  
+     
+
         foreach($interviewsheets->casetobehandled as $case){
+              foreach($adverse as $adverses){
         $casename = $case->casename;
         $casetype = $case->nature_of_case;
         $interviewer = $case->interviewer;
@@ -56,12 +63,12 @@ class RequestController extends Controller
         $category = $case->clcomplainant_victim_of;
         $controlno = $case->control_number;
                                                            }
-        $advtype = $interviewsheets->adverse->advprtytype;
-        $advname = $interviewsheets->adverse->advprtyfname . ' ' . $interviewsheets->adverse->advprtymname . ' ' .
-        $interviewsheets->adverse->advprtylname;
-        $advaddr = $interviewsheets->adverse->advprtyaddress;
+        $advtype = $adverses->advprtytype;
+        $advname = $adverses->advprtyfname . ' ' . $adverses->advprtymname . ' ' .
+        $adverses->advprtylname;
+        $advaddr = $adverses->advprtyaddress;
 
-     
+                                            }
        $papersize = array(0, 0, 360, 360);
        $pdf = PDF::loadView('forms.interviewsheet', array(
         'name' => $interviewsheets->clfname . ' ' . $interviewsheets->clmname . ' ' . $interviewsheets->cllname,
@@ -197,7 +204,7 @@ class RequestController extends Controller
       $employees ->save();
         }
       }
-      return redirect('/');
+      return redirect('/home');
     }
     public function approvedtbl()
     {

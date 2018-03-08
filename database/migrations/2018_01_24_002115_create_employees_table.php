@@ -18,17 +18,14 @@ class CreateEmployeesTable extends Migration
             $table->string('efname',50);
             $table->string('emname',50)->nullable()->default('none');
             $table->string('elname',50);
-            $table->string('email',50);
+            $table->string('email',50)->unique();
             $table->string('position',50);
+            $table->string('password',180);
             $table->bigInteger('contact');
-            $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->integer('clients_id')->unsigned()->nullable();
-            $table->foreign('schedules_id')->references('id')->on('schedules')->onDelete('cascade');
-            $table->integer('schedules_id')->unsigned()->nullable();
-            $table->foreign('casetobehandled_id')->references('id')->on('casetobehandleds')->onDelete('cascade');
-            $table->integer('casetobehandled_id')->unsigned()->nullable();
+            $table->foreign('role_id')->references('id')->on('roles')->onDelete('cascade');
+            $table->integer('role_id')->unsigned()->nullable();
+            $table->rememberToken();
             $table->integer('casecount')->unsigned()->nullable()->default('0');
-           
             $table->boolean('status')->unsigned()->default('1');
             $table->timestamps();
         });

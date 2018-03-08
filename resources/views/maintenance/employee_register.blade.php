@@ -48,6 +48,10 @@
 					<label>Contact No. *</label>
 					<input type="text" name="contact" value="" class="form-control required">
 				</div>
+				<div class="col-md-4">
+					<label>Password *</label>
+					<input type="password" name="password" value="" class="form-control required">
+				</div>
 				
 				
 			</div>

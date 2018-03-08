@@ -11,11 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-               DB::table('users')->insert([
-            'name' => 'Christian Montemayor',
-            'email' => 'ch.@gmail.com',
-            'password' => bcrypt('secret'),
-            ]);
+              
           
    
          DB::table('citizenships')->insert([
@@ -281,7 +277,7 @@ class DatabaseSeeder extends Seeder
              ]);
              
           DB::table('positions')->insert([
-            'name' => 'Interviewer',
+            'name' => 'Administrative Staff',
              
              ]);   
             

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdversesTable extends Migration
+class CreateClientadversesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,12 @@ class CreateAdversesTable extends Migration
      */
     public function up()
     {
-        Schema::create('adverses', function (Blueprint $table) {
+        Schema::create('clientadverses', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('advprtytype',50);
-            $table->string('advprtyfname',50);
-            $table->string('advprtymname',50);
-            $table->string('advprtylname',50);
-            $table->string('advprtyaddress',150);
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->integer('client_id')->unsigned();
+            $table->integer('client_id')->unsigned()->nullable();
+            $table->foreign('adverse_id')->references('id')->on('adverses')->onDelete('cascade');
+            $table->integer('adverse_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +30,6 @@ class CreateAdversesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('adverses');
+        Schema::dropIfExists('clientadverses');
     }
 }

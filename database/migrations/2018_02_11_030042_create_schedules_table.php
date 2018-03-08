@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReasonsTable extends Migration
+class CreateSchedulesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class CreateReasonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('reasons', function (Blueprint $table) {
+        Schema::create('schedules', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',70)->unique();
-            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
-            $table->integer('client_id')->unsigned()->nullable();
+            $table->string('name',80);
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->integer('employee_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +31,6 @@ class CreateReasonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reasons');
+        Schema::dropIfExists('schedules');
     }
 }

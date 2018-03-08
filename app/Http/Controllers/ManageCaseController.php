@@ -157,7 +157,7 @@ class ManageCaseController extends Controller
               
               $employeeclient->save();
             }
-          return redirect('/');
+          return redirect('/home');
    }
 } 
 

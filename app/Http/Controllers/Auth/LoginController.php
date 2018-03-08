@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Employee;
 
 class LoginController extends Controller
 {
@@ -25,7 +26,15 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+   
+    
+    
+    public function redirect()
+    {
+    $employee = Employee::all();
+    return $employee; 
+    return redirect('/home');
+    }
 
     /**
      * Create a new controller instance.

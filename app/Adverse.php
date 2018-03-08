@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Adverse extends Model
 {
-    public function casetobehandled()
+    public function clientadverse()
     {
-    	return $this->belongsTo(Client::class);
+    	return $this->hasMany(clientadverse::class);
     }
     
 }

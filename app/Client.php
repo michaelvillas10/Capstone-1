@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Client extends Model
 {
+  
     public function language()
     {
     	return $this->hasMany(Language::class);
@@ -37,7 +39,7 @@ class Client extends Model
     }
     public function adverse()
     {
-        return $this->hasOne(Adverse::class);
+        return $this->hasMany(clientadverse::class);
     }
   
 

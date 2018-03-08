@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSchedulesTable extends Migration
+class CreateNotariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateSchedulesTable extends Migration
      */
     public function up()
     {
-        Schema::create('schedules', function (Blueprint $table) {
+        Schema::create('notaries', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',80);
-            $table->dateTime('start');
-            $table->dateTime('end');
+            $table->string('image');
+            $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
+            $table->integer('client_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateSchedulesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('schedules');
+        Schema::dropIfExists('notaries');
     }
 }
