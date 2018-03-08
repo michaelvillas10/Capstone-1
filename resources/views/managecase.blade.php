@@ -56,7 +56,6 @@
 										<th>Case Name</th>
 										<th>Case Status</th>
 										<th>Edit</th>
-										<th>Delete</th>
 									</tr>
 								</thead>
 								<tbody>
@@ -65,13 +64,14 @@
 										<td>
 											 {{$allcase->clfname}} {{$allcase->clmname}} {{$allcase->cllname}}
 										</td>
+										@foreach($allcase->casetobehandled as $case)
 										<td>
-											 {{$allcase->casetobehandled->casename}} 
+											 {{$case->casename}} 
 										</td>
 										<td>
-											 {{$allcase->casetobehandled->case_status}} 
+											 {{$case->case_status}} 
 										</td>
-									
+									    @endforeach
 										<td>
 											  	<a class="btn btn-primary"  href="{{route('showeditcase',$allcase->id)}}">
 											  	<i class="fa fa-pencil"></i> Edit</a>
@@ -112,14 +112,6 @@
 									</div></div></div>
 									  
 									
-										</td>
-										<td>
-											<form action="{{ route('deletepos',$allcase->id) }}" method = "post">
-												{{ csrf_field() }}
-        										{{ method_field('DELETE') }}
-											<button type ="submit" class="btn btn-danger delete-user" onclick="return confirm('Are you sure?')" href="{{ route('deletepos',$allcase->id) }}"><i class="fa fa-trash"></i>
-											Delete </button>
-										</form>
 										</td>
 
 

@@ -23,9 +23,9 @@ class Client extends Model
     	return $this->hasOne(Education::class);
     }
     
-    public function employee()
+    public function employeeclients()
     {
-    	return $this->hasMany(Employee::class);
+    	return $this->hasMany(employeeclients::class);
     }
         public function interviewee()
     {
@@ -33,7 +33,7 @@ class Client extends Model
     }
      public function casetobehandled()
     {
-        return $this->hasOne(casetobehandled::class);
+        return $this->hasMany(casetobehandled::class);
     }
     public function adverse()
     {

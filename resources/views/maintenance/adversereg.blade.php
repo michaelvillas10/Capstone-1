@@ -22,13 +22,13 @@
       <div class="modal-body">
       	<div class="row">
 			<div class="form-group">
-				<div class="col-md-6">
+				<div class="col-md-12">
 					<label>Case Involvement *</label>
 					<select name="atype" class="form-control "required onchange="if (this.value=='others'){this.form['others'].style.visibility='visible'}else {this.form['others'].style.visibility='hidden'};">
 					<option value="" selected="selected"></option>
 					@foreach($involvements as $involvement)
-      <option value="{{$involvement->name}}">{{$involvement->name}}</option>
-    @endforeach
+				      <option value="{{$involvement->name}}">{{$involvement->name}}</option>
+				    @endforeach
 					{{-- <option value="others">Other</option> --}}
 					</select>
 					<input type="textbox" name="others" class="form-control required" style="visibility:hidden;"/>
@@ -46,7 +46,7 @@
 					<input type="text" name="lname" value="" class="form-control "required><br>
 				</div>
 				
-				<div class="col-md-4">
+				<div class="col-md-12">
 					<label>Address *</label>
 					<input type="text" name="addr" value="" class="form-control "required><br>
 				</div>

@@ -22,11 +22,11 @@ class CreateCasetobehandledsTable extends Migration
             $table->string('clcomplainant_victim_of',50);
             $table->foreign('client_id')->references('id')->on('clients')->onDelete('cascade');
             $table->integer('client_id')->unsigned();
-            $table->foreign('court_id')->references('id')->on('courts')->onDelete('cascade');
-            $table->integer('court_id')->unsigned();
+            
             $table->string('case_status')->nullable()->default('Granted');
             $table->string('control_number',15)->nullable();
             $table->date('judgement date')->nullable();
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

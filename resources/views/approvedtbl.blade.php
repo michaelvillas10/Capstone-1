@@ -97,7 +97,7 @@
 											 {{$client->clmonthly_net_income}}  
 										</td>
 										<td>
-											<a class = "btn btn-green" href="">
+											<a class = "btn btn-green" href="{{route('showcasetransfer',$client->id)}}">
 											Case Transfer </a>
 										</td>
 										

@@ -23,6 +23,8 @@ use App\Branch;
 use App\requeststat;
 use App\Decision;
 use Session;
+use App\Reason;
+use App\scheduletype;
 
 
 class UpdateController extends Controller
@@ -411,6 +413,40 @@ class UpdateController extends Controller
         
         //Flashy::success('Succesfully edited guest', '#');
        return redirect('/decision/show');
+    }
+     public function scheduletypeedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $scheduletype = scheduletype::find($id);
+
+        $scheduletype-> name = $request->name;
+
+        $scheduletype-> schedule_id = $request->schedule_id;
+       
+        $scheduletype->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/scheduletype/show');
+    }
+    public function reasonedit($id, Request $request)
+    {
+        $this->validate($request, [
+            'name'=>'required',
+        ]);
+ 
+        $reason = Reason::find($id);
+
+        $reason-> name = $request->name;
+
+        $reason-> clients_id = $request->clients_id;
+       
+        $reason->save();
+        
+        //Flashy::success('Succesfully edited guest', '#');
+       return redirect('/reason/show');
     }
 
 

@@ -48,6 +48,20 @@ Route::get('/caseinvolvement/edit/{id}','UpdateController@showinvoedit')->name('
 Route::put('/caseinvolvement/edit/{id}','UpdateController@invoedit')->name('editinvo');
 Route::delete('/caseinvolvement/delete/{id}','DeleteController@invodelete')->name('deleteinvo');
 
+Route::get('/scheduletype/show','RegisterController@showscheduletype');
+Route::get('/scheduletype/register','RegisterController@showscheduletyperegister');
+Route::post('/scheduletype/register','RegisterController@scheduletyperegister');
+Route::get('/scheduletype/edit/{id}','UpdateController@showscheduletypeedit')->name('showscheduletype');
+Route::put('/scheduletype/edit/{id}','UpdateController@scheduletypeedit')->name('editscheduletype');
+Route::delete('/scheduletype/delete/{id}','DeleteController@scheduletypedelete')->name('deletescheduletype');
+
+Route::get('/reason/show','RegisterController@showreason');
+Route::get('/reason/register','RegisterController@showreasonregister');
+Route::post('/reason/register','RegisterController@reasonregister');
+Route::get('/reason/edit/{id}','UpdateController@showreasonedit')->name('showreason');
+Route::put('/reason/edit/{id}','UpdateController@reasonedit')->name('editreason');
+Route::delete('/reason/delete/{id}','DeleteController@reasondelete')->name('deletereason');
+
 Route::get('/client/show','RegisterController@showreqtable');
 Route::get('/walkin/show','RegisterController@showwalkintable');
 Route::get('/notary/show','RegisterController@shownotarytable');
@@ -58,6 +72,13 @@ Route::get('/casetbh/register','RegisterController@showcasetbhregister');
 Route::post('/casetbh/register','RegisterController@casetbhregister');
 Route::get('/adverse/register','RegisterController@showadverseregister');
 Route::post('/adverse/register','RegisterController@adverseregister');
+
+Route::get('/client2/register','RegisterController@showclientregister2');
+Route::post('/client2/register', 'RegisterController@clientregister2');
+Route::get('/casetbh2/register','RegisterController@showcasetbhregister2');
+Route::post('/casetbh2/register','RegisterController@casetbhregister2');
+Route::get('/adverse2/register','RegisterController@showadverseregister2');
+Route::post('/adverse2/register','RegisterController@adverseregister2');
 
 Route::get('/schedule/show','RegisterController@schedule');
 Route::get('/schedule/register','RegisterController@showschedule');
@@ -161,7 +182,7 @@ Route::get('request/approve/{id}','RequestController@approve')->name('request.ap
 Route::get('request/view/{id}','RequestController@view')->name('request.view');
 Route::get('request/deny/{id}','RequestController@deny')->name('request.deny');
 Route::get('request/print/{id}','RequestController@print')->name('request.print');
-Route::get('request/casetransfer/{id}','RequestController@transfer')->name('request.transfer');
+
 Route::get('request/showlawyers','RequestController@showlawyers');
 Route::put('request/lawyers/{id}','RequestController@availablelawyer')->name('requestlawyer');
 
@@ -169,10 +190,16 @@ Route::get('/approve/show','RequestController@approvedtbl');
 
 Route::get('/approve/sheet','RequestController@approvesheet');
 
+Route::get('/managecase','ManageCaseController@showmanagecase');
+Route::get('/edit/case/{id}','ManageCaseController@editcase')->name('showeditcase');
+Route::put('/updatecase/{id}','ManageCaseController@updatecase')->name('updatecase');
+Route::delete('/delete/case/{id}','ManageCaseController@deletecase')->name('deletecase');
 
 Route::get('/lawyerside/show','LawyerSideController@home');
 
 Route::get('/lawyer/show','RegisterController@showlawyer');
+Route::get('/transfer/show/{id}','ManageCaseController@showcasetransfer')->name('showcasetransfer');
+Route::put('/case/transfer/{id}','ManageCaseController@casetransfer')->name('casetransfer');
 
 //Route::resource('clients', 'ClientController');
 Route::resource('interviewees', 'IntervieweeController');

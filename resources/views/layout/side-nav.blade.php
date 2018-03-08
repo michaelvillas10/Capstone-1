@@ -24,7 +24,7 @@
                             </a>
                             <ul><!-- submenus -->
                                 <li><a href="/request/showlawyers">Lawyers</a></li>
-                                <li><a href="casess">Manage Case</a></li>
+                                <li><a href="/managecase">Manage Case</a></li>
                                </ul>
                         </li>
                          <li class="submenu">
@@ -48,15 +48,15 @@
                                                             
                                 <li><a href="#"><i class="fa fa-menu-arrow pull-right"></i>Case Information</a><ul>
                               <li><a href="/courttype/show">Court type</a></li>
-<<<<<<< HEAD
+
                               <li><a href="/branch/show">Branch</a></li>
                               <li><a href="/court/show">Court  </a></li>    
                               <li><a href="/casecategory/show">Case Category </a></li>    
-=======
+
                               <li><a href="/court/show">Court  </a></li>    
                              
                              <li><a href="/casecategory/show">Case Category </a></li>    
->>>>>>> cfe86a39ba4b9563f19797a629ab6cc664e9d3f1
+
                              <li><a href="/lawsuit/show">Case</a></li>
                              <li><a href="/caseinvolvement/show">Case Involvement </a></li>
                              <li><a href="/casetype/show">Case Type</a></li>
@@ -68,6 +68,8 @@
                                 </li></ul>
                                 <li><a href="/natureofrequest/show">Nature of Request</a></li>
                                 <li><a href="/reqstat/show">Request Status</a></li>
+                                <li><a href="/reason/show">Reason</a></li>
+                                <li><a href="/scheduletype/show">Schedule Type</a></li>
                             </ul>
                         </li>
                         
@@ -86,5 +88,6 @@
                                 <i class="main-icon fa fa-print"></i> <span>Reports</span>
                             </a>
                         </li>
+                              
 </ul>
 @stop 

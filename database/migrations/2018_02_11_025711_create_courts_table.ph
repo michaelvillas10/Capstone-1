@@ -15,8 +15,10 @@ class CreateCourtsTable extends Migration
     {
         Schema::create('courts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('district',100);
+            $table->string('name',100);
             $table->string('branch',100);
+            $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
+            $table->integer('employee_id')->unsigned();
             $table->timestamps();
         });
     }

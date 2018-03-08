@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Employee extends Model
 {
-    public function client()
+    public function employeeclients()
     {
-    	return $this->belongsTo(client::class);
+    	return $this->hasMany(employeeclients::class);
     }
     
     public function position()

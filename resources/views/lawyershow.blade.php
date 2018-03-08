@@ -24,7 +24,7 @@
 			top: 15mm;
 		}
 		#name h1{
-			font-size: 25px;
+			font-size: 45px;
 		}
 		#name p{
 			margin-bottom: 10%;
@@ -50,10 +50,11 @@
 @foreach($employees as $lawyer)
 	<div id="infowrapper">
 		<div id="name">
-			<center><h1>Go to Atty. {{ucfirst($lawyer->efname)}} @if (!empty($lawyer->clmname)) 
+			<center>
+			<h1>Go to Atty. {{ucfirst($lawyer->efname)}} @if (!empty($lawyer->emname)) 
 				
-			{{ucfirst($lawyer->clmname)}}@endif {{ucfirst($lawyer->cllname)}}</h1></center>
-			
+			{{ucfirst($lawyer->emname)}}@endif {{ucfirst($lawyer->elname)}}</h1>
+			</center>
 		</div>
 @endforeach
 	</div>

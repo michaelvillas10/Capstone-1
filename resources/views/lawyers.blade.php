@@ -73,21 +73,31 @@
 							<table class="table table-striped table-hover table-bordered" id="sample_editable_1">
 								<thead>
 									<tr>
-										<th>Handle Case</th>
+										<th>Check Lawyer</th>
+									    <th> Handle Case</th>
 										<th>Lawyer Name</th>
+										<th>Status</th>
 										<th>Case Count</th>
+
 									</tr>
 								</thead> 
 							@foreach($employees as $lawyer)
-							<form action = "{{route('requestlawyer',$lawyer->id)}}" method = "post">
-		   					{{ csrf_field() }}
-       						{{ method_field('PUT') }}
+							
 
 								
 								<tbody>
 									<tr>
-										<td><input type="checkbox" name="handledcase[]" value="{{$lawyer->id}}"></td>
+							<form id ="form-id" action = "{{route('requestlawyer',$lawyer->id)}}" method = "post">
+		   					{{ csrf_field() }}
+       						{{ method_field('PUT') }}
+										<td><input type="checkbox" name="lawyer[]" value="{{$lawyer->id}}"></td>
+										<td><label for="canhandlecase">Yes</label>  <input type="radio" name="canhandlecase[]" value="1"><label for="canhandlecase">No</label>  <input type="radio" name="canhandlecase[]" value="0"></td>
 										<td>{{$lawyer->efname}} {{$lawyer->emname}} {{$lawyer->elname}}</td>
+										@if($lawyer->status == 1 )
+										<td>Can Handle Case</td>
+										@else
+									    <td>Cannot Handle Case</td>
+										@endif 
 										<td> {{$lawyer->casecount}} </td>
 									</tr>
 								</tbody>
@@ -97,9 +107,9 @@
 						
 							</table>
  							<footer>
-								<center> <button type="submit" class="btn btn-green ">Submit</button></center>
+								<center> <button id ="your-id" onclick="document.getElementById('form-id').submit();" type="submit" class="btn btn-green ">Submit</button></center>
 							</footer>
-							</form>@endforeach
+							</form>
 						    
 						</div>
                         
@@ -111,7 +121,12 @@
 					<!-- /PANEL -->
 
 				</div>
-				
+<script>
+	var form = document.getElementById("form-id");
+
+document.getElementById("your-id").addEventListener("click", function () {
+  form.submit();
+});			
 </script>						
 </section>		
 @stop

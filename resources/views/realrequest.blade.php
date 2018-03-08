@@ -28,15 +28,7 @@
 
 				<div class="container">
 
-					<div class="row">
-						<div class="form-group">
-							
-                 
-							<div class="col-md-4">
-
-					<div class="row" style="height: 520px; width: 100%">
-
-				<div class="container">						
+									
 					<div class="row" style="height: 490px; width: 100%">
 						{{-- 	<form class="form-horizontal" action="/client/register" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }} --}}
@@ -56,21 +48,15 @@
 							</div>
 						</div>
 					</div>
-					<footer style="margin-bottom: 20px; text-align: center;">
+					
+				</div>
+				<footer style="margin-bottom: 80px; text-align: center;">
 					        <a class="btn btn-default btnPrevious" >Back</a>	
 					         <a class="btn btn-green btnNext" >Next</a>
+					         <br><br>
 				    </footer>
-				</div>
 			</div>
 		</div>
-
-	</div>
-</div>
-</div>
-</div>
-</div>
-
-
 
 		<div id="clientinfo" class="tab-content">
 			<div class="card1">
@@ -108,7 +94,7 @@
 								<input type="number" name="Contact" value="" class="form-control "required>
 							</div>
 							<div class="col-md-6">
-								<label>Monthly Income *</label>
+								<label>Monthly Income(In Philippine Peso) *</label>
 								<input type="number" name="Income" value="" class="form-control "required>
 							</div>
 							<div class="col-md-6">
@@ -178,19 +164,17 @@
 						</div>
 					    </div>
 					</div>
-					<footer style="margin-bottom: 20px; text-align: center;">
+					
+				</div>
+			</div>
+			<footer style="margin-bottom: 80px; text-align: center;">
 
 					         <a class="btn btn-default btnPrevious" >Back</a>
                              <button type="submit" class="btn btn-green ">Submit</button>
                              <div id = "ifMarried"  style="display:none;">
-					         <a  class="btn btn-green btnNext" >Next</a>
+					         <a  class="btn btn-green btnNext" >Next</a><br><br><br>
 					        </div>
-
-					       
-
 				    </footer>
-				</div>
-			</div>
 		</div>
 	</div>
 		<div id="clientmarital" class="tab-content">
@@ -207,7 +191,7 @@
 							</div>
 						</div>
 					</div>
-					<footer style="margin-bottom: 20px; text-align: center;">
+					<footer style="margin-bottom: 80px; text-align: center;">
 					         <a class="btn btn-default btnPrevious" >Back</a>
 					         <button type="submit" class="btn btn-green ">Submit</button>
 					         <a class="btn btn-green btnNext" >Next</a>
@@ -229,12 +213,10 @@
 							</div>
 						</div>
 					</div>
-					<footer style="margin-bottom: 20px; text-align: center;">
+					<footer style="margin-bottom: 80px; text-align: center;">
 
 					        <button type="button" class="btn btn-default" data-dismiss="modal">Back</button>
 					         <button type="submit" class="btn btn-green ">Submit</button>
-
-					        <a class="btn btn-default btnPrevious" >Back</a>
 					         <a class="btn btn-green btnNext" >Next</a>
 
 				    </footer>

@@ -22,9 +22,29 @@ use App\Schedule;
 use App\Branch;
 use App\requeststat;
 use App\Decision;
+use App\Reason;
+use App\scheduletype;
 
 class DeleteController extends Controller
 {
+    public function scheduletypedelete($id)
+    {
+       
+        $scheduletype = scheduletype::find($id);
+        
+        $scheduletype->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/scheduletype/show');
+    }
+     public function reasondelete($id)
+    {
+       
+        $reason = Reason::find($id);
+        
+        $reason->delete();
+        //Flashy::success('Succesfully deleted event');
+        return redirect('/reason/show');
+    }
     public function languagedelete($id)
     {
        

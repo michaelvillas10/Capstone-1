@@ -32,6 +32,8 @@ use App\Branch;
 use App\Decision;
 use App\requeststat;
 use App\scheduletype;
+use App\employeeclients;
+use App\Reason;
 
 
 class RegisterController extends Controller
@@ -50,6 +52,312 @@ class RegisterController extends Controller
         // else{
         // $schedule = Schedule::where('event_id', $event->id)->with('speaker')->get();
         // $group = Group::where('event_id', $event->id)->get();
+
+   public function showclientregister2()
+    {
+        $clients = Client::orderBy('cllname','asc')->get();
+        $services = Service::orderBy('name','asc')->get();
+        $religions = Religion::orderBy('name','asc')->get();
+        $educations = Education::orderBy('name','asc')->get();
+        $involvements = Involvement::orderBy('name','asc')->get();
+        $languages = Language::orderBy('name','asc')->get();
+        $citizenships = Citizenship::orderBy('name','asc')->get();
+         return view('clireg')->withClients($clients)
+        ->withReligions($religions)
+        ->withEducations($educations)
+        ->withInvolvements($involvements)
+        ->withLanguages($languages)
+        ->withCitizenships($citizenships)
+        ->withservices($services);
+    }
+
+    public function clientregister2(Request $request)
+    {
+                //dd('gdgfgf'); 
+          // $this->validate($request, array(
+         //            'fname'=>'required',
+         //            'mname'=>'required',
+         //            'lname'=>'required',
+         //            'religion'=>'required',
+         //            'Citizenship'=>'required',
+         //            'Address'=>'required',
+         //            'Email'=>'required',
+         //            'Income'=>'required',
+         //            'Detained'=>'required',
+         //            'cldetained_since'=>'required',
+         //            'Birthday'=>'required',
+         //            'gender'=>'required',
+         //            'civilstat'=>'required',
+         //            'Educational'=>'required',
+         //            'Language'=>'required',
+         //            'Contact'=>'required',
+
+         //            'casename'=>'required',
+         //            'interviewer'=>'required',
+         //            'natureofcase'=>'required',
+         //            'nor'=>'required',
+         //            'ct'=>'required',
+         //            'cc'=>'required',
+                  
+                    // ));
+
+            $client = new Client;
+    
+
+        
+
+            $client-> clfname = $request->fname;
+            $client-> clmname = $request->mname;
+            $client-> cllname = $request->lname;
+            $client-> clreligion = $request->religion;
+            $client-> clcitizenship = $request->Citizenship;
+            $client-> claddress = $request->Address;
+            $client-> clemail = $request->Email;
+            $client-> clmonthly_net_income = $request->Income;
+
+            $client-> cldetained = $request->detained;
+            $client-> cldetained_since = $request->DetainedDate;
+            $client-> clbdate = $request->Birthday;
+            $client-> clgender = $request->gender;
+            $client-> clcivil_status = $request->civilstat;
+            $client-> cleducational_attainment = $request->Educational;
+            $client-> cllanguage = $request->Language;
+            $client-> clcontact_no = $request->Contact;
+            $client-> clspouse = $request->clspouse;
+            $client-> claddress_of_spouse = $request->claddress_of_spouse;
+            $client-> clcontact_no_of_spouse = $request->clcontact_no_of_spouse;
+            $client-> clplace_of_detention = $request->DetainedPlace;
+            $client-> nature_of_request = $request->nor;
+           
+            if ($request->nor == 'Legal Advice' || $request->nor == 'Legal Assistance') 
+            {
+              $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+              $client->cl_status = "Walkin";
+              $client->save();
+              $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
+                foreach ($lawyer as $key => $lawyers) 
+                {
+                 foreach ($lawyerclient as $key => $lawyerclients) 
+                 {
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
+                  return redirect('/lawyer/show');
+                 }
+
+                  
+                }
+
+                
+
+            }
+            elseif ($request->nor == 'Administration of oath' ) 
+            {
+              $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+              $client->cl_status = "Walkin";
+              $client->save();
+              $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
+              foreach ($lawyer as $key => $lawyers) 
+              {
+                 foreach ($lawyerclient as $key => $lawyerclients) 
+                 {
+                  
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
+                  return view('/lawyer/show');
+                 }
+
+                  
+              }
+
+             
+
+            }
+             elseif ($request->nor == 'Legal Documentation' ) 
+            {
+              $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+              $client->cl_status = "Walkin";
+              $client->save();
+              $lawyerclient = Client::orderBy('created_at','desc')->first();
+              foreach ($lawyer as $key => $lawyers) 
+              {
+                 foreach ($lawyerclient as $key => $lawyerclients) 
+                 {
+                  
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
+                  return redirect('/lawyer/show');
+                 }
+            
+          
+                  
+              }
+
+              
+
+            }
+            elseif ($request->nor == 'Mediation' || $request->nor == 'Representation of quasi-judicial bodies') 
+            {
+              $client->cl_status = "Pending";
+              $client->save();
+              $lawyerclient = Client::orderBy('created_at','desc')->take(1)->get();
+               $lawyer = Employee::where('position','Lawyer')->take(1)->InRandomOrder()->get();
+              foreach ($lawyer as $key => $lawyers) 
+              {
+                 foreach ($lawyerclient as $key => $lawyerclients) 
+                 {
+                  
+                   $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save(); 
+                  return redirect('/casetbh/register');
+                 }
+
+                  
+              }
+
+             
+            }
+
+       }
+       public function showcasetbhregister2()
+       {
+
+          $clients = Client::select('id')->orderBy('id','desc')->get();
+          $employees = Employee::where('position','Interviewer')->get();
+          $lawsuits = Lawsuit::orderBy('name','asc')->get();
+          $category = Category::orderBy('name','asc')->get();
+          $involvements = Involvement::orderBy('name','asc')->get();
+          $casetypes = casetype::orderBy('name','asc')->get();
+         
+           
+          return view('maintenance.casereg')->withClients($clients)
+          ->withLawsuits($lawsuits)
+          ->withCategory($category)
+          ->withInvolvements($involvements)
+          ->withEmployees($employees)
+          ->withcasetypes($casetypes);
+       }
+
+     public function casetbhregister2(Request $request)
+     {
+        
+        // $this->validate($request, array(
+        //         'casename'=>'required',
+        //         'interviewer'=>'required',
+        //         'natureofcase'=>'required',
+        //         'nor'=>'required',
+        //         'ct'=>'required',
+        //         'cc'=>'required',
+              
+              
+        //         ));
+          $clients = Client::select('id')->orderBy('id','desc')->take(1)->get();
+        foreach ($clients as $key => $client) {
+          
+        
+            
+            $casetobehandled = new casetobehandled;
+    
+       
+        $casetobehandled-> casename = $request->lawsuit;
+        $casetobehandled-> interviewer = $request->employee;
+         $casetobehandled-> nature_of_case =$request->casetype;
+       
+        $casetobehandled-> clcase_involvement = $request->involvement;
+        $casetobehandled-> clcomplainant_victim_of = $request->Category;
+       
+      
+             $casetobehandled-> client_id = $client->id; 
+       
+            
+        }
+       
+       
+        $casetobehandled->save();
+       
+        return redirect('/adverse/register');
+     }
+        
+        
+     public function showadverseregister2()
+    {
+        $clients = Client::orderBy('cllname','asc')->get();
+        
+        $religions = Religion::orderBy('name','asc')->get();
+        $educations = Education::orderBy('name','asc')->get();
+        $involvements = Involvement::orderBy('name','asc')->get();
+        $languages = Language::orderBy('name','asc')->get();
+        $citizenships = Citizenship::orderBy('name','asc')->get();
+        return view('maintenance.adversereg')->withClients($clients)
+        ->withReligions($religions)
+        ->withEducations($educations)
+        ->withInvolvements($involvements)
+        ->withLanguages($languages)
+        ->withCitizenships($citizenships);
+    }
+   
+        //return redirect()->route('interviewees.create');
+
+    
+     public function adverseregister2(Request $request)
+     {
+              //dd('gdgfgf'); 
+              // $this->validate($request, array(
+              //         'fname'=>'required',
+              //         'mname'=>'required',
+              //         'lname'=>'required',
+              //         'address'=>'required',
+                      
+              //         'atype'=>'required',
+                    
+                    
+              //         ));
+
+
+               
+                $adverse = new Adverse;
+            
+             $client = Client::select('id')->orderBy('id','desc')->take(1)->get();
+              foreach ($client as $key => $clien) 
+              {
+         
+           
+              $adverse-> advprtyfname = $request->fname;
+              $adverse-> advprtymname = $request->mname;
+              $adverse-> advprtylname = $request->lname;
+              $adverse-> advprtyaddress = $request->addr;
+              $adverse-> advprtytype = $request->atype;
+              $adverse-> client_id = $clien->id;
+       
+              }
+      
+              $adverse->save();
+
+
+                return redirect('/client/show');
+       
+       
+
+     
+       
+       
+
+      
+     
+        
+        
+
+   
+              //return redirect()->route('interviewees.create');
+
+     }
 
        public function showemp()
     {
@@ -95,8 +403,83 @@ class RegisterController extends Controller
    
        return redirect('/employee/show');
 
-    }     
- 
+    } 
+    public function showreason()
+    {
+
+        $reasons = reason::all();
+        return view('maintenance.reason_table')->withreasons($reasons);
+    }
+     public function showreasonregister()
+    {
+
+       
+        return view('maintenance.reason_register');
+    }
+
+    public function reasonregister(Request $request)
+    {
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $reason = new Reason;
+     
+       
+        $reason-> name = $request->name;
+
+        $reason-> clients_id = $request->clients_id;
+       
+       
+        $reason->save();
+       
+     
+        return redirect('/reason/show');
+        
+
+   
+            //return redirect()->route('interviewees.create');
+
+    }
+
+      public function showscheduletype()
+    {
+
+        $scheduletypes = scheduletype::all();
+        return view('maintenance.scheduletype_table')->withscheduletypes($scheduletypes);
+    }
+     public function showscheduletyperegister()
+    {
+
+       
+        return view('maintenance.scheduletype_register');
+    }
+
+    public function scheduletyperegister(Request $request)
+    {
+        //dd('gdgfgf'); 
+        $this->validate($request, array(
+                'name'=>'required',
+                
+              
+                ));
+
+            $scheduletype = new scheduletype;
+     
+       
+        $scheduletype-> name = $request->name;
+        $scheduletype-> schedule_id = $request->schedule_id;
+       
+       
+        $scheduletype->save();
+       
+     
+        return redirect('/scheduletype/show');
+            
+  }
      public function showcase()
     {
         $lawsuits = Lawsuit::all();
@@ -133,15 +516,14 @@ class RegisterController extends Controller
     }  
     public function showlawyer()
     {
-  $client = Client::orderBy('created_at','desc')
+  $client = employeeclients::orderBy('created_at','desc')
        ->first();
 
-  $employees = Employee::where([['position','lawyer'],['clients_id',$client->id]])
-  ->with('client')
+  $employees = Employee::where([['position','lawyer'],['id',$client->employee_id]])
   ->get();
 
   
-  return view('maintenance.lawyershow')->withEmployees($employees);
+  return view('lawyershow')->withEmployees($employees);
     }     
     
     public function showreqtable()
@@ -260,9 +642,10 @@ class RegisterController extends Controller
                 {
                  foreach ($lawyerclient as $key => $lawyerclients) 
                  {
-                  
-                  $lawyers->clients_id = $lawyerclients->id;
-                  $lawyers->save();
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
                   return redirect('/lawyer/show');
                  }
 
@@ -283,8 +666,10 @@ class RegisterController extends Controller
                  foreach ($lawyerclient as $key => $lawyerclients) 
                  {
                   
-                  $lawyers->clients_id = $lawyerclients->id;
-                  $lawyers->save(); 
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
                   return view('/lawyer/show');
                  }
 
@@ -305,8 +690,10 @@ class RegisterController extends Controller
                  foreach ($lawyerclient as $key => $lawyerclients) 
                  {
                   
-                  $lawyers->clients_id = $lawyerclients->id;
-                  $lawyers->save();
+                  $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save();
                   return redirect('/lawyer/show');
                  }
             
@@ -328,8 +715,10 @@ class RegisterController extends Controller
                  foreach ($lawyerclient as $key => $lawyerclients) 
                  {
                   
-                  $lawyers->clients_id = $lawyerclients->id;
-                  $lawyers->save(); 
+                   $lawyercase = new employeeclients;
+                  $lawyercase->client_id = $lawyerclients->id;
+                  $lawyercase->employee_id = $lawyers->id;
+                  $lawyercase->save(); 
                   return redirect('/casetbh/register');
                  }
 
@@ -349,6 +738,7 @@ class RegisterController extends Controller
           $category = Category::orderBy('name','asc')->get();
           $involvements = Involvement::orderBy('name','asc')->get();
           $casetypes = casetype::orderBy('name','asc')->get();
+         
            
           return view('maintenance.casereg')->withClients($clients)
           ->withLawsuits($lawsuits)
