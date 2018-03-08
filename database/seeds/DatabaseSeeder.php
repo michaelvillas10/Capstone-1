@@ -1,7 +1,5 @@
 <?php
-
 use Illuminate\Database\Seeder;
-
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -11,7 +9,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-              
+               DB::table('users')->insert([
+            'name' => 'Christian Montemayor',
+            'email' => 'ch.@gmail.com',
+            'password' => bcrypt('secret'),
+            ]);
           
    
          DB::table('citizenships')->insert([
@@ -183,7 +185,6 @@ class DatabaseSeeder extends Seeder
              
            ]);    
         
-
          DB::table('education')->insert([
             'name' => 'Elementary'
          
@@ -208,7 +209,6 @@ class DatabaseSeeder extends Seeder
              
             
         
-
    
          DB::table('involvements')->insert([
             'name' => 'Plaintiff',
@@ -239,7 +239,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Accused',
              
              ]);     
-
       
          DB::table('languages')->insert([
             'name' => 'Tagalog'
@@ -277,7 +276,7 @@ class DatabaseSeeder extends Seeder
              ]);
              
           DB::table('positions')->insert([
-            'name' => 'Administrative Staff',
+            'name' => 'Interviewer',
              
              ]);   
             
@@ -300,7 +299,6 @@ class DatabaseSeeder extends Seeder
             'name' => 'Administration of oath',
              
             ]); 
-
             DB::table('services')->insert([
             'name' => 'Mediation',
              
@@ -372,8 +370,161 @@ class DatabaseSeeder extends Seeder
          
             
             ]);    
+
+
+        DB::table('Court')->insert([
+            'name' => 'Supreme Court',
+             
+             ]);
+             
+             DB::table('Court')->insert([
+            'name' => 'Municipal Trial Court',
+             
+             ]);
+             
+             DB::table('Court')->insert([
+            'name' => 'Court of Appeals',
+             
+             ]);
+                 
+             DB::table('Court')->insert([
+            'name' => 'Metropolitan Trial Court',
+             
+             ]);
+                  
+             DB::table('Court')->insert([
+            'name' => 'Provincial Regional Trial Court',
+             
+             ]);
+
+             DB::table('Court')->insert([
+            'name' => 'Metro Manila Regional Trial Court',
+             
+             ]);
+
+
+
+        DB::table('courttype')->insert([
+            'name' => 'Drugs court',
+             
+             ]);
+             
+             DB::table('courttype')->insert([
+            'name' => 'Family court',
+             
+             ]);
+             
+             DB::table('courttype')->insert([
+            'name' => 'Commercial court',
+             
+             ]);
+                 
+             DB::table('courttype')->insert([
+            'name' => 'Regular court',
+             
+             ]);
+
+
+        DB::table('Decision')->insert([
+            'name' => 'Conviction',
+             
+             ]);
+             
+             DB::table('Decision')->insert([
+            'name' => 'Acquittal',
+             
+             ]);
+             
+             DB::table('Decision')->insert([
+            'name' => 'Dismissed',
+             
+             ]);
+
+
+         DB::table('requeststat')->insert([
+            'name' => 'On Process',
+             
+             ]);
+             
+             DB::table('requeststat')->insert([
+            'name' => 'Pending',
+             
+             ]);
+             
+             DB::table('requeststat')->insert([
+            'name' => 'Finished',
+
+             DB::table('requeststat')->insert([
+            'name' => 'Dismissed',
+             
+             ]);
+
+
+        DB::table('scheduletype')->insert([
+            'name' => 'Jail Visitation',
+             
+             ]);
+             
+             DB::table('scheduletype')->insert([
+            'name' => 'Hearing',
+             
+             ]);
+
+
+         DB::table('Branch')->insert([
+            'name' => 'QC BRANCH 90',
+             
+             ]);
+             
+             DB::table('Branch')->insert([
+            'name' => 'QC BRANCH 92',
+             
+             ]);
+
+             DB::table('Branch')->insert([
+            'name' => 'QC BRANCH 94',
+             
+             ]);
+
+             DB::table('Branch')->insert([
+            'name' => 'QC BRANCH 96',
+             
+             ]);
+
+             DB::table('Branch')->insert([
+            'name' => 'QC BRANCH 98',
+             
+             ]);
+
+
+
+         DB::table('Reason')->insert([
+            'name' => 'Conflict of interest',
+             
+             ]);
+             
+             DB::table('Branch')->insert([
+            'name' => 'Acceptance of case on provisional basis only',
+             
+             ]);
+
+             DB::table('Branch')->insert([
+            'name' => 'Public attorneys do not act as Public or State Prosecutors in criminal cases
+             before court proceedings',
+             
+             ]);
+
+             DB::table('Branch')->insert([
+            'name' => 'You have engaged the services of another counsel and there is no withdrawal of
+              appearance',
+
+             
+             ]);
+                 
+  
+
+
+
         }
-
-
     
 }
